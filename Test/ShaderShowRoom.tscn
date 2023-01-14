@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=2]
+[gd_scene load_steps=152 format=2]
 
 [ext_resource path="res://Test/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture8.png" type="Texture" id=2]
@@ -118,10 +118,10 @@ width = 60
 
 [sub_resource type="ShaderMaterial" id=158]
 shader = ExtResource( 22 )
-shader_param/scroll1 = Vector2( 1, 1 )
-shader_param/scroll2 = Vector2( 1, 1 )
-shader_param/energyTex1 = 0.172
-shader_param/energyTex2 = 0.068
+shader_param/scroll1 = Vector2( 1, 0 )
+shader_param/scroll2 = Vector2( 1, 0 )
+shader_param/energyTex1 = 0.228
+shader_param/energyTex2 = -0.036
 shader_param/texture2 = ExtResource( 23 )
 shader_param/gradient = SubResource( 160 )
 
@@ -134,6 +134,38 @@ lacunarity = 2.56
 [sub_resource type="NoiseTexture" id=163]
 seamless = true
 noise = SubResource( 162 )
+
+[sub_resource type="Gradient" id=170]
+offsets = PoolRealArray( 0, 0.367742, 0.683871, 0.96129 )
+colors = PoolColorArray( 0.551758, 0.551758, 0.551758, 1, 0, 1, 0.501953, 1, 0.172241, 0.354406, 0.688965, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=171]
+gradient = SubResource( 170 )
+
+[sub_resource type="ShaderMaterial" id=172]
+shader = ExtResource( 22 )
+shader_param/scroll1 = Vector2( 0.6, 0 )
+shader_param/scroll2 = Vector2( 0.216, 0 )
+shader_param/energyTex1 = 0.572
+shader_param/energyTex2 = 0.075
+shader_param/texture2 = ExtResource( 21 )
+shader_param/gradient = SubResource( 171 )
+
+[sub_resource type="Gradient" id=176]
+offsets = PoolRealArray( 0.0322581, 0.122581, 0.696774, 0.903226, 0.987097 )
+colors = PoolColorArray( 0.533333, 0.564706, 0.537255, 0, 0.0705882, 0.380392, 0.780392, 1, 0.810342, 0.203377, 0.853516, 1, 0.913725, 0.552941, 0, 0.164706, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=177]
+gradient = SubResource( 176 )
+
+[sub_resource type="ShaderMaterial" id=175]
+shader = ExtResource( 22 )
+shader_param/scroll1 = Vector2( 0, 0.508 )
+shader_param/scroll2 = Vector2( 0, 0.811 )
+shader_param/energyTex1 = 0.647
+shader_param/energyTex2 = -0.2
+shader_param/texture2 = ExtResource( 9 )
+shader_param/gradient = SubResource( 177 )
 
 [sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.490323, 0.632258 )
@@ -153,7 +185,7 @@ shader_param/gradient = SubResource( 7 )
 seed = 5
 octaves = 7
 period = 7.4
-persistence = 0.842
+persistence = 0.185
 lacunarity = 0.54
 
 [sub_resource type="NoiseTexture" id=106]
@@ -875,14 +907,14 @@ centered = false
 
 [node name="OilSlick" type="Sprite" parent="."]
 material = SubResource( 126 )
-position = Vector2( 2480, 408 )
+position = Vector2( 2672, 8 )
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 128 )
 centered = false
 
 [node name="BrightFlames" type="Sprite" parent="."]
 material = SubResource( 147 )
-position = Vector2( 2784, 400 )
+position = Vector2( 3016, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 132 )
 centered = false
@@ -899,6 +931,19 @@ material = SubResource( 158 )
 position = Vector2( 4480, 400 )
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 163 )
+centered = false
+
+[node name="ElevatorShaft3" type="Sprite" parent="."]
+material = SubResource( 172 )
+position = Vector2( 3328, 8 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ElevatorShaft4" type="Sprite" parent="."]
+material = SubResource( 175 )
+position = Vector2( 2624, 296 )
+texture = ExtResource( 17 )
 centered = false
 
 [node name="DataFlow2" type="Sprite" parent="."]
@@ -974,7 +1019,7 @@ texture = ExtResource( 8 )
 [node name="FlameThrower" type="Particles2D" parent="."]
 modulate = Color( 2, 2, 2, 1 )
 material = SubResource( 98 )
-position = Vector2( 2664, 260 )
+position = Vector2( 1816, 752 )
 rotation = 1.5708
 scale = Vector2( 3, 3 )
 amount = 20
