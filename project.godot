@@ -41,6 +41,10 @@ _global_script_class_icons={
 config/name="AssemblyJam"
 config/icon="res://icon.png"
 
+[autoload]
+
+SoundManager="*res://Managers/SoundManager.tscn"
+
 [editor]
 
 version_control_autoload_on_startup=true
