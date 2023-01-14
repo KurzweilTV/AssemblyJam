@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 600, 56 )
+
+[node name="TestRoom" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 0, 136 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+polygon = PoolVector2Array( -600, -56, -600, 56, 600, 56, 600, -56 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource( 1 )
+
+[node name="Player" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 8, -104 )
