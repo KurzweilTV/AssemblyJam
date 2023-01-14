@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=146 format=2]
 
 [ext_resource path="res://Test/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture8.png" type="Texture" id=2]
@@ -13,6 +13,16 @@
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture13.png" type="Texture" id=11]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture10.png" type="Texture" id=12]
 [ext_resource path="res://Resources/Particles/beam1.png" type="Texture" id=13]
+[ext_resource path="res://icon.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Particles/smoke3.png" type="Texture" id=15]
+[ext_resource path="res://Resources/ShaderCode/ScrollingTexture.tres" type="Shader" id=16]
+[ext_resource path="res://Resources/NoiseTextures/experimental_texture000.png" type="Texture" id=17]
+[ext_resource path="res://Resources/NoiseTextures/experimental_texture009.png" type="Texture" id=18]
+[ext_resource path="res://Resources/NoiseTextures/experimental_texture001.png" type="Texture" id=19]
+[ext_resource path="res://Resources/Particles/orb3.png" type="Texture" id=20]
+[ext_resource path="res://Resources/NoiseTextures/experimental_texture006.png" type="Texture" id=21]
+[ext_resource path="res://Resources/ShaderCode/EnergyTexture.tres" type="Shader" id=22]
+[ext_resource path="res://Resources/NoiseTextures/experimental_texture003.png" type="Texture" id=23]
 
 [sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
@@ -42,9 +52,92 @@ shader_param/scrollSpeed = Vector2( 0, -0.556 )
 shader_param/texture2 = ExtResource( 5 )
 shader_param/gradient = SubResource( 3 )
 
+[sub_resource type="Gradient" id=124]
+offsets = PoolRealArray( 0.23871, 0.432258, 0.445161, 0.541936, 0.56129, 0.606452, 0.767742 )
+colors = PoolColorArray( 0.219608, 0.443137, 0.243137, 0, 0.653942, 0.430798, 0.755371, 1, 0.403922, 0.811765, 0.443137, 1, 0.282353, 0, 0.407843, 0, 0.485992, 0.313349, 0.553223, 1, 0.386398, 0.120623, 0.505151, 0.28, 0.537255, 0.352941, 0.619608, 0 )
+
+[sub_resource type="GradientTexture" id=125]
+gradient = SubResource( 124 )
+width = 60
+
+[sub_resource type="ShaderMaterial" id=126]
+shader = ExtResource( 16 )
+shader_param/scrollSpeed = Vector2( -0.133, 0.332 )
+shader_param/texture2 = ExtResource( 11 )
+shader_param/gradient = SubResource( 125 )
+
+[sub_resource type="OpenSimplexNoise" id=127]
+octaves = 4
+period = 51.3
+persistence = 0.081
+lacunarity = 2.03
+
+[sub_resource type="NoiseTexture" id=128]
+seamless = true
+noise = SubResource( 127 )
+
+[sub_resource type="Gradient" id=145]
+offsets = PoolRealArray( 0, 0.23871, 0.477419, 0.606452, 1 )
+colors = PoolColorArray( 0.546875, 0, 0, 1, 0.941406, 0.573583, 0.143417, 1, 1, 0.94902, 0.619608, 1, 0.921875, 0.793137, 0.406921, 0.415254, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=146]
+gradient = SubResource( 145 )
+width = 60
+
+[sub_resource type="ShaderMaterial" id=147]
+shader = ExtResource( 16 )
+shader_param/scrollSpeed = Vector2( 0, 0.541 )
+shader_param/texture2 = ExtResource( 11 )
+shader_param/gradient = SubResource( 146 )
+
+[sub_resource type="NoiseTexture" id=132]
+seamless = true
+noise = SubResource( 127 )
+
+[sub_resource type="Gradient" id=148]
+offsets = PoolRealArray( 0.0903226, 0.645161, 1 )
+colors = PoolColorArray( 0.545098, 0.545098, 0.545098, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=149]
+gradient = SubResource( 148 )
+width = 60
+
+[sub_resource type="ShaderMaterial" id=155]
+shader = ExtResource( 16 )
+shader_param/scrollSpeed = Vector2( 0, 0.541 )
+shader_param/texture2 = ExtResource( 2 )
+shader_param/gradient = SubResource( 149 )
+
+[sub_resource type="Gradient" id=159]
+offsets = PoolRealArray( 0.251613, 0.458065 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.388235, 0.435294, 0.454902, 1 )
+
+[sub_resource type="GradientTexture" id=160]
+gradient = SubResource( 159 )
+width = 60
+
+[sub_resource type="ShaderMaterial" id=158]
+shader = ExtResource( 22 )
+shader_param/scroll1 = Vector2( 1, 1 )
+shader_param/scroll2 = Vector2( 1, 1 )
+shader_param/energyTex1 = 0.172
+shader_param/energyTex2 = 0.068
+shader_param/texture2 = ExtResource( 23 )
+shader_param/gradient = SubResource( 160 )
+
+[sub_resource type="OpenSimplexNoise" id=162]
+octaves = 5
+period = 27.4
+persistence = 0.881
+lacunarity = 2.56
+
+[sub_resource type="NoiseTexture" id=163]
+seamless = true
+noise = SubResource( 162 )
+
 [sub_resource type="Gradient" id=6]
-offsets = PoolRealArray( 0.322581, 0.903226, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0, 1, 0.015625, 1, 0.539164, 0.890625, 0.219177, 1 )
+offsets = PoolRealArray( 0, 0.490323, 0.632258 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.0281525, 0.120117, 0.0295894, 1, 0.539164, 0.890625, 0.219177, 1 )
 
 [sub_resource type="GradientTexture" id=7]
 gradient = SubResource( 6 )
@@ -52,9 +145,78 @@ width = 60
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = SubResource( 4 )
-shader_param/scrollSpeed = Vector2( 0, 0.105 )
-shader_param/texture2 = ExtResource( 5 )
+shader_param/scrollSpeed = Vector2( 0, 0.443 )
+shader_param/texture2 = ExtResource( 2 )
 shader_param/gradient = SubResource( 7 )
+
+[sub_resource type="OpenSimplexNoise" id=105]
+seed = 5
+octaves = 7
+period = 7.4
+persistence = 0.842
+lacunarity = 0.54
+
+[sub_resource type="NoiseTexture" id=106]
+width = 256
+seamless = true
+bump_strength = 3.8
+noise = SubResource( 105 )
+
+[sub_resource type="Gradient" id=164]
+offsets = PoolRealArray( 0, 0.767742, 0.870968 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.139038, 0.265625, 0, 1, 0.539164, 0.890625, 0.219177, 1 )
+
+[sub_resource type="GradientTexture" id=165]
+gradient = SubResource( 164 )
+width = 60
+
+[sub_resource type="ShaderMaterial" id=166]
+shader = ExtResource( 22 )
+shader_param/scroll1 = Vector2( 0, -0.341 )
+shader_param/scroll2 = Vector2( 0, -0.155 )
+shader_param/energyTex1 = 0.231
+shader_param/energyTex2 = 0.233
+shader_param/texture2 = ExtResource( 12 )
+shader_param/gradient = SubResource( 165 )
+
+[sub_resource type="NoiseTexture" id=167]
+width = 128
+height = 1024
+seamless = true
+bump_strength = 3.8
+noise = SubResource( 105 )
+
+[sub_resource type="Animation" id=168]
+resource_name = "New Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/energyTex1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 2, -2 ),
+"update": 0,
+"values": [ 0.355, 0.477 ]
+}
+
+[sub_resource type="Animation" id=169]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/energyTex1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.231 ]
+}
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -149,6 +311,83 @@ color_ramp = SubResource( 61 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
+[sub_resource type="Gradient" id=108]
+offsets = PoolRealArray( 0.316129, 1 )
+colors = PoolColorArray( 1, 0.0625, 0.414063, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=109]
+gradient = SubResource( 108 )
+
+[sub_resource type="Gradient" id=110]
+offsets = PoolRealArray( 0.141479, 0.264516 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=111]
+gradient = SubResource( 110 )
+width = 100
+
+[sub_resource type="ShaderMaterial" id=112]
+shader = SubResource( 1 )
+shader_param/scorll1 = Vector2( 0, 0.01 )
+shader_param/scorll2 = Vector2( 0, -0.058 )
+shader_param/sharpnes = 4.587
+shader_param/texture1 = ExtResource( 9 )
+shader_param/texture2 = ExtResource( 7 )
+shader_param/lifetimeGradient = SubResource( 109 )
+shader_param/overlapGradient = SubResource( 111 )
+
+[sub_resource type="ParticlesMaterial" id=113]
+trail_divisor = 2
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 6.79
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 189.94
+initial_velocity_random = 0.35
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 0.65
+angle = 30.0
+angle_random = 1.0
+angle_curve = SubResource( 26 )
+scale = 0.2
+scale_curve = SubResource( 28 )
+color_ramp = SubResource( 61 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="Animation" id=114]
+resource_name = "New Anim"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, -2 ),
+"update": 0,
+"values": [ Vector2( 264, 664 ), Vector2( 48, 672 ) ]
+}
+
+[sub_resource type="Animation" id=115]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 56, 680 ) ]
+}
+
 [sub_resource type="Gradient" id=87]
 offsets = PoolRealArray( 0, 0.290323, 0.787097 )
 colors = PoolColorArray( 1, 0.867188, 0, 1, 0.527344, 0.102997, 0.102997, 1, 0.341176, 0.341176, 0.341176, 0 )
@@ -224,7 +463,13 @@ shader_param/texture2 = ExtResource( 12 )
 shader_param/lifetimeGradient = SubResource( 95 )
 shader_param/overlapGradient = SubResource( 97 )
 
+[sub_resource type="Curve" id=161]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
 [sub_resource type="CurveTexture" id=99]
+curve = SubResource( 161 )
 
 [sub_resource type="Gradient" id=101]
 colors = PoolColorArray( 0.909091, 0.909091, 0.909091, 0.0909091, 1, 1, 1, 1 )
@@ -357,11 +602,11 @@ shader_param/texture2 = ExtResource( 11 )
 shader_param/lifetimeGradient = SubResource( 76 )
 shader_param/overlapGradient = SubResource( 78 )
 
-[sub_resource type="Curve" id=80]
+[sub_resource type="Curve" id=150]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=81]
-curve = SubResource( 80 )
+curve = SubResource( 150 )
 
 [sub_resource type="ParticlesMaterial" id=82]
 flag_disable_z = true
@@ -376,6 +621,139 @@ angle = 720.0
 angle_random = 1.0
 scale = 0.2
 scale_curve = SubResource( 81 )
+color_ramp = SubResource( 64 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="Gradient" id=133]
+offsets = PoolRealArray( 0.425806, 1 )
+colors = PoolColorArray( 0.882353, 0.941176, 0.933333, 0, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=134]
+gradient = SubResource( 133 )
+width = 100
+
+[sub_resource type="ShaderMaterial" id=135]
+shader = SubResource( 62 )
+shader_param/scorll1 = Vector2( 0, 0.05 )
+shader_param/scorll2 = Vector2( 0.09, 0 )
+shader_param/sharpnes = 0.978
+shader_param/texture1 = ExtResource( 17 )
+shader_param/texture2 = ExtResource( 11 )
+shader_param/lifetimeGradient = SubResource( 76 )
+shader_param/overlapGradient = SubResource( 134 )
+
+[sub_resource type="Curve" id=151]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=152]
+curve = SubResource( 151 )
+
+[sub_resource type="ParticlesMaterial" id=136]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 30.11
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 0.35
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 4.18
+angle = 720.0
+angle_random = 1.0
+scale = 0.2
+scale_curve = SubResource( 152 )
+color_ramp = SubResource( 64 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="Animation" id=153]
+resource_name = "New Anim"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/sharpnes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 2.5 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ 0.2, 2.0 ]
+}
+
+[sub_resource type="Animation" id=154]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/sharpnes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.978 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:process_material:scale_random")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Gradient" id=137]
+offsets = PoolRealArray( 0.0516129, 0.541936, 0.858065, 1 )
+colors = PoolColorArray( 0, 0.827148, 1, 0, 0.419139, 0.295601, 0.900879, 1, 0.976471, 0, 1, 1, 1, 0.0431373, 0.878431, 0.176471 )
+
+[sub_resource type="GradientTexture" id=138]
+gradient = SubResource( 137 )
+
+[sub_resource type="Gradient" id=139]
+offsets = PoolRealArray( 0.56129, 1 )
+colors = PoolColorArray( 0.882353, 0.941176, 0.933333, 0, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=140]
+gradient = SubResource( 139 )
+width = 100
+
+[sub_resource type="ShaderMaterial" id=141]
+shader = SubResource( 62 )
+shader_param/scorll1 = Vector2( 0, 0.05 )
+shader_param/scorll2 = Vector2( 0.09, 0 )
+shader_param/sharpnes = 2.507
+shader_param/texture1 = ExtResource( 19 )
+shader_param/texture2 = ExtResource( 18 )
+shader_param/lifetimeGradient = SubResource( 138 )
+shader_param/overlapGradient = SubResource( 140 )
+
+[sub_resource type="Curve" id=142]
+_data = [ Vector2( 0.483146, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=143]
+curve = SubResource( 142 )
+
+[sub_resource type="ParticlesMaterial" id=144]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 30.11
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 0.35
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 0.65
+angle = 720.0
+angle_random = 1.0
+scale = 0.2
+scale_curve = SubResource( 143 )
 color_ramp = SubResource( 64 )
 hue_variation = 1.0
 hue_variation_random = 1.0
@@ -428,6 +806,59 @@ color_ramp = SubResource( 64 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
+[sub_resource type="Gradient" id=116]
+offsets = PoolRealArray( 0.0193548, 0.0967742, 0.341935, 0.496774, 0.793548 )
+colors = PoolColorArray( 0, 0.321569, 0.00392157, 0, 1, 0.841125, 0.464844, 1, 0.76709, 0.388789, 0, 0.913725, 0.271484, 0.111869, 0.0466614, 1, 0.0922852, 0.0836334, 0.0836334, 0 )
+
+[sub_resource type="GradientTexture" id=117]
+gradient = SubResource( 116 )
+
+[sub_resource type="Gradient" id=118]
+offsets = PoolRealArray( 0, 0.445161, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.388889, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=119]
+gradient = SubResource( 118 )
+width = 100
+
+[sub_resource type="OpenSimplexNoise" id=120]
+seed = 3
+octaves = 8
+period = 2.0
+persistence = 0.654
+lacunarity = 1.01
+
+[sub_resource type="NoiseTexture" id=121]
+seamless = true
+noise = SubResource( 120 )
+
+[sub_resource type="ShaderMaterial" id=122]
+shader = SubResource( 62 )
+shader_param/scorll1 = Vector2( 0, 0.05 )
+shader_param/scorll2 = Vector2( 0.09, 0 )
+shader_param/sharpnes = 50.0
+shader_param/texture1 = SubResource( 121 )
+shader_param/texture2 = ExtResource( 7 )
+shader_param/lifetimeGradient = SubResource( 117 )
+shader_param/overlapGradient = SubResource( 119 )
+
+[sub_resource type="ParticlesMaterial" id=123]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 30.11
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 0.35
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 0.65
+angle = 720.0
+angle_random = 1.0
+scale = 0.2
+scale_curve = SubResource( 73 )
+color_ramp = SubResource( 64 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
 [node name="ShaderShowRoom" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -442,12 +873,54 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 centered = false
 
+[node name="OilSlick" type="Sprite" parent="."]
+material = SubResource( 126 )
+position = Vector2( 2480, 408 )
+scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 128 )
+centered = false
+
+[node name="BrightFlames" type="Sprite" parent="."]
+material = SubResource( 147 )
+position = Vector2( 2784, 400 )
+scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 132 )
+centered = false
+
+[node name="ElevatorShaft" type="Sprite" parent="."]
+material = SubResource( 155 )
+position = Vector2( 4152, 400 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 21 )
+centered = false
+
+[node name="ElevatorShaft2" type="Sprite" parent="."]
+material = SubResource( 158 )
+position = Vector2( 4480, 400 )
+scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 163 )
+centered = false
+
 [node name="DataFlow2" type="Sprite" parent="."]
 material = SubResource( 5 )
-position = Vector2( 313, 43 )
-scale = Vector2( 0.5, 1 )
-texture = ExtResource( 2 )
+position = Vector2( 320, 56 )
+texture = SubResource( 106 )
 centered = false
+
+[node name="SlimeFall" type="Sprite" parent="."]
+material = SubResource( 166 )
+position = Vector2( 1584, -104 )
+texture = SubResource( 167 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SlimeFall"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 168 )
+anims/RESET = SubResource( 169 )
+
+[node name="Line2D" type="Line2D" parent="SlimeFall"]
+points = PoolVector2Array( 0, 1024, 0, 0, 128, 0, 128, 1024, 0, 1024 )
+default_color = Color( 0.211765, 0.211765, 0.211765, 1 )
 
 [node name="SparkLeak" type="Particles2D" parent="."]
 modulate = Color( 2, 2, 2, 1 )
@@ -465,6 +938,28 @@ position = Vector2( -4, -6.4 )
 scale = Vector2( 0.973333, 1 )
 color = Color( 0.560784, 1, 0.968627, 0.0470588 )
 polygon = PoolVector2Array( -45.2055, -96, -45.2055, 27.2, 49.3151, 27.2, 49.3151, -96 )
+
+[node name="SparkLeak2" type="Particles2D" parent="."]
+modulate = Color( 2, 2, 2, 1 )
+material = SubResource( 112 )
+position = Vector2( 56, 680 )
+scale = Vector2( 2, 2 )
+amount = 60
+lifetime = 2.0
+speed_scale = 0.3
+local_coords = false
+process_material = SubResource( 113 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SparkLeak2"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 114 )
+anims/RESET = SubResource( 115 )
+
+[node name="Icon" type="Sprite" parent="SparkLeak2"]
+modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 14 )
 
 [node name="FirePlume" type="Particles2D" parent="."]
 modulate = Color( 2, 2, 2, 1 )
@@ -509,24 +1004,55 @@ amount = 10
 process_material = SubResource( 82 )
 texture = ExtResource( 8 )
 
-[node name="Tween" type="Tween" parent="ThousandPetals2"]
-playback_speed = 0.6
-playback/speed = 0.6
+[node name="ThousandPetals3" type="Particles2D" parent="."]
+modulate = Color( 2, 2, 2, 1 )
+material = SubResource( 135 )
+position = Vector2( 3352, 584 )
+scale = Vector2( 6, 6 )
+amount = 10
+process_material = SubResource( 136 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ThousandPetals3"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 153 )
+anims/RESET = SubResource( 154 )
+
+[node name="ThousandPetals4" type="Particles2D" parent="."]
+modulate = Color( 2, 2, 2, 1 )
+material = SubResource( 141 )
+position = Vector2( 3848, 280 )
+scale = Vector2( 6, 6 )
+amount = 10
+lifetime = 3.0
+process_material = SubResource( 144 )
+texture = ExtResource( 8 )
+
+[node name="Orb3" type="Sprite" parent="ThousandPetals4"]
+modulate = Color( 0.976471, 0, 1, 0.309804 )
+show_behind_parent = true
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 20 )
 
 [node name="FireCracker" type="Particles2D" parent="."]
 modulate = Color( 2, 2, 2, 1 )
 material = SubResource( 71 )
-position = Vector2( 1580, 204 )
+position = Vector2( 1416, 152 )
 scale = Vector2( 8, 8 )
 amount = 10
 lifetime = 0.6
 process_material = SubResource( 74 )
 texture = ExtResource( 10 )
 
-[node name="Tween" type="Tween" parent="FireCracker"]
-playback_speed = 0.6
-playback/speed = 0.6
+[node name="FireCracker2" type="Particles2D" parent="."]
+modulate = Color( 2, 2, 2, 1 )
+material = SubResource( 122 )
+position = Vector2( 1264, 592 )
+scale = Vector2( 4, 4 )
+amount = 7
+speed_scale = 0.4
+explosiveness = 0.74
+process_material = SubResource( 123 )
+texture = ExtResource( 15 )
 
 [connection signal="tween_completed" from="ThousandPetals/Tween" to="ThousandPetals" method="_on_Tween_tween_completed"]
-[connection signal="tween_completed" from="ThousandPetals2/Tween" to="ThousandPetals2" method="_on_Tween_tween_completed"]
-[connection signal="tween_completed" from="FireCracker/Tween" to="FireCracker" method="_on_Tween_tween_completed"]
