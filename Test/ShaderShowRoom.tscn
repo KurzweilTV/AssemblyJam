@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=152 format=2]
+=======
+[gd_scene load_steps=146 format=2]
+>>>>>>> main
 
 [ext_resource path="res://Test/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture8.png" type="Texture" id=2]
@@ -118,10 +122,17 @@ width = 60
 
 [sub_resource type="ShaderMaterial" id=158]
 shader = ExtResource( 22 )
+<<<<<<< HEAD
 shader_param/scroll1 = Vector2( 1, 0 )
 shader_param/scroll2 = Vector2( 1, 0 )
 shader_param/energyTex1 = 0.228
 shader_param/energyTex2 = -0.036
+=======
+shader_param/scroll1 = Vector2( 1, 1 )
+shader_param/scroll2 = Vector2( 1, 1 )
+shader_param/energyTex1 = 0.172
+shader_param/energyTex2 = 0.068
+>>>>>>> main
 shader_param/texture2 = ExtResource( 23 )
 shader_param/gradient = SubResource( 160 )
 
@@ -135,6 +146,7 @@ lacunarity = 2.56
 seamless = true
 noise = SubResource( 162 )
 
+<<<<<<< HEAD
 [sub_resource type="Gradient" id=170]
 offsets = PoolRealArray( 0, 0.367742, 0.683871, 0.96129 )
 colors = PoolColorArray( 0.551758, 0.551758, 0.551758, 1, 0, 1, 0.501953, 1, 0.172241, 0.354406, 0.688965, 1, 0, 0, 0, 1 )
@@ -167,6 +179,8 @@ shader_param/energyTex2 = -0.2
 shader_param/texture2 = ExtResource( 9 )
 shader_param/gradient = SubResource( 177 )
 
+=======
+>>>>>>> main
 [sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.490323, 0.632258 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.0281525, 0.120117, 0.0295894, 1, 0.539164, 0.890625, 0.219177, 1 )
@@ -185,7 +199,11 @@ shader_param/gradient = SubResource( 7 )
 seed = 5
 octaves = 7
 period = 7.4
+<<<<<<< HEAD
 persistence = 0.185
+=======
+persistence = 0.842
+>>>>>>> main
 lacunarity = 0.54
 
 [sub_resource type="NoiseTexture" id=106]
@@ -907,14 +925,22 @@ centered = false
 
 [node name="OilSlick" type="Sprite" parent="."]
 material = SubResource( 126 )
+<<<<<<< HEAD
 position = Vector2( 2672, 8 )
+=======
+position = Vector2( 2480, 408 )
+>>>>>>> main
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 128 )
 centered = false
 
 [node name="BrightFlames" type="Sprite" parent="."]
 material = SubResource( 147 )
+<<<<<<< HEAD
 position = Vector2( 3016, 0 )
+=======
+position = Vector2( 2784, 400 )
+>>>>>>> main
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 132 )
 centered = false
@@ -933,6 +959,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 163 )
 centered = false
 
+<<<<<<< HEAD
 [node name="ElevatorShaft3" type="Sprite" parent="."]
 material = SubResource( 172 )
 position = Vector2( 3328, 8 )
@@ -946,10 +973,13 @@ position = Vector2( 2624, 296 )
 texture = ExtResource( 17 )
 centered = false
 
+=======
+>>>>>>> main
 [node name="DataFlow2" type="Sprite" parent="."]
 material = SubResource( 5 )
 position = Vector2( 320, 56 )
 texture = SubResource( 106 )
+<<<<<<< HEAD
 centered = false
 
 [node name="SlimeFall" type="Sprite" parent="."]
@@ -958,6 +988,16 @@ position = Vector2( 1584, -104 )
 texture = SubResource( 167 )
 centered = false
 
+=======
+centered = false
+
+[node name="SlimeFall" type="Sprite" parent="."]
+material = SubResource( 166 )
+position = Vector2( 1584, -104 )
+texture = SubResource( 167 )
+centered = false
+
+>>>>>>> main
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlimeFall"]
 autoplay = "New Anim"
 "anims/New Anim" = SubResource( 168 )
