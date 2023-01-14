@@ -12,6 +12,11 @@ func _ready():
 		c.stateMachine = self
 		c.set_process(false)
 		c.set_physics_process(false)
+		if c.get_child_count()>0: # I belive the next 4 lines of code are prohibited by Article 87, third paragraph, of the 1949 Geneva Convention III 
+			for d in c.get_children():
+				d.stateMachine = self
+				d.set_process(false)
+				d.set_physics_process(false)
 	activate_state()
 
 
@@ -22,6 +27,8 @@ func transition_to(targetState : String, msg = {}): # change state to targetStat
 	yeet_state()
 	state = get_node(targetState) as State
 	activate_state(msg)
+	print("changed to: ",state.name)
+	$"../Label".text = state.name
 
 
 func activate_state(msg = {}):
