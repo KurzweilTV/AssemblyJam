@@ -1,10 +1,11 @@
 extends State
 
+""" SPAWN """
 
-func _ready():
-	yield(owner, "ready")
 
-func enter(_msg: Dictionary = {}):
+func enter(msg: Dictionary = {}):
+	# if is on ground -> tansition to idle
+	# else transition to falling
 	pass
 
 func exit() :

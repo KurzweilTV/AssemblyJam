@@ -7,7 +7,7 @@ var stateMachine = null
 func _ready():
 	yield(owner,"ready")
 
-func enter(_msg = {}):
+func enter(msg = {}):
 	
 	pass
 

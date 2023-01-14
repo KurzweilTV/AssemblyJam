@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=4]
+[ext_resource path="res://Player/States/Move.gd" type="Script" id=5]
+[ext_resource path="res://Player/States/Fall.gd" type="Script" id=6]
+[ext_resource path="res://Player/States/Idle.gd" type="Script" id=7]
+[ext_resource path="res://Player/States/Run.gd" type="Script" id=8]
+[ext_resource path="res://Player/States/Jump.gd" type="Script" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.0
@@ -11,13 +16,6 @@ height = 48.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 1 )
-initialState = NodePath("Spawn")
-
-[node name="Spawn" type="Node" parent="StateMachine"]
-script = ExtResource( 4 )
 
 [node name="Icon" type="Sprite" parent="."]
 position = Vector2( 0, -32 )
@@ -29,3 +27,25 @@ current = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -40 )
 shape = SubResource( 1 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+initialState = NodePath("Spawn")
+
+[node name="Spawn" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Idle" type="Node" parent="StateMachine/Move"]
+script = ExtResource( 7 )
+
+[node name="Run" type="Node" parent="StateMachine/Move"]
+script = ExtResource( 8 )
+
+[node name="Fall" type="Node" parent="StateMachine/Move"]
+script = ExtResource( 6 )
+
+[node name="Jump" type="Node" parent="StateMachine/Move"]
+script = ExtResource( 9 )
