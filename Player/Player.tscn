@@ -1,37 +1,221 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=4]
 [ext_resource path="res://Player/States/Move.gd" type="Script" id=5]
 [ext_resource path="res://Player/States/Fall.gd" type="Script" id=6]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=7]
 [ext_resource path="res://Player/States/Run.gd" type="Script" id=8]
 [ext_resource path="res://Player/States/Jump.gd" type="Script" id=9]
+[ext_resource path="res://Player/Art/CustomTorso.png" type="Texture" id=10]
+[ext_resource path="res://Player/Art/ROBO_0000s_0001_RIGHT-UPPER-ARM.png" type="Texture" id=11]
+[ext_resource path="res://Player/Art/ROBO_0000s_0013_LEFT-UPPER-ARM.png" type="Texture" id=12]
+[ext_resource path="res://Player/Art/ROBO_0000s_0011_LEFT-HAND.png" type="Texture" id=13]
+[ext_resource path="res://Player/Art/ROBO_0000s_0010_LEFT-THIGH-.png" type="Texture" id=14]
+[ext_resource path="res://Player/Art/ROBO_0000s_0008_LEFT-FOOT.png" type="Texture" id=15]
+[ext_resource path="res://Player/Art/ROBO_0000s_0005_RIGHT-THIGH.png" type="Texture" id=16]
+[ext_resource path="res://Player/Art/ROBO_0000s_0003_RIGHT-FOOT.png" type="Texture" id=17]
+[ext_resource path="res://Player/Art/ROBO_0000s_0006_HEAD.png" type="Texture" id=18]
+[ext_resource path="res://Player/Art/ROBO_0000s_0002_RIGHT-LOWER-ARM.png" type="Texture" id=19]
+[ext_resource path="res://Player/Art/CustomHip.png" type="Texture" id=20]
+[ext_resource path="res://Player/Art/ROBO_0000s_0004_RIGHT-LOWER-LEG.png" type="Texture" id=21]
+[ext_resource path="res://Player/Art/ROBO_0000s_0000_RIGHT-HAND.png" type="Texture" id=22]
+[ext_resource path="res://Player/Art/ROBO_0000s_0009_LEFT-LOWER-LEG-.png" type="Texture" id=23]
+[ext_resource path="res://Player/Art/ROBO_0000s_0012_LEFT-LOWER-ARM-.png" type="Texture" id=24]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 24.0
-height = 48.0
+radius = 30.0
+height = 192.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( 0, -32 )
-color = Color( 0.294118, 0.329412, 0.85098, 1 )
-polygon = PoolVector2Array( -16, 32, -16, -96, 16, -96, 16, 32 )
+[node name="IKPlayer" type="Node2D" parent="."]
+position = Vector2( -1, -101 )
+rotation = -0.0907931
 
-[node name="Icon" type="Sprite" parent="."]
-position = Vector2( 0, -104 )
-texture = ExtResource( 3 )
+[node name="hip" type="Sprite" parent="IKPlayer"]
+position = Vector2( 1, -4 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_ik_": true
+}
+
+[node name="torso" type="Sprite" parent="IKPlayer/hip"]
+position = Vector2( -2, -16 )
+z_index = -1
+texture = ExtResource( 10 )
+offset = Vector2( -6.08994, -54.3337 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="head" type="Sprite" parent="IKPlayer/hip/torso"]
+position = Vector2( 10, -102 )
+rotation = -0.0587904
+texture = ExtResource( 18 )
+offset = Vector2( 4, -50 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="end" type="Position2D" parent="IKPlayer/hip/torso/head"]
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="arm_r" type="Sprite" parent="IKPlayer/hip/torso"]
+position = Vector2( -42, -88 )
+rotation = -0.416944
+z_index = 4
+texture = ExtResource( 11 )
+offset = Vector2( -18.0899, 27.6663 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="arm_r_lower" type="Sprite" parent="IKPlayer/hip/torso/arm_r"]
+position = Vector2( -28.1947, 55.9022 )
+rotation = 1.22522
+z_index = -1
+texture = ExtResource( 19 )
+offset = Vector2( 24.2, 34.1008 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="hand_r" type="Sprite" parent="IKPlayer/hip/torso/arm_r/arm_r_lower"]
+position = Vector2( 65.7846, 69.9456 )
+rotation = 0.110255
+texture = ExtResource( 22 )
+offset = Vector2( 10.3489, 9.56417 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="end" type="Position2D" parent="IKPlayer/hip/torso/arm_r/arm_r_lower/hand_r"]
+position = Vector2( 7.52811, 11.1053 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="arm_l" type="Sprite" parent="IKPlayer/hip/torso"]
+position = Vector2( 46, -96 )
+rotation = 0.0406962
+z_index = -1
+texture = ExtResource( 12 )
+offset = Vector2( -4, 42 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="arm_l_lower" type="Sprite" parent="IKPlayer/hip/torso/arm_l"]
+position = Vector2( 6, 66 )
+rotation = 0.0994559
+z_index = -1
+texture = ExtResource( 24 )
+offset = Vector2( -4, 34 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="hand_l" type="Sprite" parent="IKPlayer/hip/torso/arm_l/arm_l_lower"]
+position = Vector2( 17.2604, 76.5119 )
+rotation = 0.133959
+texture = ExtResource( 13 )
+offset = Vector2( 1.86732, 13.2544 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="end" type="Position2D" parent="IKPlayer/hip/torso/arm_l/arm_l_lower/hand_l"]
+position = Vector2( -1.12154, 11.4003 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="leg_l" type="Sprite" parent="IKPlayer/hip"]
+position = Vector2( 8, 22 )
+rotation = -6.14945
+z_index = -1
+texture = ExtResource( 14 )
+offset = Vector2( 0, 42 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="leg_l_lower" type="Sprite" parent="IKPlayer/hip/leg_l"]
+position = Vector2( 2.56075, 85.5046 )
+rotation = -0.172162
+texture = ExtResource( 23 )
+offset = Vector2( -13.832, 50.8642 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="foot_l" type="Sprite" parent="IKPlayer/hip/leg_l/leg_l_lower"]
+position = Vector2( -20.7993, 107.73 )
+rotation = 0.101242
+texture = ExtResource( 15 )
+offset = Vector2( 23.9381, 10.9851 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="end" type="Position2D" parent="IKPlayer/hip/leg_l/leg_l_lower/foot_l"]
+position = Vector2( 4.0351, 5.97649 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="leg_r" type="Sprite" parent="IKPlayer/hip"]
+position = Vector2( -15.0577, 22.5354 )
+rotation = -0.224685
+z_index = 1
+texture = ExtResource( 16 )
+offset = Vector2( -12, 50 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="leg_r_lower" type="Sprite" parent="IKPlayer/hip/leg_r"]
+position = Vector2( -38.9046, 93.6332 )
+rotation = 0.102557
+texture = ExtResource( 21 )
+offset = Vector2( -17.9051, 48.7373 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="foot_r" type="Sprite" parent="IKPlayer/hip/leg_r/leg_r_lower"]
+position = Vector2( -35.0137, 99.9008 )
+rotation = 0.205263
+texture = ExtResource( 17 )
+offset = Vector2( 17.2395, 15.3194 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="end" type="Position2D" parent="IKPlayer/hip/leg_r/leg_r_lower/foot_r"]
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -110 )
 current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -40 )
+visible = false
+position = Vector2( -1, -105 )
 shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
@@ -57,12 +241,14 @@ script = ExtResource( 6 )
 script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -24.0
 margin_top = -72.0
 margin_right = 16.0
 margin_bottom = -58.0
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 margin_left = -16.0
 margin_top = -96.0
 margin_right = 24.0
