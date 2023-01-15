@@ -1,7 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Art/Prototyping/tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/Prototyping/background.png" type="Texture" id=3]
 [ext_resource path="res://Assets/JetBrainsMono-SemiBold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Actors/Door.tscn" type="PackedScene" id=5]
