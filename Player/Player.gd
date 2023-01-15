@@ -4,6 +4,6 @@ class_name Player
 
 
 func _ready():
-	GlobalPlayer.controller = self
+	GlobalPlayer.set_controller(self)
 	pass
 

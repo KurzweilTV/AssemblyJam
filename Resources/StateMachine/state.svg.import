@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/state_machine.svg-ac52e4fcfe1f6deda262ac784f84bf1e.stex"
+path="res://.import/state.svg-278676e027d6f837f995ded2f165fe9b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://StateMachine/state_machine.svg"
-dest_files=[ "res://.import/state_machine.svg-ac52e4fcfe1f6deda262ac784f84bf1e.stex" ]
+source_file="res://Resources/StateMachine/state.svg"
+dest_files=[ "res://.import/state.svg-278676e027d6f837f995ded2f165fe9b.stex" ]
 
 [params]
 

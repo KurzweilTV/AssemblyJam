@@ -24,22 +24,22 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/Player.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "State",
 "language": "GDScript",
-"path": "res://StateMachine/State.gd"
+"path": "res://Resources/StateMachine/State.gd"
 }, {
 "base": "Node",
 "class": "StateMachine",
 "language": "GDScript",
-"path": "res://StateMachine/StateMachine.gd"
+"path": "res://Resources/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
 "MoveState": "",
 "Player": "",
-"State": "res://StateMachine/state.svg",
-"StateMachine": "res://StateMachine/state_machine.svg"
+"State": "",
+"StateMachine": ""
 }
 
 [application]

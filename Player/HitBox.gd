@@ -24,6 +24,7 @@ func _on_HitBox_body_entered(body):
 	if invincibile:
 		return
 	get_damaged(body.get_meta("damage"))
+	body.queue_free() # eat the bullet, 
 
 func _on_HitBox_area_entered(area):
 	assert(area.has_meta("damage"))

@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://UI/UI.gd" type="Script" id=1]
+[ext_resource path="res://UI/Over.png" type="Texture" id=2]
+[ext_resource path="res://UI/Progress.png" type="Texture" id=3]
+[ext_resource path="res://UI/Under.png" type="Texture" id=4]
+[ext_resource path="res://Resources/NoiseTextures/seamless_texture8.png" type="Texture" id=5]
+[ext_resource path="res://Resources/NoiseTextures/experimental_texture006.png" type="Texture" id=6]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec2 scrollSpeed1 = vec2(1.0,1.0);
+uniform vec2 scrollSpeed2 = vec2(1.0,1.0);
+
+uniform vec2 scaleOffset1 = vec2(1.0,1.0);
+uniform vec2 scaleOffset2 = vec2(1.0,1.0);
+
+uniform vec4 underColor : hint_color;
+uniform vec4 overColor : hint_color;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+uniform float bonusEnergy1 = 1.0;
+uniform float bonusEnergy2 = 1.0;
+
+uniform sampler2D gradient;
+
+//void fragment(){
+//	COLOR = texture(TEXTURE, UV);
+//	if (COLOR.b > 0.9) {COLOR = overColor;}
+//	if (COLOR.g > 0.9) {COLOR = underColor;}
+//	float color1 = bonusEnergy1 + texture(texture1, scaleOffset1 * UV + scrollSpeed1 * TIME).r;
+//	float color2 = bonusEnergy2 + texture(texture2, scaleOffset2 * UV + scrollSpeed2 * TIME).r;
+//	float energy = color1 * color2 ;
+//	if (COLOR.r > 0.9) {COLOR = texture(gradient, vec2(energy));}
+//}"
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.0516129, 0.341935, 0.567742, 0.76129 )
+colors = PoolColorArray( 0.193436, 0.117874, 0.402344, 1, 0.132813, 0.132813, 0.132813, 1, 0.227226, 0.219908, 0.172123, 1, 0, 1, 0.929688, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/scrollSpeed1 = Vector2( -1.026, 0 )
+shader_param/scrollSpeed2 = Vector2( 0.049, 0 )
+shader_param/scaleOffset1 = Vector2( -0.964, 0.439 )
+shader_param/scaleOffset2 = Vector2( 0.774, 0.339 )
+shader_param/underColor = Color( 0.560784, 0.619608, 0.54902, 1 )
+shader_param/overColor = Color( 0, 0, 0, 1 )
+shader_param/bonusEnergy1 = 0.746
+shader_param/bonusEnergy2 = -0.122
+shader_param/texture1 = ExtResource( 5 )
+shader_param/texture2 = ExtResource( 6 )
+shader_param/gradient = SubResource( 4 )
+
+[node name="UI" type="CanvasLayer" groups=["UI"]]
+script = ExtResource( 1 )
+
+[node name="WholeScreen" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HealthBar" type="TextureProgress" parent="WholeScreen"]
+unique_name_in_owner = true
+material = SubResource( 2 )
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 208.0
+margin_bottom = 48.0
+max_value = 5.0
+step = 0.5
+value = 2.5
+texture_under = ExtResource( 4 )
+texture_over = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
