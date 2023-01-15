@@ -20,7 +20,7 @@ func apply_movement(delta, target = Vector2.ZERO):
 	velocity.x = min(abs(velocity.x),maxSpeedX) * sign(velocity.x)
 	velocity.y = min(abs(velocity.y),maxSpeedY) * sign(velocity.y)
 	velocity = player.move_and_slide(velocity,Vector2(0, -1))
-	
+
 	$"../../Label2".text = str(velocity.x) + " " + str(velocity.y)
 	pass
 

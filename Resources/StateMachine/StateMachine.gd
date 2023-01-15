@@ -27,8 +27,7 @@ func transition_to(targetState : String, msg = {}): # change state to targetStat
 	yeet_state()
 	state = get_node(targetState) as State
 	activate_state(msg)
-	print("changed to: ",state.name)
-	$"../Label".text = state.name
+
 
 
 func activate_state(msg = {}):
