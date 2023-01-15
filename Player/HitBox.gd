@@ -16,7 +16,9 @@ func _ready():
 func get_damaged(value : int):
 	GlobalPlayer.damage(value)
 	invincibile = true
-	$Invincibility.play("New Anim")
+	# here should be a call to someting that animates damage
+	yield(get_tree().create_timer(0.5),"timeout")
+	invincibile = false
 	pass
 
 func _on_HitBox_body_entered(body):
@@ -32,5 +34,3 @@ func _on_HitBox_area_entered(area):
 		return
 	get_damaged(area.get_meta("damage"))
 
-func _on_Invincibility_animation_finished(anim_name):
-	invincibile = false

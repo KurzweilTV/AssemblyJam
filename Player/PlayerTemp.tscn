@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=1]
-[ext_resource path="res://Player/HitBox.gd" type="Script" id=2]
+[ext_resource path="res://Player/HitBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/StateMachine/StateMachine.gd" type="Script" id=3]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=4]
 [ext_resource path="res://Player/States/Move.gd" type="Script" id=5]
@@ -48,53 +48,6 @@ shader_param/flash = 0.0
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.0
 height = 48.0
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 32.0
-height = 96.0
-
-[sub_resource type="Animation" id=5]
-resource_name = "New Anim"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("../Icon:material:shader_param/flash")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 0.5, -2, -2, -2, 2 ),
-"update": 0,
-"values": [ 0.0, 1.0, 0.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=6]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("..:material:shader_param/flash")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../Icon:material:shader_param/flash")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 4 )
@@ -158,19 +111,4 @@ margin_top = -96.0
 margin_right = 24.0
 margin_bottom = -82.0
 
-[node name="HitBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 16
-script = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( 0, -72 )
-shape = SubResource( 2 )
-
-[node name="Invincibility" type="AnimationPlayer" parent="HitBox"]
-"anims/New Anim" = SubResource( 5 )
-anims/RESET = SubResource( 6 )
-
-[connection signal="area_entered" from="HitBox" to="HitBox" method="_on_HitBox_area_entered"]
-[connection signal="body_entered" from="HitBox" to="HitBox" method="_on_HitBox_body_entered"]
-[connection signal="animation_finished" from="HitBox/Invincibility" to="HitBox" method="_on_Invincibility_animation_finished"]
+[node name="HitBox" parent="." instance=ExtResource( 2 )]

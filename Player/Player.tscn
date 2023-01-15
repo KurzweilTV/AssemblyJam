@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Resources/StateMachine/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/HitBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=4]
 [ext_resource path="res://Player/States/Move.gd" type="Script" id=5]
 [ext_resource path="res://Player/States/Fall.gd" type="Script" id=6]
@@ -23,6 +24,7 @@
 [ext_resource path="res://Player/Art/ROBO_0000s_0000_RIGHT-HAND.png" type="Texture" id=22]
 [ext_resource path="res://Player/Art/ROBO_0000s_0009_LEFT-LOWER-LEG-.png" type="Texture" id=23]
 [ext_resource path="res://Player/Art/ROBO_0000s_0012_LEFT-LOWER-ARM-.png" type="Texture" id=24]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=25]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0
@@ -37,7 +39,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( -1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 8, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/1/type = "bezier"
@@ -47,7 +49,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( -101, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -128, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/2/type = "bezier"
@@ -859,7 +861,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( -1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/1/type = "bezier"
@@ -869,7 +871,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( -101, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -128, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/2/type = "bezier"
@@ -903,12 +905,19 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[node name="Player" type="KinematicBody2D"]
-rotation = -0.0886073
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 48.0
+height = 144.0
+
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 256
 script = ExtResource( 2 )
 
+[node name="UI" parent="." instance=ExtResource( 25 )]
+
 [node name="IKPlayer" type="Node2D" parent="."]
-position = Vector2( -1, -101 )
+position = Vector2( 8, -128 )
 
 [node name="hip" type="Sprite" parent="IKPlayer"]
 position = Vector2( 1, -4 )
@@ -945,7 +954,7 @@ __meta__ = {
 
 [node name="arm_r" type="Sprite" parent="IKPlayer/hip/torso"]
 position = Vector2( -42, -88 )
-rotation = -0.416944
+rotation = -0.416943
 z_index = 4
 texture = ExtResource( 11 )
 offset = Vector2( -18.0899, 27.6663 )
@@ -992,7 +1001,7 @@ __meta__ = {
 
 [node name="arm_l_lower" type="Sprite" parent="IKPlayer/hip/torso/arm_l"]
 position = Vector2( 6, 66 )
-rotation = 0.0994559
+rotation = 0.0994558
 z_index = -1
 texture = ExtResource( 24 )
 offset = Vector2( -4, 34 )
@@ -1017,7 +1026,7 @@ __meta__ = {
 
 [node name="leg_l" type="Sprite" parent="IKPlayer/hip"]
 position = Vector2( 8, 22 )
-rotation = -6.14945
+rotation = -6.14944
 z_index = -1
 texture = ExtResource( 14 )
 offset = Vector2( 0, 42 )
@@ -1134,3 +1143,11 @@ anims/RESET = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/idle2 = SubResource( 5 )
 anims/rest = SubResource( 4 )
+
+[node name="HitBox" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( 0, -120 )
+shape = SubResource( 6 )
+
+[editable path="HitBox"]
