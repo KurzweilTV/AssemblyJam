@@ -1,6 +1,6 @@
 extends Node
 
-class_name StateMachine, "res://StateMachine/state_machine.svg"
+class_name StateMachine, "res://Resources/StateMachine/state_machine.svg"
 
 export var initialState : NodePath
 

@@ -1,4 +1,4 @@
-class_name State, "res://StateMachine/state.svg"
+class_name State, "res://Resources/StateMachine/state.svg"
 
 extends Node
 
