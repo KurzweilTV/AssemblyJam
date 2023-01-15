@@ -907,7 +907,7 @@ tracks/4/keys = {
 
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 48.0
-height = 144.0
+height = 116.0
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 2
@@ -1096,6 +1096,7 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -110 )
 current = true
+zoom = Vector2( 1.2, 1.2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -1147,7 +1148,7 @@ anims/rest = SubResource( 4 )
 [node name="HitBox" parent="." instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( 0, -120 )
+position = Vector2( 6, -140 )
 shape = SubResource( 6 )
 
 [editable path="HitBox"]
