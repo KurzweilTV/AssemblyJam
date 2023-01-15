@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=1]
+[ext_resource path="res://Resources/StateMachine/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=4]
 [ext_resource path="res://Player/States/Move.gd" type="Script" id=5]
