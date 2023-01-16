@@ -18,7 +18,7 @@ func shoot():
 	newBullet.add_force(Vector2(),Vector2(1,0).rotated($GunHolder.rotation)*2000)
 	newBullet.set_meta("damage",1.0)
 	newBullet.rotation = $GunHolder.rotation
-	get_tree().current_scene.add_child(newBullet)
+	get_tree().current_scene.call_deferred("add_child",newBullet)
 	pass
 
 func _physics_process(delta):

@@ -28,7 +28,7 @@ func fire():
 	newBullet.add_force(Vector2(),Vector2($Sprite.scale.x*2000,0))
 	newBullet.set_meta("damage",1.0)
 	newBullet.scale.x = $Sprite.scale.x
-	get_tree().current_scene.add_child(newBullet)
+	get_tree().current_scene.call_deferred("add_child",newBullet)
 	pass
 
 func _on_Tanky_body_entered(body):

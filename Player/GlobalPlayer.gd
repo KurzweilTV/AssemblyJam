@@ -9,6 +9,7 @@ var maxHealth = 5.0
 
 var currentHealth = 5.0
 
+var currentSpawn = null
 
 func _ready():
 	set_process(false)
@@ -21,6 +22,19 @@ func damage(value):
 		controller.die()
 	pass
 
+func set_spawn(newSpawn):
+	if currentSpawn!=null:
+		if is_instance_valid(currentSpawn):
+			currentSpawn.activate(false)
+	currentSpawn = newSpawn
+	pass
+
+func respawn():
+	if currentSpawn != null :
+		if is_instance_valid(currentSpawn):
+			# respawn player at chepoint
+			print("respawn player")
+	pass
 
 func free_controller(oldController):
 	assert(oldController == controller) 
