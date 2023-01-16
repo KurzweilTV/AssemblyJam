@@ -6,6 +6,8 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
+func open():
+	$AnimationPlayer.play("Open")
 
 func activate(state):
 	if state:

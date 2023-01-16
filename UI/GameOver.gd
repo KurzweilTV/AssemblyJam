@@ -21,4 +21,5 @@ func _ready():
 func _on_Button_pressed():
 	get_tree().paused = false
 	GlobalPlayer.respawn()
+	queue_free()
 	pass # Replace with function body.
