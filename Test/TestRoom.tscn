@@ -29,15 +29,12 @@ shape = SubResource( 1 )
 position = Vector2( -635, -60 )
 
 [node name="Drone" parent="." instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 432, -80 )
 
 [node name="Drone2" parent="." instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 576, -376 )
 
 [node name="Drone3" parent="." instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 1064, -264 )
 
 [node name="Timer" type="Timer" parent="."]
