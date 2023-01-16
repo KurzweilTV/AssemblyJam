@@ -19,11 +19,12 @@ func _physics_process(delta):
 		stateMachine.transition_to("Move/Idle")
 	var moveDir = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	targetVelocity = Vector2(moveDir,0) * speed
-	
+
 	mover.apply_movement(delta, targetVelocity)
 	pass
 
 func enter(msg: Dictionary = {}):
+	$"../../../LegTree".set("parameters/onGround/current",1)
 	pass
 
 func exit() :

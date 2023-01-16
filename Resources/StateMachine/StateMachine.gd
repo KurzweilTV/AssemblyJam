@@ -6,6 +6,8 @@ export var initialState : NodePath
 
 onready var state = get_node(initialState) as State
 
+onready var player = owner as Player
+
 func _ready():
 	yield(owner,"ready")
 	for c in get_children():

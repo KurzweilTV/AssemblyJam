@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends RigidBody2D
 
 
 # Declare member variables here. Examples:
@@ -8,8 +8,6 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().paused = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	pass # Replace with function body.
 
 
@@ -18,7 +16,6 @@ func _ready():
 #	pass
 
 
-func _on_Button_pressed():
-	get_tree().paused = false
-	get_tree().change_scene("res://Test/TestRoom.tscn")
+func _on_Bullet_body_entered(body):
+	queue_free()
 	pass # Replace with function body.

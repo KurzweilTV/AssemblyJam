@@ -123,7 +123,6 @@ animations = [ {
 } ]
 
 [node name="Breakable" type="Area2D"]
-position = Vector2( 501, 277 )
 script = ExtResource( 2 )
 
 [node name="Smoke" type="CPUParticles2D" parent="."]
@@ -147,6 +146,7 @@ scale_amount = 23.35
 color_ramp = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0.392157, 0.392157, 1 )
 position = Vector2( 1, 0 )
 texture = ExtResource( 1 )
 region_rect = Rect2( 29.2859, 1.02057, 16.7436, 23.7651 )

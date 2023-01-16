@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/NoiseTextures/experimental_texture006.png" type="Texture" id=2]
 [ext_resource path="res://Test/TestRoom.gd" type="Script" id=3]
 [ext_resource path="res://Enemies/Drone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Actors/Breakable.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1200, 56 )
@@ -37,3 +38,6 @@ position = Vector2( 576, -376 )
 position = Vector2( 1064, -264 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Breakable" parent="." instance=ExtResource( 5 )]
+position = Vector2( -488, 40 )

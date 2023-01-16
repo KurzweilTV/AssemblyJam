@@ -10,7 +10,6 @@ var maxHealth = 5.0
 var currentHealth = 5.0
 
 
-
 func _ready():
 	set_process(false)
 	

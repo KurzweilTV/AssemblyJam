@@ -16,7 +16,7 @@ func _physics_process(delta):
 	fallVector.x = moveDir * airSpeed 
 	mover.apply_movement(delta,fallVector)
 	
-	if mover.player.is_on_floor():
+	if stateMachine.player.is_on_floor():
 		stateMachine.transition_to("Move/Idle")
 	# keep checking if on ground
 	
@@ -26,6 +26,8 @@ func _physics_process(delta):
 
 func enter(msg: Dictionary = {}):
 	fallVector.x = mover.velocity.x
+	$"../../../LegTree".set("parameters/airState/current",1)
+	$"../../../LegTree".set("parameters/onGround/current",0)
 	pass
 
 func exit() :
