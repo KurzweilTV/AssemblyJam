@@ -6,6 +6,8 @@ export var initialState : NodePath
 
 onready var state = get_node(initialState) as State
 
+onready var player = owner as Player
+
 func _ready():
 	yield(owner,"ready")
 	for c in get_children():
@@ -27,8 +29,7 @@ func transition_to(targetState : String, msg = {}): # change state to targetStat
 	yeet_state()
 	state = get_node(targetState) as State
 	activate_state(msg)
-	print("changed to: ",state.name)
-	$"../Label".text = state.name
+
 
 
 func activate_state(msg = {}):
