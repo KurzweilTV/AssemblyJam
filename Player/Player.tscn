@@ -9,21 +9,21 @@
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=7]
 [ext_resource path="res://Player/States/Run.gd" type="Script" id=8]
 [ext_resource path="res://Player/States/Jump.gd" type="Script" id=9]
-[ext_resource path="res://Player/Art/CustomTorso.png" type="Texture" id=10]
-[ext_resource path="res://Player/Art/ROBO_0000s_0001_RIGHT-UPPER-ARM.png" type="Texture" id=11]
-[ext_resource path="res://Player/Art/ROBO_0000s_0013_LEFT-UPPER-ARM.png" type="Texture" id=12]
-[ext_resource path="res://Player/Art/ROBO_0000s_0011_LEFT-HAND.png" type="Texture" id=13]
-[ext_resource path="res://Player/Art/ROBO_0000s_0010_LEFT-THIGH-.png" type="Texture" id=14]
-[ext_resource path="res://Player/Art/ROBO_0000s_0008_LEFT-FOOT.png" type="Texture" id=15]
-[ext_resource path="res://Player/Art/ROBO_0000s_0005_RIGHT-THIGH.png" type="Texture" id=16]
-[ext_resource path="res://Player/Art/ROBO_0000s_0003_RIGHT-FOOT.png" type="Texture" id=17]
-[ext_resource path="res://Player/Art/ROBO_0000s_0006_HEAD.png" type="Texture" id=18]
-[ext_resource path="res://Player/Art/ROBO_0000s_0002_RIGHT-LOWER-ARM.png" type="Texture" id=19]
-[ext_resource path="res://Player/Art/CustomHip.png" type="Texture" id=20]
-[ext_resource path="res://Player/Art/ROBO_0000s_0004_RIGHT-LOWER-LEG.png" type="Texture" id=21]
-[ext_resource path="res://Player/Art/ROBO_0000s_0000_RIGHT-HAND.png" type="Texture" id=22]
-[ext_resource path="res://Player/Art/ROBO_0000s_0009_LEFT-LOWER-LEG-.png" type="Texture" id=23]
-[ext_resource path="res://Player/Art/ROBO_0000s_0012_LEFT-LOWER-ARM-.png" type="Texture" id=24]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0016_LEFT-LOWER-ARM-.png" type="Texture" id=10]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0000_RIGHT-HAND.png" type="Texture" id=11]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0004_RIGHT-UPPER-ARM.png" type="Texture" id=12]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0015_LEFT-HAND.png" type="Texture" id=13]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0014_LEFT-THIGH-.png" type="Texture" id=14]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0005_RIGHT-FOOT.png" type="Texture" id=15]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0013_LEFT-LOWER-LEG-.png" type="Texture" id=16]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0010_HIP.png" type="Texture" id=17]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0001_ARM-BLASTER.png" type="Texture" id=18]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0009_HEAD---EYES-OPEN.png" type="Texture" id=19]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0011_TORSO.png" type="Texture" id=20]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0017_LEFT-UPPER-ARM.png" type="Texture" id=21]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0012_LEFT-FOOT.png" type="Texture" id=22]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0006_RIGHT-LOWER-LEG.png" type="Texture" id=23]
+[ext_resource path="res://Player/Art/new/Untitled-2_0000s_0007_RIGHT-THIGH.png" type="Texture" id=24]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Player/HurtBox.gd" type="Script" id=26]
 [ext_resource path="res://Player/States/Die.gd" type="Script" id=27]
@@ -2077,7 +2077,7 @@ nodes/onGround/position = Vector2( 720, 200 )
 nodes/output/position = Vector2( 1060, 240 )
 nodes/walking/node = SubResource( 18 )
 nodes/walking/position = Vector2( 60, 580 )
-node_connections = [ "onGround", 0, "airState", "onGround", 1, "groundState", "groundState", 0, "idle", "groundState", 1, "walking", "airState", 0, "Animation", "airState", 1, "Animation 2", "output", 0, "onGround" ]
+node_connections = [ "output", 0, "onGround", "airState", 0, "Animation", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking", "onGround", 0, "airState", "onGround", 1, "groundState" ]
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 2
@@ -2099,7 +2099,7 @@ position = Vector2( 1, -141 )
 rotation = -0.349818
 scale = Vector2( 0.5, 0.5 )
 z_index = 2
-texture = ExtResource( 20 )
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_ik_": true,
 "_edit_lock_": true
@@ -2124,7 +2124,7 @@ anims/SwingUp = SubResource( 28 )
 position = Vector2( -2, -16 )
 rotation = 0.156059
 z_index = -1
-texture = ExtResource( 10 )
+texture = ExtResource( 20 )
 offset = Vector2( -6.08994, -54.3337 )
 __meta__ = {
 "_edit_bone_": true,
@@ -2134,7 +2134,7 @@ __meta__ = {
 [node name="head" type="Sprite" parent="IKPlayer/hip/torso"]
 position = Vector2( 10, -102 )
 rotation = -0.0587904
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 offset = Vector2( 4, -50 )
 __meta__ = {
 "_edit_bone_": true
@@ -2149,7 +2149,7 @@ __meta__ = {
 position = Vector2( -42, -88 )
 rotation = -2.44799
 z_index = 4
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 offset = Vector2( -18.0899, 27.6663 )
 __meta__ = {
 "_edit_bone_": true,
@@ -2159,17 +2159,18 @@ __meta__ = {
 [node name="arm_r_lower" type="Sprite" parent="IKPlayer/hip/torso/arm_r"]
 position = Vector2( -28.1947, 55.9022 )
 rotation = 1.17555
-z_index = -1
-texture = ExtResource( 19 )
+z_index = 1
+texture = ExtResource( 18 )
 offset = Vector2( 24.2, 34.1008 )
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="hand_r" type="Sprite" parent="IKPlayer/hip/torso/arm_r/arm_r_lower"]
+visible = false
 position = Vector2( 65.7846, 69.9456 )
 rotation = 0.352238
-texture = ExtResource( 22 )
+texture = ExtResource( 11 )
 offset = Vector2( 10.3489, 9.56417 )
 __meta__ = {
 "_edit_bone_": true
@@ -2189,7 +2190,7 @@ __meta__ = {
 position = Vector2( 46, -96 )
 rotation = -0.0449557
 z_index = -1
-texture = ExtResource( 12 )
+texture = ExtResource( 21 )
 offset = Vector2( -4, 42 )
 __meta__ = {
 "_edit_bone_": true,
@@ -2200,7 +2201,7 @@ __meta__ = {
 position = Vector2( 6, 66 )
 rotation = 0.0793767
 z_index = -1
-texture = ExtResource( 24 )
+texture = ExtResource( 10 )
 offset = Vector2( -4, 34 )
 __meta__ = {
 "_edit_bone_": true
@@ -2244,7 +2245,7 @@ __meta__ = {
 [node name="leg_l_lower" type="Sprite" parent="IKPlayer/hip/leg_l"]
 position = Vector2( 2.56075, 85.5046 )
 rotation = 0.762081
-texture = ExtResource( 23 )
+texture = ExtResource( 16 )
 offset = Vector2( -13.832, 50.8642 )
 __meta__ = {
 "_edit_bone_": true
@@ -2253,7 +2254,7 @@ __meta__ = {
 [node name="foot_l" type="Sprite" parent="IKPlayer/hip/leg_l/leg_l_lower"]
 position = Vector2( -20.7993, 107.73 )
 rotation = -0.193711
-texture = ExtResource( 15 )
+texture = ExtResource( 22 )
 offset = Vector2( 23.9381, 10.9851 )
 __meta__ = {
 "_edit_bone_": true
@@ -2270,7 +2271,7 @@ __meta__ = {
 position = Vector2( -15.0577, 22.5354 )
 rotation = -0.620279
 z_index = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 24 )
 offset = Vector2( -12, 40 )
 __meta__ = {
 "_edit_bone_": true,
@@ -2280,7 +2281,7 @@ __meta__ = {
 [node name="leg_r_lower" type="Sprite" parent="IKPlayer/hip/leg_r"]
 position = Vector2( -38.9046, 93.6332 )
 rotation = 0.854513
-texture = ExtResource( 21 )
+texture = ExtResource( 23 )
 offset = Vector2( -17.9051, 48.7373 )
 __meta__ = {
 "_edit_bone_": true
@@ -2289,7 +2290,7 @@ __meta__ = {
 [node name="foot_r" type="Sprite" parent="IKPlayer/hip/leg_r/leg_r_lower"]
 position = Vector2( -35.0137, 99.9008 )
 rotation = -0.252366
-texture = ExtResource( 17 )
+texture = ExtResource( 15 )
 offset = Vector2( 17.2395, 15.3194 )
 __meta__ = {
 "_edit_bone_": true
