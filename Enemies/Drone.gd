@@ -25,7 +25,7 @@ func die():
 	set_process(false)
 	$AttackTimer.stop()
 	$HitBox/CollisionShape2D.set_deferred("disabled",true) 
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled",true)
 
 func _on_Animator_animation_finished(anim_name):
 	if anim_name == "Death":

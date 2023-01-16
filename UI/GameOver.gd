@@ -20,5 +20,5 @@ func _ready():
 
 func _on_Button_pressed():
 	get_tree().paused = false
-	get_tree().change_scene("res://Test/TestRoom.tscn")
+	get_tree().change_scene("res://Maps/Level1.tscn")
 	pass # Replace with function body.
