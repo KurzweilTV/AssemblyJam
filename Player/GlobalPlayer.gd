@@ -7,7 +7,7 @@ var UI
 
 var maxHealth = 5.0
 
-var currentHealth = 5.0
+var currentHealth = 3.0
 
 
 func _ready():
@@ -21,6 +21,11 @@ func damage(value):
 		controller.die()
 	pass
 
+func heal(value):
+	currentHealth += value
+	if currentHealth > maxHealth:
+		currentHealth = maxHealth
+	UI.update_health(currentHealth)
 
 func free_controller(oldController):
 	assert(oldController == controller) 

@@ -2077,7 +2077,7 @@ nodes/onGround/position = Vector2( 720, 200 )
 nodes/output/position = Vector2( 1060, 240 )
 nodes/walking/node = SubResource( 18 )
 nodes/walking/position = Vector2( 60, 580 )
-node_connections = [ "output", 0, "onGround", "airState", 0, "Animation", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking", "onGround", 0, "airState", "onGround", 1, "groundState" ]
+node_connections = [ "output", 0, "onGround", "onGround", 0, "airState", "onGround", 1, "groundState", "airState", 0, "Animation", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking" ]
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 2
