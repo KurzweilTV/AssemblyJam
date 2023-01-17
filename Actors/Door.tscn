@@ -15,21 +15,13 @@ extents = Vector2( 172.5, 94.5 )
 [node name="Door" type="Area2D"]
 scale = Vector2( 0.7, 0.9 )
 collision_layer = 0
-<<<<<<< HEAD
-collision_mask = 0
-=======
 collision_mask = 2
->>>>>>> Interactions
 script = ExtResource( 2 )
 
 [node name="DoorTop" type="StaticBody2D" parent="."]
 position = Vector2( 1, -48 )
 collision_layer = 256
-<<<<<<< HEAD
-collision_mask = 0
-=======
 collision_mask = 2
->>>>>>> Interactions
 
 [node name="Sprite" type="Sprite" parent="DoorTop"]
 texture = ExtResource( 1 )
@@ -41,11 +33,7 @@ shape = SubResource( 1 )
 [node name="DoorBottom" type="StaticBody2D" parent="."]
 position = Vector2( 0, 48 )
 collision_layer = 256
-<<<<<<< HEAD
-collision_mask = 0
-=======
 collision_mask = 2
->>>>>>> Interactions
 
 [node name="Sprite" type="Sprite" parent="DoorBottom"]
 texture = ExtResource( 1 )
