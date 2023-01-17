@@ -5,3 +5,8 @@ extends Node
 # LIKE PLAYER ABILITY UNLOCKS
 #
 # GAME PROGRESS
+
+
+var unlockedPlayerSkills = {
+	"gun" : false,
+}

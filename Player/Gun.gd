@@ -6,12 +6,13 @@ var cooldown = 0.5
 var shotTime = 0.0
 var damage = 1.5
 
-export var locked = false
+export var unLocked = true
 
 var bulletSpeed = Vector2(2100,0)
 
 func _ready():
 	GlobalPlayer.playerGun = self
+	unLocked = GameManager.get_skill_state("gun")
 	set_process(false)
 
 func shoot():
@@ -37,7 +38,7 @@ func _process(delta):
 	
 
 func _input(event):
-	if locked:
+	if !unLocked:
 		return
 	if event.is_action_pressed("shoot") and shotTime <= 0:
 		shoot()
