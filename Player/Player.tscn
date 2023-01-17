@@ -1984,12 +1984,12 @@ tracks/13/keys = {
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.118182 ), -0.511515, 0.0, 0, 0 ]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 33.0
-height = 154.0
+radius = 42.0
+height = 166.0
 
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 48.0
-height = 116.0
+height = 172.0
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 68, 148 )
@@ -2070,7 +2070,7 @@ nodes/onGround/position = Vector2( 720, 200 )
 nodes/output/position = Vector2( 1060, 240 )
 nodes/walking/node = SubResource( 18 )
 nodes/walking/position = Vector2( 60, 580 )
-node_connections = [ "output", 0, "onGround", "onGround", 0, "airState", "onGround", 1, "groundState", "airState", 0, "Animation", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking" ]
+node_connections = [ "airState", 0, "Animation", "airState", 1, "Animation 2", "onGround", 0, "airState", "onGround", 1, "groundState", "groundState", 0, "idle", "groundState", 1, "walking", "output", 0, "onGround" ]
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 514
@@ -2299,7 +2299,7 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -110 )
 current = true
-zoom = Vector2( 1.2, 1.2 )
+zoom = Vector2( 1.5, 1.5 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2344,7 +2344,7 @@ margin_bottom = -250.0
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( 6, -140 )
+position = Vector2( 0, -130 )
 shape = SubResource( 6 )
 
 [node name="HurtBox" type="Area2D" parent="."]

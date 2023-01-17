@@ -51,6 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="AssemblyJam"
+run/main_scene="res://Maps/Example.tscn"
 config/icon="res://icon.png"
 
 [autoload]

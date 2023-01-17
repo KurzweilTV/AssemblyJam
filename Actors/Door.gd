@@ -15,12 +15,12 @@ func _ready() -> void:
 
 func door_open() -> void:
 	var tween = create_tween()
-	tween.tween_property(top, "position:y", (top.position.y - 100), 0.2)
+	tween.tween_property(top, "position:y", (top.position.y - 200), 0.2)
 	tween.parallel().tween_property(bottom, "position:y", (bottom.position.y + 100), 0.2)
 
 func door_close() -> void:
 	var tween = create_tween()
-	tween.tween_property(top, "position:y", (top.position.y + 100), 0.3)
+	tween.tween_property(top, "position:y", (top.position.y + 200), 0.3)
 	tween.parallel().tween_property(bottom, "position:y", (bottom.position.y - 100), 0.3)
 
 func door_unlock():

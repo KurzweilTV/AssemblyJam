@@ -19,7 +19,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="DoorTop" type="StaticBody2D" parent="."]
-position = Vector2( 1, -48 )
+position = Vector2( 1, -142.222 )
 collision_layer = 256
 collision_mask = 2
 
@@ -31,7 +31,7 @@ position = Vector2( -0.388885, -1.44444 )
 shape = SubResource( 1 )
 
 [node name="DoorBottom" type="StaticBody2D" parent="."]
-position = Vector2( 0, 48 )
+position = Vector2( 0, -46.2222 )
 collision_layer = 256
 collision_mask = 2
 
@@ -43,8 +43,7 @@ position = Vector2( 0, 2 )
 shape = SubResource( 2 )
 
 [node name="DoorSensor" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 1, -1 )
+position = Vector2( 0, -97.7778 )
 shape = SubResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
