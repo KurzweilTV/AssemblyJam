@@ -1985,7 +1985,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.118182 ), -0.511515, 0.
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 33.0
-height = 190.0
+height = 154.0
 
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 48.0
@@ -2077,10 +2077,10 @@ nodes/onGround/position = Vector2( 720, 200 )
 nodes/output/position = Vector2( 1060, 240 )
 nodes/walking/node = SubResource( 18 )
 nodes/walking/position = Vector2( 60, 580 )
-node_connections = [ "output", 0, "onGround", "onGround", 0, "airState", "onGround", 1, "groundState", "airState", 0, "Animation", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking" ]
+node_connections = [ "airState", 0, "Animation", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking", "onGround", 0, "airState", "onGround", 1, "groundState", "output", 0, "onGround" ]
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
-collision_layer = 2
+collision_layer = 514
 collision_mask = 256
 script = ExtResource( 2 )
 __meta__ = {
@@ -2312,8 +2312,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, -128 )
+position = Vector2( -2, -131 )
 shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]

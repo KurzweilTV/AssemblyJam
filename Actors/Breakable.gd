@@ -9,7 +9,7 @@ func _ready() -> void:
 	randomize()
 
 func _process(_delta: float) -> void:
-	test_damage()
+	pass
 
 func take_damage(amount) -> void:
 	var anim = $AnimationPlayer
@@ -38,8 +38,3 @@ func drop_inventory():
 			print_debug("Dropped ",item, " at ", location)
 		else:
 			print_debug("Nothing Dropped")
-
-func test_damage(): # test damage by pressing space/return
-	if Input.is_action_just_released("ui_accept"):
-		take_damage(125)
-		print_debug(health)
