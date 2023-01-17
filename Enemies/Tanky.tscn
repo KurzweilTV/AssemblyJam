@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Enemies/Tanky.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/HitBox.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 40.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 24.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 24.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 304, 40 )
+
+[node name="Tanky" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 256
+linear_damp = 2.0
+applied_force = Vector2( 340, 0 )
+script = ExtResource( 1 )
+health = 5.0
+
+[node name="HitBox" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( 0, -40 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GroundScanner" type="RayCast2D" parent="Sprite"]
+position = Vector2( 64, -16 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+collision_mask = 256
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprite"]
+polygon = PoolVector2Array( -40, -40, -24, -80, 24, -80, 40, -40 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Sprite"]
+scale = Vector2( 1, 1.25 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -56, -19.2, -32, 0, 32, 0, 56, -19.2, 40, -32, -40, -32 )
+
+[node name="Line2D" type="Line2D" parent="Sprite"]
+position = Vector2( 0, -8 )
+points = PoolVector2Array( -32, -24, -24, 0, -16, -24, -8, 0, 0, -24, 8, 0, 16, -24, 24, 0, 32, -24 )
+default_color = Color( 0.486275, 0.486275, 0.486275, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="Sprite"]
+position = Vector2( 0, -64 )
+points = PoolVector2Array( 0, 0, 60, 0 )
+width = 20.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Muzzle" type="Position2D" parent="Sprite/Line2D2"]
+position = Vector2( 64, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -24 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -56 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="GroundTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="DetectionRange" type="Area2D" parent="."]
+position = Vector2( 0, -40 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+position = Vector2( 336, 0 )
+shape = SubResource( 4 )
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 1.6
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_Tanky_body_entered"]
+[connection signal="timeout" from="GroundTimer" to="." method="_on_GroundTimer_timeout"]
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_DetectionRange_body_entered"]
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
