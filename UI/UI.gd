@@ -7,7 +7,7 @@ func update_health(newHealth):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	visible = true
+	$Curtain.visible = true
 	$AnimationPlayer.play("In")
 	get_tree().paused = true
 	pass # Replace with function body.

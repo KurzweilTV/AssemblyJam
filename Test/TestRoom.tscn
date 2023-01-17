@@ -23,6 +23,9 @@ position = Vector2( -304, 80 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -872, 72 )
 
+[node name="Gun" parent="Player/IKPlayer/hip/torso/arm_r/arm_r_lower/hand_r" index="0"]
+locked = true
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 0, 136 )
 collision_layer = 256
@@ -53,3 +56,6 @@ position = Vector2( -1096, 80 )
 [node name="Door" parent="." instance=ExtResource( 9 )]
 position = Vector2( -576, -8 )
 trigger = NodePath("../Lever")
+
+[editable path="Player"]
+[editable path="Player/HitBox"]

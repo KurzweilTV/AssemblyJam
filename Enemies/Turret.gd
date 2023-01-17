@@ -1,4 +1,4 @@
-extends Node2D
+extends Enemy
 
 var bulletScene = preload("res://Enemies/Bullet.tscn")
 
@@ -31,6 +31,8 @@ func _physics_process(delta):
 		turnDir = 1
 	pass
 
+func die():
+	queue_free()
 
 func _on_FireTimer_timeout():
 	if $GunHolder/PlayerScanner.get_overlapping_bodies().size() > 0:

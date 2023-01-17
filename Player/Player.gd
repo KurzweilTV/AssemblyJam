@@ -35,10 +35,6 @@ func _process(delta):
 	if oldMousePos.y > newMousePos.y:
 		gunArmNode.rotation -= delta * gunArmSpeed
 	gunArmNode.rotation = clamp(gunArmNode.rotation,-2.4,-1.7)
-#	gunArmNode.look_at(get_global_mouse_position())
-#	gunArmNode.rotation += armRotationOffset
-#	gunArmNode.rotation
-	#oldMousePos = get_local_mouse_position()
 	oldMousePos = newMousePos
 		
 func die():

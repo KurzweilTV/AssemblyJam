@@ -11,7 +11,6 @@ func swing():
 	if visible:
 		return
 	visible = true
-	$AnimationPlayer.play("New Anim")
 	get_parent().flipLock = true
 	$CollisionShape2D.set_deferred("disabled",false)
 	$SwingTimer.start()

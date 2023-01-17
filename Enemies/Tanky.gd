@@ -35,6 +35,9 @@ func _on_Tanky_body_entered(body):
 	turn_around()
 	pass # Replace with function body.
 
+func die():
+	queue_free()
+	pass
 
 func _on_GroundTimer_timeout():
 	$Sprite/GroundScanner.update()

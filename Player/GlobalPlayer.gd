@@ -2,7 +2,7 @@ extends Node
 
 var playerControllerScene = preload("res://Player/Player.tscn")
 
-var controller : KinematicBody2D
+var controller : Player
 
 var UI
 
@@ -11,7 +11,7 @@ var maxHealth = 5.0
 var currentHealth = 3.0
 
 var currentSpawn = null
-	
+
 
 func damage(value):
 	currentHealth -= value
