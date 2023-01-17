@@ -6,6 +6,8 @@ var controller : Player
 
 var UI
 
+var playerGun = null
+
 var maxHealth = 5.0
 
 var currentHealth = 3.0

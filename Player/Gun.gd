@@ -11,6 +11,7 @@ export var locked = false
 var bulletSpeed = Vector2(2100,0)
 
 func _ready():
+	GlobalPlayer.playerGun = self
 	set_process(false)
 
 func shoot():

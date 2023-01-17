@@ -57,6 +57,7 @@ config/icon="res://icon.png"
 
 SoundManager="*res://Managers/SoundManager.tscn"
 GlobalPlayer="*res://Player/GlobalPlayer.tscn"
+GameManager="*res://Managers/GameManager.tscn"
 
 [display]
 

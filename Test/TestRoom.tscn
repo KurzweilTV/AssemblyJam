@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/NoiseTextures/experimental_texture006.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Actors/Checkpoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Actors/Lever.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Actors/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Actors/playerUnlock.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1200, 56 )
@@ -56,6 +57,9 @@ position = Vector2( -1096, 80 )
 [node name="Door" parent="." instance=ExtResource( 9 )]
 position = Vector2( -576, -8 )
 trigger = NodePath("../Lever")
+
+[node name="playerUnlock" parent="." instance=ExtResource( 10 )]
+position = Vector2( -48, 72 )
 
 [editable path="Player"]
 [editable path="Player/HitBox"]
