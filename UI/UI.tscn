@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/UI.gd" type="Script" id=1]
-[ext_resource path="res://UI/Over.png" type="Texture" id=2]
-[ext_resource path="res://UI/Progress.png" type="Texture" id=3]
-[ext_resource path="res://UI/Under.png" type="Texture" id=4]
+[ext_resource path="res://Art/HealthBar/healthbar-512x1536.png" type="Texture" id=2]
+[ext_resource path="res://Art/HealthBar/healthbar fill.png" type="Texture" id=3]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture8.png" type="Texture" id=5]
 [ext_resource path="res://Resources/NoiseTextures/experimental_texture006.png" type="Texture" id=6]
 
@@ -118,14 +117,14 @@ unique_name_in_owner = true
 material = SubResource( 2 )
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 208.0
-margin_bottom = 48.0
+margin_right = 392.0
+margin_bottom = 128.0
 max_value = 5.0
 step = 0.5
-value = 2.5
-texture_under = ExtResource( 4 )
+value = 5.0
 texture_over = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
 
 [node name="Curtain" type="ColorRect" parent="."]
 visible = false
