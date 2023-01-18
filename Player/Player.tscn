@@ -2139,6 +2139,7 @@ __meta__ = {
 }
 
 [node name="arm_r" type="Sprite" parent="IKPlayer/hip/torso"]
+visible = false
 position = Vector2( -42, -88 )
 rotation = -2.44799
 z_index = 4

@@ -36,7 +36,12 @@ func _process(delta):
 		gunArmNode.rotation -= delta * gunArmSpeed
 	gunArmNode.rotation = clamp(gunArmNode.rotation,-2.9,-1.7)
 	oldMousePos = newMousePos
-		
+	
+	if GameManager.unlockedPlayerSkills["gun"] == false: # hide the gunarm until we find it
+		$IKPlayer/hip/torso/arm_r.hide()
+	else:
+		$IKPlayer/hip/torso/arm_r.show()
+				
 func die():
 	set_process(false)
 	dead = true
