@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=2]
+[gd_scene load_steps=142 format=2]
 
 [ext_resource path="res://Test/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture8.png" type="Texture" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://Resources/Particles/orb1.png" type="Texture" id=10]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture13.png" type="Texture" id=11]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture10.png" type="Texture" id=12]
-[ext_resource path="res://Resources/Particles/beam1.png" type="Texture" id=13]
+[ext_resource path="res://Weapons/FlameThrowerEffect.tscn" type="PackedScene" id=13]
 [ext_resource path="res://icon.png" type="Texture" id=14]
 [ext_resource path="res://Resources/Particles/smoke3.png" type="Texture" id=15]
 [ext_resource path="res://Resources/ShaderCode/ScrollingTexture.tres" type="Shader" id=16]
@@ -467,62 +467,6 @@ angle_curve = SubResource( 26 )
 scale = 0.2
 scale_curve = SubResource( 92 )
 color_ramp = SubResource( 61 )
-hue_variation = 1.0
-hue_variation_random = 1.0
-
-[sub_resource type="Gradient" id=94]
-offsets = PoolRealArray( 0, 0.0516129, 0.458065, 0.787097 )
-colors = PoolColorArray( 1, 0.867188, 0, 1, 0.999512, 0.736659, 0.163982, 1, 0.527344, 0.102997, 0.102997, 1, 0.341176, 0.341176, 0.341176, 0 )
-
-[sub_resource type="GradientTexture" id=95]
-gradient = SubResource( 94 )
-
-[sub_resource type="Gradient" id=96]
-offsets = PoolRealArray( 0.135484, 0.316129, 0.883871, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 )
-
-[sub_resource type="GradientTexture" id=97]
-gradient = SubResource( 96 )
-width = 100
-
-[sub_resource type="ShaderMaterial" id=98]
-shader = SubResource( 1 )
-shader_param/scorll1 = Vector2( 0, -0.262 )
-shader_param/scorll2 = Vector2( 0, -0.312 )
-shader_param/sharpnes = 7.405
-shader_param/texture1 = ExtResource( 7 )
-shader_param/texture2 = ExtResource( 12 )
-shader_param/lifetimeGradient = SubResource( 95 )
-shader_param/overlapGradient = SubResource( 97 )
-
-[sub_resource type="Curve" id=161]
-min_value = -360.0
-max_value = 360.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=99]
-curve = SubResource( 161 )
-
-[sub_resource type="Gradient" id=101]
-colors = PoolColorArray( 0.909091, 0.909091, 0.909091, 0.0909091, 1, 1, 1, 1 )
-
-[sub_resource type="GradientTexture" id=102]
-gradient = SubResource( 101 )
-
-[sub_resource type="ParticlesMaterial" id=100]
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
-spread = 3.56
-gravity = Vector3( 50, 0, 0 )
-initial_velocity = 318.65
-initial_velocity_random = 0.35
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-damping = 8.57
-angle_curve = SubResource( 99 )
-scale = 0.2
-scale_curve = SubResource( 92 )
-color_ramp = SubResource( 102 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
@@ -1016,15 +960,7 @@ speed_scale = 0.5
 process_material = SubResource( 93 )
 texture = ExtResource( 8 )
 
-[node name="FlameThrower" type="Particles2D" parent="."]
-modulate = Color( 2, 2, 2, 1 )
-material = SubResource( 98 )
-position = Vector2( 1816, 752 )
-rotation = 1.5708
-scale = Vector2( 3, 3 )
-amount = 20
-process_material = SubResource( 100 )
-texture = ExtResource( 13 )
+[node name="FlameThrowerEffect" parent="." instance=ExtResource( 13 )]
 
 [node name="ThousandPetals" type="Particles2D" parent="."]
 modulate = Color( 2, 2, 2, 1 )
