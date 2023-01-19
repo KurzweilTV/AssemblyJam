@@ -13,6 +13,7 @@ func _physics_process(delta):
 	applied_force.y -= applied_force.y * delta
 	applied_force += Vector2(randf()-0.5,randf()-0.5) * 600
 	applied_force = applied_force.limit_length(speedMax)
+	angular_velocity -= rotation * delta * 70
 
 func attack():
 	var newAttack = grenadeScene.instance()

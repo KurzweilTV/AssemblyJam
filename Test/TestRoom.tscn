@@ -1,15 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/NoiseTextures/experimental_texture006.png" type="Texture" id=2]
 [ext_resource path="res://Test/TestRoom.gd" type="Script" id=3]
-[ext_resource path="res://Enemies/Turret.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Actors/Breakable.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemies/Drone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemies/Tanky.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Actors/Checkpoint.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Actors/Lever.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Actors/Door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Actors/playerUnlock.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1200, 56 )
@@ -24,8 +20,11 @@ position = Vector2( -304, 80 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -872, 72 )
 
-[node name="Gun" parent="Player/IKPlayer/hip/torso/arm_r/arm_r_lower/hand_r" index="0"]
-locked = true
+[node name="arm_r" parent="Player/IKPlayer/hip/torso" index="1"]
+rotation = -2.3719
+
+[node name="Gun" parent="Player/IKPlayer/hip/torso/arm_r" index="1"]
+testUnLocked = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 0, 136 )
@@ -42,24 +41,20 @@ shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Breakable" parent="." instance=ExtResource( 5 )]
-position = Vector2( -488, 40 )
-
 [node name="Tanky" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1016, 72 )
+position = Vector2( 1664, 88 )
 
-[node name="Turret" parent="." instance=ExtResource( 4 )]
-position = Vector2( 392, -424 )
+[node name="Drone" parent="." instance=ExtResource( 4 )]
+position = Vector2( -600, -584 )
 
-[node name="Lever" parent="." instance=ExtResource( 8 )]
-position = Vector2( -1096, 80 )
+[node name="Drone2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1160, -256 )
 
-[node name="Door" parent="." instance=ExtResource( 9 )]
-position = Vector2( -576, -8 )
-trigger = NodePath("../Lever")
+[node name="Drone3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 56, -544 )
 
-[node name="playerUnlock" parent="." instance=ExtResource( 10 )]
-position = Vector2( -48, 72 )
+[node name="Drone4" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1048, -704 )
 
 [editable path="Player"]
 [editable path="Player/HitBox"]

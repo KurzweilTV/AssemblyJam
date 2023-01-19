@@ -8,40 +8,43 @@ var flipLock = false # prevents player from flipping when moving
 
 export var armRotationOffset = -2.0
 
-onready var oldMousePos = get_local_mouse_position()
-var newMousePos = Vector2()
+export var gunOffset = 250
+
+#onready var oldMousePos = get_local_mouse_position()
+#var newMousePos = Vector2()
 
 onready var gunArmNode = $IKPlayer/hip/torso/arm_r
 
-var gunArmSpeed = 2.5
+#var gunArmSpeed = 2.5
 
 export var attackReady = true
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	GlobalPlayer.set_controller(self)
 	pass
 	
 func _process(delta):
 	
-	if !flipLock and !Input.is_action_pressed("shoot"):
+	if !flipLock:
 		var direction = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 		if direction !=0:
 			$HurtBox.scale.x = direction
 			$IKPlayer.scale.x = direction
-
-	if oldMousePos.y < newMousePos.y:
-		gunArmNode.rotation += delta * gunArmSpeed
-	if oldMousePos.y > newMousePos.y:
-		gunArmNode.rotation -= delta * gunArmSpeed
-	gunArmNode.rotation = clamp(gunArmNode.rotation,-2.9,-1.7)
-	oldMousePos = newMousePos
+	gunArmNode.look_at(get_global_mouse_position())
+	gunArmNode.rotation_degrees += gunOffset
+#	if oldMousePos.y < newMousePos.y:
+#		gunArmNode.rotation += delta * gunArmSpeed
+#	if oldMousePos.y > newMousePos.y:
+#		gunArmNode.rotation -= delta * gunArmSpeed
+#	gunArmNode.rotation = clamp(gunArmNode.rotation,-2.9,-1.7)
+#	oldMousePos = newMousePos
 	
-	if GameManager.unlockedPlayerSkills["gun"] == false: # hide the gunarm until we find it
-		$IKPlayer/hip/torso/arm_r.hide()
-	else:
-		$IKPlayer/hip/torso/arm_r.show()
-				
+#	if GameManager.unlockedPlayerSkills["gun"] == false: # hide the gunarm until we find it
+#		$IKPlayer/hip/torso/arm_r.hide()
+#	else:
+#		$IKPlayer/hip/torso/arm_r.show()
+
 func die():
 	set_process(false)
 	dead = true
@@ -52,8 +55,8 @@ func die():
 func _input(event):
 	if dead:
 		return
-	if event is InputEventMouseMotion:
-		newMousePos = get_local_mouse_position()
+#	if event is InputEventMouseMotion:
+#		newMousePos = get_local_mouse_position()
 	if event.is_action_pressed("ui_accept") and attackReady:
 		attackReady = false
 		if $IKPlayer/hip/ArmAnimator.current_animation == "SwingDown":

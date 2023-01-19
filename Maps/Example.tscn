@@ -274,6 +274,9 @@ default_color = Color( 0.4, 1, 0.466667, 1 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 512, 512 )
 
+[node name="Gun" parent="Player/IKPlayer/hip/torso/arm_r" index="1"]
+testUnLocked = true
+
 [node name="Checkpoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2432, 512 )
 
@@ -356,3 +359,6 @@ position = Vector2( 0, 64 )
 shape = SubResource( 7 )
 
 [connection signal="body_entered" from="DebugDroneSpawn" to="DebugDroneSpawn" method="_on_DebugDroneSpawn_body_entered"]
+
+[editable path="Player"]
+[editable path="Player/HitBox"]
