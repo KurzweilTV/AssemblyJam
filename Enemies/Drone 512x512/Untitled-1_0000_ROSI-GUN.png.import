@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Untitled-1_0001_RO51-.png-43154f51d989ffb3d641a17c5a42b30e.stex"
+path="res://.import/Untitled-1_0000_ROSI-GUN.png-95554d83e42ac468ba74f223fbe946a8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Drone 512x512/Untitled-1_0001_RO51-.png"
-dest_files=[ "res://.import/Untitled-1_0001_RO51-.png-43154f51d989ffb3d641a17c5a42b30e.stex" ]
+source_file="res://Enemies/Drone 512x512/Untitled-1_0000_ROSI-GUN.png"
+dest_files=[ "res://.import/Untitled-1_0000_ROSI-GUN.png-95554d83e42ac468ba74f223fbe946a8.stex" ]
 
 [params]
 

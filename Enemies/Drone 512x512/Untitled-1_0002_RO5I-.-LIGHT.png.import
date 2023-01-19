@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Untitled-1_0002_RO5I-.-LIGHT.png-6363ffc49f1801582566c4e692575cec.stex"
+path="res://.import/Untitled-1_0002_RO5I-.-LIGHT.png-4d3fcc8a3c888e66ba10ddcfeeeb9bc6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Drone 512x512/Untitled-1_0002_RO5I-.-LIGHT.png"
-dest_files=[ "res://.import/Untitled-1_0002_RO5I-.-LIGHT.png-6363ffc49f1801582566c4e692575cec.stex" ]
+source_file="res://Enemies/Drone 512x512/Untitled-1_0002_RO5I-.-LIGHT.png"
+dest_files=[ "res://.import/Untitled-1_0002_RO5I-.-LIGHT.png-4d3fcc8a3c888e66ba10ddcfeeeb9bc6.stex" ]
 
 [params]
 
