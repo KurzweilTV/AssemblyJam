@@ -20,6 +20,12 @@ position = Vector2( -304, 80 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -872, 72 )
 
+[node name="arm_r" parent="Player/IKPlayer/hip/torso" index="1"]
+rotation = -2.3719
+
+[node name="Gun" parent="Player/IKPlayer/hip/torso/arm_r" index="1"]
+testUnLocked = true
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 0, 136 )
 collision_layer = 256

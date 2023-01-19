@@ -2070,7 +2070,7 @@ nodes/onGround/position = Vector2( 720, 200 )
 nodes/output/position = Vector2( 1060, 240 )
 nodes/walking/node = SubResource( 18 )
 nodes/walking/position = Vector2( 60, 580 )
-node_connections = [ "airState", 0, "Animation", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking", "onGround", 0, "airState", "onGround", 1, "groundState", "output", 0, "onGround" ]
+node_connections = [ "output", 0, "onGround", "onGround", 0, "airState", "onGround", 1, "groundState", "airState", 0, "Animation", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking" ]
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 514
@@ -2139,9 +2139,8 @@ __meta__ = {
 }
 
 [node name="arm_r" type="Sprite" parent="IKPlayer/hip/torso"]
-visible = false
 position = Vector2( -42, -88 )
-rotation = -2.44799
+rotation = -4.72635
 z_index = 4
 texture = ExtResource( 12 )
 offset = Vector2( -18.0899, 27.6663 )
@@ -2170,15 +2169,16 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="Gun" parent="IKPlayer/hip/torso/arm_r/arm_r_lower/hand_r" instance=ExtResource( 28 )]
-rotation = 0.46527
-
 [node name="end" type="Position2D" parent="IKPlayer/hip/torso/arm_r/arm_r_lower/hand_r"]
 position = Vector2( 7.52811, 11.1053 )
 rotation = 1.68538
 __meta__ = {
 "_edit_bone_": true
 }
+
+[node name="Gun" parent="IKPlayer/hip/torso/arm_r" instance=ExtResource( 28 )]
+position = Vector2( -61.4083, 153.614 )
+rotation = 1.90859
 
 [node name="arm_l" type="Sprite" parent="IKPlayer/hip/torso"]
 position = Vector2( 46, -96 )

@@ -6,21 +6,25 @@ var cooldown = 0.5
 var shotTime = 0.0
 var damage = 1.5
 
-export var unLocked = true
+export var testUnLocked = false
+var unLocked = false
 
 var bulletSpeed = Vector2(2100,0)
 
 func _ready():
 	GlobalPlayer.playerGun = self
 	unLocked = GameManager.get_skill_state("gun")
+	if testUnLocked:
+		unLocked = true
 	set_process(false)
+
 
 func shoot():
 	set_process(true)
 	shotTime = cooldown
 #	var theArm = get_parent().get_parent().get_parent() # oh God why
 	var newBullet = bulletScene.instance()
-	newBullet.global_position = $Muzzle.global_position
+	newBullet.global_position = global_position
 	newBullet.set_meta("damage",damage)
 	newBullet.linear_velocity = bulletSpeed.rotated(global_rotation)
 	newBullet.global_rotation = global_rotation
