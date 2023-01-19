@@ -25,9 +25,9 @@ func _physics_process(delta):
 	if shooting:
 		return
 	$GunHolder.rotate(delta * 2 * turnDir)
-	if $GunHolder.rotation > PI:
+	if $GunHolder.rotation > PI-0.1:
 		turnDir = -1
-	if $GunHolder.rotation < 0:
+	if $GunHolder.rotation < 0.1:
 		turnDir = 1
 	pass
 
