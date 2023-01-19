@@ -24,3 +24,5 @@ func update_save():
 func load_game():
 	unlockedPlayerSkills = $StoryTracker.unlockedPlayerSkills.duplicate()
 	pass
+
+
