@@ -24,12 +24,13 @@ func _ready():
 	add_child(cooldownTimer)
 	if has_node("AreaAttack"): # this is an AOE attack
 		attackNode = get_node("AreaAttack") as Area2D
-		attackNode.set_collision_layer_bit(2,!playerAttack) # makes it an Enemy attack
-		attackNode.set_collision_layer_bit(4,playerAttack) # makes it a Player attack
+		attackNode.set_collision_layer_bit(2,playerAttack) # makes it an Enemy attack
+		attackNode.set_collision_layer_bit(4,!playerAttack) # makes it a Player attack
 		attackNode.set_meta("damage",damage)
 	elif has_node("Shooter"): # this is a pew pew gun
 		attackNode = get_node("Shooter")
 		attackNode.damage = damage
+		attackNode.playerAttack = playerAttack
 	assert(attackNode!=null)
 		
 
@@ -46,5 +47,5 @@ func fire():
 		cooldownTimer.start()
 		reloading = true
 		$Animator.play("Fire")
-		attackNode.shoot(attackTime)
+		attackNode.shoot()
 

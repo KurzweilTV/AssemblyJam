@@ -4,6 +4,7 @@ extends Area2D
 func _on_HitBox_body_entered(body):
 	assert(body.has_meta("damage"))
 	get_parent().get_damaged(body.get_meta("damage"))
+	body.queue_free()
 	pass # Replace with function body.
 
 

@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Weapons/HunterMissile.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Particles/smoke3.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.763636 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.24409, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.585526, 0.736842 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 0, 0, 1 )
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 8.0
+height = 60.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 617.04
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0.15625, 1 )
+colors = PoolColorArray( 0.264706, 0.264706, 0.264706, 0.641544, 0.376471, 0.376471, 0.376471, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0.709091 ), 0.0, 0.0, 0, 0, Vector2( 0.456954, 0.890909 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+gravity = Vector3( 0, 10, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 0.1
+scale_random = 0.1
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 9 )
+
+[node name="HunterMissile" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 256
+mass = 4.0
+gravity_scale = 0.4
+contacts_reported = 2
+contact_monitor = true
+linear_damp = 5.0
+script = ExtResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 0, 0, 20, 0, 40, 0, 60, 0, 80, 0 )
+width = 30.0
+width_curve = SubResource( 1 )
+default_color = Color( 1, 1, 1, 1 )
+gradient = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 32, 0 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="ScanRange" type="Area2D" parent="."]
+position = Vector2( 78, 0 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScanRange"]
+shape = SubResource( 4 )
+
+[node name="ArmTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Tracker" type="Line2D" parent="."]
+visible = false
+points = PoolVector2Array( 0, 0, 500, 0 )
+default_color = Color( 0, 1, 0.27451, 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 12
+lifetime = 0.6
+explosiveness = 0.08
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_HunterMissile_body_entered"]
+[connection signal="timeout" from="ArmTimer" to="." method="_on_ArmTimer_timeout"]
