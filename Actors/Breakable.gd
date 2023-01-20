@@ -24,6 +24,8 @@ func death():
 	$Sparks.emitting = true
 	$Explosion.play("explosion")
 	$Intact.hide()
+	$Broken.show()
+	$CollisionShape2D.disabled = true
 	$Smoke.emitting = true
 	drop_inventory()
 	yield($Explosion,"animation_finished")

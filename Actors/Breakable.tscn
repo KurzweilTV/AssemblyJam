@@ -150,6 +150,7 @@ scale_amount_random = 0.55
 color_ramp = SubResource( 4 )
 
 [node name="Broken" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1, 0 )
 texture = ExtResource( 4 )
 region_rect = Rect2( 29.2859, 1.02057, 16.7436, 23.7651 )
