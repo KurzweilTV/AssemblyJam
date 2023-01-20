@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://Test/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture8.png" type="Texture" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture2.png" type="Texture" id=7]
 [ext_resource path="res://Resources/Particles/smoke5.png" type="Texture" id=8]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture11.png" type="Texture" id=9]
-[ext_resource path="res://Resources/Particles/orb1.png" type="Texture" id=10]
+[ext_resource path="res://Weapons/FireCracker.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture13.png" type="Texture" id=11]
 [ext_resource path="res://Resources/NoiseTextures/seamless_texture10.png" type="Texture" id=12]
 [ext_resource path="res://Weapons/FlameThrowerEffect.tscn" type="PackedScene" id=13]
@@ -734,54 +734,6 @@ color_ramp = SubResource( 64 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
-[sub_resource type="Gradient" id=67]
-offsets = PoolRealArray( 0, 0.148387, 0.296774, 1 )
-colors = PoolColorArray( 0, 0.321569, 0.00392157, 0, 0.839844, 0.607072, 0.0557709, 1, 0.859375, 0.82974, 0.100708, 0.913725, 0.682353, 0.682353, 0.682353, 0 )
-
-[sub_resource type="GradientTexture" id=68]
-gradient = SubResource( 67 )
-
-[sub_resource type="Gradient" id=69]
-offsets = PoolRealArray( 0, 0.477419, 0.851613 )
-colors = PoolColorArray( 0.882353, 0.941176, 0.933333, 0, 1, 1, 1, 0, 1, 1, 1, 1 )
-
-[sub_resource type="GradientTexture" id=70]
-gradient = SubResource( 69 )
-width = 100
-
-[sub_resource type="ShaderMaterial" id=71]
-shader = SubResource( 62 )
-shader_param/scorll1 = Vector2( 0, 0.05 )
-shader_param/scorll2 = Vector2( 0.09, 0 )
-shader_param/sharpnes = 4.11
-shader_param/texture1 = ExtResource( 9 )
-shader_param/texture2 = ExtResource( 6 )
-shader_param/lifetimeGradient = SubResource( 68 )
-shader_param/overlapGradient = SubResource( 70 )
-
-[sub_resource type="Curve" id=72]
-_data = [ Vector2( 0, 0 ), 0.0, 0.187824, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=73]
-curve = SubResource( 72 )
-
-[sub_resource type="ParticlesMaterial" id=74]
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
-spread = 30.11
-gravity = Vector3( 0, 0, 0 )
-initial_velocity_random = 0.35
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-damping = 0.65
-angle = 720.0
-angle_random = 1.0
-scale = 0.2
-scale_curve = SubResource( 73 )
-color_ramp = SubResource( 64 )
-hue_variation = 1.0
-hue_variation_random = 1.0
-
 [sub_resource type="Gradient" id=116]
 offsets = PoolRealArray( 0.0193548, 0.0967742, 0.341935, 0.496774, 0.793548 )
 colors = PoolColorArray( 0, 0.321569, 0.00392157, 0, 1, 0.841125, 0.464844, 1, 0.76709, 0.388789, 0, 0.913725, 0.271484, 0.111869, 0.0466614, 1, 0.0922852, 0.0836334, 0.0836334, 0 )
@@ -817,6 +769,12 @@ shader_param/texture1 = SubResource( 121 )
 shader_param/texture2 = ExtResource( 7 )
 shader_param/lifetimeGradient = SubResource( 117 )
 shader_param/overlapGradient = SubResource( 119 )
+
+[sub_resource type="Curve" id=72]
+_data = [ Vector2( 0, 0 ), 0.0, 0.187824, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=73]
+curve = SubResource( 72 )
 
 [sub_resource type="ParticlesMaterial" id=123]
 flag_disable_z = true
@@ -1015,15 +973,7 @@ show_behind_parent = true
 scale = Vector2( 0.02, 0.02 )
 texture = ExtResource( 20 )
 
-[node name="FireCracker" type="Particles2D" parent="."]
-modulate = Color( 2, 2, 2, 1 )
-material = SubResource( 71 )
-position = Vector2( 1416, 152 )
-scale = Vector2( 8, 8 )
-amount = 10
-lifetime = 0.6
-process_material = SubResource( 74 )
-texture = ExtResource( 10 )
+[node name="FireCracker" parent="." instance=ExtResource( 10 )]
 
 [node name="FireCracker2" type="Particles2D" parent="."]
 modulate = Color( 2, 2, 2, 1 )
