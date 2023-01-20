@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Weapons/Weapon.gd" type="Script" id=1]
+[ext_resource path="res://Weapons/Shooter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Weapons/BouncyBall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Weapons/FireCracker.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=74]
+resource_name = "Fire"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("FireCracker:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=75]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FireCracker:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Gradient" id=63]
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=64]
+gradient = SubResource( 63 )
+
+[sub_resource type="Curve" id=72]
+_data = [ Vector2( 0, 0 ), 0.0, 0.187824, 0, 0, Vector2( 1, 0.527273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=73]
+curve = SubResource( 72 )
+
+[sub_resource type="ParticlesMaterial" id=76]
+flag_disable_z = true
+spread = 15.63
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 34.48
+initial_velocity_random = 0.35
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 0.65
+angle = 720.0
+angle_random = 1.0
+scale = 0.2
+scale_curve = SubResource( 73 )
+color_ramp = SubResource( 64 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[node name="BouncyGun" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Shooter" parent="." instance=ExtResource( 2 )]
+position = Vector2( 96, 0 )
+bulletSpeed = 600
+projectile = ExtResource( 3 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 0, 0, 96, 0 )
+default_color = Color( 0.411765, 0.0901961, 0.839216, 1 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+anims/Fire = SubResource( 74 )
+anims/RESET = SubResource( 75 )
+
+[node name="FireCracker" parent="." instance=ExtResource( 4 )]
+position = Vector2( 96, 0 )
+emitting = false
+process_material = SubResource( 76 )

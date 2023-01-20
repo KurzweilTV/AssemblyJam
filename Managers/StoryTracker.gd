@@ -10,3 +10,4 @@ extends Node
 var unlockedPlayerSkills = {
 	"gun" : false,
 }
+var voiceClipHistory

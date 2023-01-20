@@ -12,7 +12,12 @@ func _ready():
 	get_tree().paused = true
 	pass # Replace with function body.
 
-
+func load_voice(text : String, clip : String):
+	$VoicePlayer.stream = load("res://Test/"+clip+".wav")
+	$VoicePlayer.play()
+	$"%TextBox".text = text
+	$"%TextPrinter".play("Print")
+	pass
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "In":
