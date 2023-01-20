@@ -2300,7 +2300,7 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -110 )
 current = true
-zoom = Vector2( 1.5, 1.5 )
+zoom = Vector2( 1.8, 1.8 )
 __meta__ = {
 "_edit_lock_": true
 }
