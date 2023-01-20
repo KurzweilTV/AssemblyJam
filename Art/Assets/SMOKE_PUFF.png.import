@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CustomTorso.png-102f5fde2f135d5ff5e361f61920b4ce.stex"
+path="res://.import/SMOKE_PUFF.png-f05afbf1f4d9d529546b7720a4a3c6b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Art/CustomTorso.png"
-dest_files=[ "res://.import/CustomTorso.png-102f5fde2f135d5ff5e361f61920b4ce.stex" ]
+source_file="res://Art/Assets/SMOKE_PUFF.png"
+dest_files=[ "res://.import/SMOKE_PUFF.png-f05afbf1f4d9d529546b7720a4a3c6b4.stex" ]
 
 [params]
 

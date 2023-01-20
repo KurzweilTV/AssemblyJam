@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Art/Assets/SMALL CRATE.png" type="Texture" id=1]
 [ext_resource path="res://Actors/Breakable.gd" type="Script" id=2]
 [ext_resource path="res://Art/explosion.png" type="Texture" id=3]
+[ext_resource path="res://Art/Assets/SMALL CRATE_BROKEN.png" type="Texture" id=4]
+[ext_resource path="res://Art/Assets/SMOKE_PUFF.png" type="Texture" id=5]
 
 [sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0.0223464, 1 )
@@ -14,7 +16,7 @@ extents = Vector2( 30, 29 )
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("Sprite:modulate:r")
+tracks/0/path = NodePath("Intact:modulate:r")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -24,27 +26,27 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.001 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("Sprite:modulate:g")
+tracks/1/path = NodePath("Intact:modulate:g")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0.392157, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.001 )
 }
 tracks/2/type = "bezier"
-tracks/2/path = NodePath("Sprite:modulate:b")
+tracks/2/path = NodePath("Intact:modulate:b")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0.392157, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.001 )
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("Sprite:modulate:a")
+tracks/3/path = NodePath("Intact:modulate:a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -59,7 +61,7 @@ resource_name = "damage"
 length = 0.1
 step = 0.05
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("Sprite:modulate:g")
+tracks/0/path = NodePath("Intact:modulate:g")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -69,7 +71,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.026837, 0.0543759, 0.0770014, 0.0964683 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("Sprite:modulate:b")
+tracks/1/path = NodePath("Intact:modulate:b")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -129,24 +131,30 @@ script = ExtResource( 2 )
 scale = Vector2( 1.003, 0.990526 )
 emitting = false
 amount = 97
-lifetime = 3.0
+lifetime = 4.0
 one_shot = true
-explosiveness = 0.95
+explosiveness = 0.26
 randomness = 0.22
 lifetime_randomness = 0.08
+texture = ExtResource( 5 )
 emission_shape = 1
 emission_sphere_radius = 36.23
 direction = Vector2( 0, -1 )
 spread = 31.77
 gravity = Vector2( 0, -50 )
-initial_velocity = 34.86
-angular_velocity = 52.84
+initial_velocity = 50.0
+angular_velocity = 50.0
 angular_velocity_random = 1.0
-scale_amount = 23.35
+scale_amount = 1.5
+scale_amount_random = 0.55
 color_ramp = SubResource( 4 )
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 0.392157, 0.392157, 1 )
+[node name="Broken" type="Sprite" parent="."]
+position = Vector2( 1, 0 )
+texture = ExtResource( 4 )
+region_rect = Rect2( 29.2859, 1.02057, 16.7436, 23.7651 )
+
+[node name="Intact" type="Sprite" parent="."]
 position = Vector2( 1, 0 )
 texture = ExtResource( 1 )
 region_rect = Rect2( 29.2859, 1.02057, 16.7436, 23.7651 )
