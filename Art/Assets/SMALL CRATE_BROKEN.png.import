@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CustomHip.png-c21adaeab6fa0cb9430a818cb5dc1945.stex"
+path="res://.import/SMALL CRATE_BROKEN.png-ca4722e34c8eceb107c5616623d7f883.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Art/CustomHip.png"
-dest_files=[ "res://.import/CustomHip.png-c21adaeab6fa0cb9430a818cb5dc1945.stex" ]
+source_file="res://Art/Assets/SMALL CRATE_BROKEN.png"
+dest_files=[ "res://.import/SMALL CRATE_BROKEN.png-ca4722e34c8eceb107c5616623d7f883.stex" ]
 
 [params]
 

@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Actors/StoryTerminal.gd" type="Script" id=2]
+[ext_resource path="res://Assets/JetBrainsMono-SemiBold.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 39.5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
+font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Open"
@@ -94,7 +99,8 @@ color = Color( 0, 0, 0.117647, 0.733333 )
 [node name="StoryText" type="Label" parent="StoryUI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+custom_fonts/font = SubResource( 4 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
 align = 1
 valign = 1
 autowrap = true

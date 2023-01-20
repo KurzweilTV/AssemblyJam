@@ -4,11 +4,11 @@ extends Node
 func play_song(newSong : AudioStream):
 	if $MusicPlayer1.playing:
 		$MusicPlayer2.stream = newSong
-		$Tranistion.play("Play2")
+		$Transition.play("Play2")
 		$MusicPlayer2.play()
 	else:
 		$MusicPlayer1.stream = newSong
-		$Tranistion.play("Play1")
+		$Transition.play("Play1")
 		$MusicPlayer1.play()
 	pass
 

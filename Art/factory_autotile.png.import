@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ROBO_0000s_0007_TORSO.png-a443cd73af2c984cdbf757c6c6fb7c0d.stex"
+path="res://.import/factory_autotile.png-d1cf267b929f8c69248c9832a20b1c51.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Art/ROBO_0000s_0007_TORSO.png"
-dest_files=[ "res://.import/ROBO_0000s_0007_TORSO.png-a443cd73af2c984cdbf757c6c6fb7c0d.stex" ]
+source_file="res://Art/factory_autotile.png"
+dest_files=[ "res://.import/factory_autotile.png-d1cf267b929f8c69248c9832a20b1c51.stex" ]
 
 [params]
 

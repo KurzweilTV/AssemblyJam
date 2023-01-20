@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CustomTorso.png-102f5fde2f135d5ff5e361f61920b4ce.stex"
+path="res://.import/New-tiles_0002_SMALL-METAL-SCRAPS.png-45bb2161145001628bcaf9262d6869c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Art/CustomTorso.png"
-dest_files=[ "res://.import/CustomTorso.png-102f5fde2f135d5ff5e361f61920b4ce.stex" ]
+source_file="res://Art/Assets/New-tiles_0002_SMALL-METAL-SCRAPS.png"
+dest_files=[ "res://.import/New-tiles_0002_SMALL-METAL-SCRAPS.png-45bb2161145001628bcaf9262d6869c9.stex" ]
 
 [params]
 

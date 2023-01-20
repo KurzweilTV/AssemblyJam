@@ -1,8 +1,8 @@
 extends Area2D
 
-var health = 100.0
+var health = 1.0
 var droppables = { # a weighted list of the items dropped on death
-	"droppable": 0.5
+	"scrap": 0.5 #item and pct chance it will drop
 }
 
 func _ready() -> void:
@@ -23,7 +23,9 @@ func death():
 	$Smoke.emitting = true
 	$Sparks.emitting = true
 	$Explosion.play("explosion")
-	$Sprite.hide()
+	$Intact.hide()
+	$Broken.show()
+	$CollisionShape2D.disabled = true
 	$Smoke.emitting = true
 	drop_inventory()
 	yield($Explosion,"animation_finished")
@@ -38,3 +40,8 @@ func drop_inventory():
 			print_debug("Dropped ",item, " at ", location)
 		else:
 			print_debug("Nothing Dropped")
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("break_test"):
+		print("Boom")
+		death()

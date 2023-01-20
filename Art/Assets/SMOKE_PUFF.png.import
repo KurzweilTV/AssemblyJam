@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ROBO_0000s_0001_RIGHT-UPPER-ARM.png-c4de529613e104a11ee61daee542d03b.stex"
+path="res://.import/SMOKE_PUFF.png-f05afbf1f4d9d529546b7720a4a3c6b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Art/ROBO_0000s_0001_RIGHT-UPPER-ARM.png"
-dest_files=[ "res://.import/ROBO_0000s_0001_RIGHT-UPPER-ARM.png-c4de529613e104a11ee61daee542d03b.stex" ]
+source_file="res://Art/Assets/SMOKE_PUFF.png"
+dest_files=[ "res://.import/SMOKE_PUFF.png-f05afbf1f4d9d529546b7720a4a3c6b4.stex" ]
 
 [params]
 
