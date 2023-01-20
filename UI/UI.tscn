@@ -65,6 +65,7 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=9]
 resource_name = "Print"
+length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("TextBox:percent_visible")
 tracks/0/interp = 1
@@ -76,6 +77,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextBox:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -91,6 +104,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextBox:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -210,5 +235,8 @@ color = Color( 0, 0, 0, 1 )
 anims/In = SubResource( 5 )
 anims/Out = SubResource( 7 )
 anims/RESET = SubResource( 6 )
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
