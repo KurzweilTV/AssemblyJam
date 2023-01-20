@@ -10,10 +10,10 @@ extends State
 onready var mover = get_parent() as MoveState
 var jumpVector = Vector2.ZERO
 var airSpeed = 200
-export var jumpForce = 320 #initla force of jump
+export var jumpForce = 350 #initla force of jump
 
 var airTime = 0 # how long has the player been jumping for
-export var maxAirTime = 0.3 # max time for gravity to kick in
+export var maxAirTime = 0.4 # max time for gravity to kick in
 
 
 func _physics_process(delta):
