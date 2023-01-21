@@ -36,10 +36,6 @@ func _ready():
 	assert(attackNode!=null)
 		
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		fire()
-
 func reload_complete():
 	reloading = false
 	if shooting:

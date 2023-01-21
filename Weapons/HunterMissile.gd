@@ -5,6 +5,10 @@ var power = 200
 var target = null
 
 func _ready():
+	if get_collision_layer_bit(2):
+		$ScanRange.set_collision_mask_bit(3,true)
+	if get_collision_layer_bit(4):
+		$ScanRange.set_collision_mask_bit(1,true)
 	pass
 
 	
@@ -29,6 +33,7 @@ func _on_ArmTimer_timeout():
 			if global_position.distance_to(T.global_position) < global_position.distance_to(target.global_position):
 				target = T
 	$ArmTimer.queue_free()
+	print(target)
 	pass # Replace with function body.
 
 

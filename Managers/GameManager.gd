@@ -19,15 +19,16 @@ func _ready():
 
 
 var unlockedPlayerSkills = {
-	"gun" : false,
+	"basicGun" : false,
+	"bouncyGun" : false,
+	"hunterGun" : false,
+	"fireGun" : false,
 }
 
 func unlock_skill(name):
 	assert(unlockedPlayerSkills.has(name))
 	unlockedPlayerSkills[name] = true
-	match name:
-		"gun":
-			GlobalPlayer.playerGun.unLocked = true
+	GlobalPlayer.playerGun.unlock(name)
 	pass
 
 func get_skill_state(name):

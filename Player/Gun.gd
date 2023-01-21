@@ -1,49 +1,68 @@
 extends Node2D
 
-var bulletScene = preload("res://Player/Bullet.tscn")
-
-var cooldown = 0.5
-var shotTime = 0.0
-var damage = 1.5
-
-export var testUnLocked = false
+export var testUnLocked = true
 var unLocked = false
 
-var bulletSpeed = Vector2(2100,0)
+var unlockedGuns = []
+
+var currentGun = 0
+
 
 func _ready():
 	GlobalPlayer.playerGun = self
-	unLocked = GameManager.get_skill_state("gun")
 	if testUnLocked:
-		unLocked = true
-	set_process(false)
+		unlock("basicGun")
+		unlock("fireGun")
+		unlock("hunterGun")
+		unlock("bouncyGun")
+
 
 
 func shoot():
-	set_process(true)
-	shotTime = cooldown
-#	var theArm = get_parent().get_parent().get_parent() # oh God why
-	var newBullet = bulletScene.instance()
-	newBullet.global_position = global_position
-	newBullet.set_meta("damage",damage)
-	newBullet.linear_velocity = bulletSpeed.rotated(global_rotation)
-	newBullet.global_rotation = global_rotation
-	get_tree().current_scene.add_child(newBullet)
+	unlockedGuns[currentGun].fire()
 	pass
 
-
-func _process(delta):
-	shotTime -= delta
-	if shotTime < 0:
-		if !Input.is_action_pressed("shoot"):
-			set_process(false)
-		else:
-			shoot()
+func unlock(name):
 	
+	unLocked = true
+	match name:
+		"basicGun" :
+			unlockedGuns.push_back($Guns/BasicGun)
+			$Guns/BasicGun.visible = true
+			pass
+		"bouncyGun" :
+			unlockedGuns.push_back($Guns/BouncyGun)
+			pass
+			
+		"hunterGun" :
+			unlockedGuns.push_back($Guns/HunterGun)
+			pass
+			
+		"fireGun" :
+			unlockedGuns.push_back($Guns/FlameThrower)
+			pass
+			
+	pass
+
 
 func _input(event):
 	if !unLocked:
 		return
-	if event.is_action_pressed("shoot") and shotTime <= 0:
+	if event.is_action_pressed("swap"):
+		unlockedGuns[currentGun].visible = false
+		var gunCount = unlockedGuns.size()
+		if gunCount < 2: # there is only 1 gun
+			return
+		if currentGun == gunCount-1:
+			currentGun = 0
+		else:
+			currentGun += 1
+		
+		
+		unlockedGuns[currentGun].visible = true
+	if event.is_action_pressed("shoot"):
 		shoot()
+	if event.is_action_released("shoot"):
+		for G in $Guns.get_children():
+			G.shooting = false
 

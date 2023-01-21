@@ -68,7 +68,7 @@ shape = SubResource( 3 )
 [node name="ScanRange" type="Area2D" parent="."]
 position = Vector2( 78, 0 )
 collision_layer = 0
-collision_mask = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScanRange"]
 shape = SubResource( 4 )

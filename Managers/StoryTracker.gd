@@ -8,6 +8,9 @@ extends Node
 
 
 var unlockedPlayerSkills = {
-	"gun" : false,
+	"basicGun" : false,
+	"bouncyGun" : false,
+	"hunterGun" : false,
+	"fireGun" : false,
 }
 var voiceClipHistory

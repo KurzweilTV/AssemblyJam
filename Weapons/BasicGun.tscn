@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Weapons/Weapon.gd" type="Script" id=1]
+[ext_resource path="res://Weapons/Shooter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Weapons/BasicBullet.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fire"
+
+[node name="BasicGun" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+anims/Fire = SubResource( 1 )
+
+[node name="Shooter" parent="." instance=ExtResource( 2 )]
+bulletSpeed = 2000
+projectile = ExtResource( 3 )

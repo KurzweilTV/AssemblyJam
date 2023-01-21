@@ -1135,6 +1135,7 @@ __meta__ = {
 
 [node name="HitBox" parent="." instance=ExtResource( 3 )]
 visible = false
+z_index = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2( 0, -130 )
