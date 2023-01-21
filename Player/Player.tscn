@@ -1241,7 +1241,7 @@ nodes/onGround/position = Vector2( 720, 200 )
 nodes/output/position = Vector2( 1060, 240 )
 nodes/walking/node = SubResource( 18 )
 nodes/walking/position = Vector2( 60, 580 )
-node_connections = [ "airState", 0, "Animation", "airState", 1, "Animation 2", "output", 0, "onGround", "onGround", 0, "airState", "onGround", 1, "groundState", "groundState", 0, "idle", "groundState", 1, "walking" ]
+node_connections = [ "output", 0, "onGround", "airState", 0, "Animation", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking", "onGround", 0, "airState", "onGround", 1, "groundState" ]
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 514
@@ -1454,8 +1454,8 @@ texture = ExtResource( 30 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -110 )
+offset = Vector2( 0, -100 )
 current = true
-zoom = Vector2( 1.8, 1.8 )
 __meta__ = {
 "_edit_lock_": true
 }
