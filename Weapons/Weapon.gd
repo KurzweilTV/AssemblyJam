@@ -13,6 +13,8 @@ export var attackTime = 0.5
 
 onready var cooldownTimer = Timer.new()
 
+var shooting = false
+
 var attackNode = null
 
 var reloading = false
@@ -40,10 +42,13 @@ func _input(event):
 
 func reload_complete():
 	reloading = false
+	if shooting:
+		fire()
 	pass
 
 func fire():
 	if !reloading:
+		shooting = true
 		cooldownTimer.start()
 		reloading = true
 		$Animator.play("Fire")

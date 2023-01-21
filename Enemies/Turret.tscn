@@ -1,16 +1,20 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Enemies/Turret.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/HitBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Turret 512x512/Untitled-1_0000s_0002_TURRET.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/Turret 512x512/Untitled-1_0000s_0001_TURRET-LIGHTS.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/Turret 512x512/Untitled-1_0000s_0000_TURRET-GUN.png" type="Texture" id=5]
+[ext_resource path="res://Weapons/HunterGun.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 64, 64 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 530.209, 66.9425 )
+extents = Vector2( 530.209, 24 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 1224.03
 
 [node name="Turret" type="RigidBody2D"]
 collision_layer = 0
@@ -24,23 +28,26 @@ script = ExtResource( 1 )
 shape = SubResource( 4 )
 
 [node name="Base" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="Untitled-10000s0001Turret-Lights" type="Sprite" parent="."]
 position = Vector2( -8, 8 )
 rotation = 2.95833
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="GunHolder" type="Node2D" parent="."]
 
 [node name="Barrel" type="Sprite" parent="GunHolder"]
 rotation = -0.20944
-scale = Vector2( -1, 1 )
+scale = Vector2( -0.5, 0.5 )
 texture = ExtResource( 5 )
 offset = Vector2( -96, 16 )
 
-[node name="Muzzle" type="Position2D" parent="GunHolder"]
-position = Vector2( 88, 0 )
+[node name="HunterGun" parent="GunHolder" instance=ExtResource( 6 )]
+position = Vector2( 128, 0 )
+cooldown = 2.0
 
 [node name="PlayerScanner" type="Area2D" parent="GunHolder"]
 scale = Vector2( -1, 1 )
@@ -48,11 +55,18 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GunHolder/PlayerScanner"]
-position = Vector2( -672, 8 )
-scale = Vector2( 1, 1 )
+position = Vector2( -672, 0 )
 shape = SubResource( 3 )
 
-[node name="FireTimer" type="Timer" parent="."]
+[node name="Tracker" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 600, 0 )
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource( 5 )
 
 [connection signal="body_entered" from="GunHolder/PlayerScanner" to="." method="_on_PlayerScanner_body_entered"]
-[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_AttackRange_body_exited"]

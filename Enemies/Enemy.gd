@@ -9,10 +9,16 @@ func _ready():
 
 export var health = 2.0
 
-
+func _process(delta):
+	if modulate.g < 1:
+		modulate.g += delta
+		modulate.b += delta
 
 func get_damaged(value):
 	health -= value
+	modulate.g = 0
+	modulate.b = 0
+	
 	if health < 0:
 		die()
 	pass
