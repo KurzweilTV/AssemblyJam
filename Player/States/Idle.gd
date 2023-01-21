@@ -13,7 +13,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
 		stateMachine.transition_to("Move/Run")
 	# if player presses jump -> switch to air\
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("jump"):
 		stateMachine.transition_to("Move/Jump")
 	pass
 

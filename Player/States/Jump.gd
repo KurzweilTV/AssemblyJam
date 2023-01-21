@@ -23,7 +23,7 @@ func _physics_process(delta):
 	mover.apply_movement(delta,jumpVector)
 	# once player realses jump button or airTime > maxAirTime
 	# switch to falling
-	if !Input.is_action_pressed("ui_up") or airTime > maxAirTime:
+	if !Input.is_action_pressed("jump") or airTime > maxAirTime:
 		stateMachine.transition_to("Move/Fall")
 	pass
 

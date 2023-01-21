@@ -13,7 +13,7 @@ var fallVector = Vector2.ZERO
 var airTime = 0
 
 func _physics_process(delta):
-	airTime += delta *0.5
+	airTime += delta * 2
 	var moveDir = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	fallVector.x = moveDir * airSpeed 
 	mover.apply_movement(delta,fallVector)
@@ -32,5 +32,5 @@ func enter(msg: Dictionary = {}):
 	pass
 
 func exit() :
-	var airTime = 0
+	airTime = 0
 	pass

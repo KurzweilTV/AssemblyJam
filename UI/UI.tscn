@@ -188,16 +188,25 @@ texture_over = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
 
-[node name="Control" type="Control" parent="WholeScreen"]
+[node name="EnergyBar" type="ProgressBar" parent="WholeScreen"]
+unique_name_in_owner = true
+modulate = Color( 1, 0.960784, 0, 1 )
 margin_top = 124.0
-margin_right = 1280.0
-margin_bottom = 616.0
+margin_right = 300.0
+margin_bottom = 138.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 0
+
+[node name="Control" type="Control" parent="WholeScreen"]
+margin_top = 142.0
+margin_right = 1920.0
+margin_bottom = 976.0
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="WholeScreen"]
-margin_top = 620.0
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_top = 980.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 rect_min_size = Vector2( 0, 100 )
 alignment = 1
 
@@ -209,14 +218,14 @@ rect_min_size = Vector2( 80, 0 )
 [node name="TextBox" type="RichTextLabel" parent="WholeScreen/HBoxContainer"]
 unique_name_in_owner = true
 margin_left = 84.0
-margin_right = 1196.0
+margin_right = 1836.0
 margin_bottom = 100.0
 size_flags_horizontal = 3
 custom_fonts/normal_font = SubResource( 8 )
 
 [node name="Control" type="Control" parent="WholeScreen/HBoxContainer"]
-margin_left = 1200.0
-margin_right = 1280.0
+margin_left = 1840.0
+margin_right = 1920.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 80, 0 )
 

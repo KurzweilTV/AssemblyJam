@@ -19,6 +19,10 @@ func load_voice(text : String, clip : String):
 	$"%TextPrinter".play("Print")
 	pass
 
+
+func _process(delta):
+	$"%EnergyBar".value = GlobalPlayer.currentEnergy
+
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "In":
 		get_tree().paused = false

@@ -10,12 +10,7 @@ export var armRotationOffset = -2.0
 
 export var gunOffset = 250
 
-#onready var oldMousePos = get_local_mouse_position()
-#var newMousePos = Vector2()
-
 onready var gunArmNode = $IKPlayer/hip/torso/arm_r
-
-#var gunArmSpeed = 2.5
 
 export var attackReady = true
 
@@ -29,21 +24,10 @@ func _process(delta):
 	if !flipLock:
 		var direction = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 		if direction !=0:
-			$HurtBox.scale.x = direction
 			$IKPlayer.scale.x = direction * 0.5 # this 0.5 is here as a testament to why one should not mess with the scale of things in the last 36 hours
 	gunArmNode.look_at(get_global_mouse_position())
 	gunArmNode.rotation_degrees += gunOffset
-#	if oldMousePos.y < newMousePos.y:
-#		gunArmNode.rotation += delta * gunArmSpeed
-#	if oldMousePos.y > newMousePos.y:
-#		gunArmNode.rotation -= delta * gunArmSpeed
-#	gunArmNode.rotation = clamp(gunArmNode.rotation,-2.9,-1.7)
-#	oldMousePos = newMousePos
-	
-#	if GameManager.unlockedPlayerSkills["gun"] == false: # hide the gunarm until we find it
-#		$IKPlayer/hip/torso/arm_r.hide()
-#	else:
-#		$IKPlayer/hip/torso/arm_r.show()
+
 
 func die():
 	set_process(false)
@@ -52,28 +36,18 @@ func die():
 	$StateMachine.transition_to("Die")
 	pass
 
+func damage_flash():
+	$DamageAnimation.play("New Anim")
+	pass
+
+
+
 func _input(event):
 	if dead:
 		return
-#	if event is InputEventMouseMotion:
-#		newMousePos = get_local_mouse_position()
-#	if event.is_action_pressed("ui_accept") and attackReady:
-#		attackReady = false
-#		if $IKPlayer/hip/ArmAnimator.current_animation == "SwingDown":
-#			$IKPlayer/hip/ArmAnimator.stop()
-#			$IKPlayer/hip/ArmAnimator.play("SwingUp")
-#		else:
-#			$IKPlayer/hip/ArmAnimator.play("SwingDown")
-#		$HurtBox.swing()
-		
 
 
 func _on_DeathAnimation_animation_finished(anim_name):
 	get_tree().current_scene.add_child(load("res://UI/GameOver.tscn").instance())
 	pass # Replace with function body.
 
-
-
-func _on_ArmAnimator_animation_finished(anim_name):
-	$IKPlayer/hip/ArmAnimator.play("Return")
-	pass # Replace with function body.

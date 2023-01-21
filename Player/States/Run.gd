@@ -12,7 +12,7 @@ onready var mover = get_parent() as MoveState
 
 func _physics_process(delta):
 	# if jump pressed -> transition to jump
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("jump"):
 		stateMachine.transition_to("Move/Jump")
 	# if velocity < idleSpeed -> transiion to idle
 	if mover.velocity.length() < idleSpeed :

@@ -10,10 +10,25 @@ var playerGun = null
 
 var maxHealth = 5.0
 
+var maxEnergy = 100.0
+
+var currentEnergy = 100.0
+
 var currentHealth = 5.0
 
 var currentSpawn = null
 
+func use_energy(amount) ->  bool:
+	if amount > currentEnergy :
+		return false
+	else:
+		currentEnergy -= amount
+		return true
+	pass
+
+func _process(delta):
+	currentEnergy += delta * 5
+	currentEnergy = min(currentEnergy, maxEnergy)
 
 func damage(value):
 	currentHealth -= value
