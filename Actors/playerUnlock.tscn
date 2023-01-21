@@ -42,7 +42,7 @@ tracks/0/keys = {
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )
-unlockName = "gun"
+unlockName = "basicGun"
 
 [node name="Icon" type="Sprite" parent="."]
 position = Vector2( 0, -56 )
