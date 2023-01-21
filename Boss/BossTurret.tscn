@@ -1,45 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Resources/Particles/orb1.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Turret 512x512/Untitled-1_0000s_0002_TURRET.png" type="Texture" id=2]
 [ext_resource path="res://Boss/BossTurret.gd" type="Script" id=3]
 [ext_resource path="res://Weapons/HunterGun.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemies/HitBox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Resources/Particles/orb3.png" type="Texture" id=6]
+[ext_resource path="res://Boss/Shield.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 168.0
-
-[sub_resource type="Animation" id=2]
-resource_name = "New Anim"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, -2 ),
-"update": 0,
-"values": [ Color( 1, 0.937255, 0.254902, 0.423529 ), Color( 1, 0.937255, 0.254902, 0.184314 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 0.937255, 0.254902, 0.423529 ) ]
-}
 
 [sub_resource type="Animation" id=4]
 resource_name = "New Anim"
@@ -113,15 +82,8 @@ cooldown = 1.6
 [node name="PhaseTimer" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="Shield" type="Sprite" parent="."]
+[node name="Shield" parent="." instance=ExtResource( 6 )]
 modulate = Color( 1, 0.937255, 0.254902, 0.423529 )
-position = Vector2( -8, 16 )
-scale = Vector2( 2.4, 2.56 )
-texture = ExtResource( 6 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Shield"]
-"anims/New Anim" = SubResource( 2 )
-anims/RESET = SubResource( 3 )
 
 [node name="DamageFlash" type="AnimationPlayer" parent="."]
 "anims/New Anim" = SubResource( 4 )

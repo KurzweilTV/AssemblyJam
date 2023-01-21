@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/NoiseTextures/experimental_texture006.png" type="Texture" id=2]
 [ext_resource path="res://Test/TestRoom.gd" type="Script" id=3]
-[ext_resource path="res://Boss/BossTurret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Boss/BossDrone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://EventSystem/ActionArea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Actors/Checkpoint.tscn" type="PackedScene" id=7]
 
@@ -12,6 +12,11 @@ extents = Vector2( 1200, 56 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 104, 240 )
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 688, -680, -349.728, -184.208, 349.728, 184.208, 112, -248, -274.977, 248.28, 274.977, -248.28, 1408, -344, 0, 0, 0, 0, 704, -688 )
+}
 
 [node name="TestRoom" type="Node2D"]
 position = Vector2( -8, 16 )
@@ -54,8 +59,13 @@ ID = 1
 position = Vector2( -80, 8 )
 shape = SubResource( 2 )
 
-[node name="BossTurret" parent="." instance=ExtResource( 4 )]
-position = Vector2( 424, -680 )
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( -448, -176 )
+curve = SubResource( 3 )
+
+[node name="BossDrone" parent="Path2D" instance=ExtResource( 4 )]
+position = Vector2( 688, -680 )
+rotate = false
 
 [editable path="Player"]
 [editable path="Player/HitBox"]
