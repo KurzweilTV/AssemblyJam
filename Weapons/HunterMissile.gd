@@ -10,12 +10,11 @@ func _ready():
 	
 
 func _physics_process(delta):
-	power += delta * 690
+	power += delta * 2290
 	linear_velocity += Vector2.RIGHT.rotated(global_rotation) * delta * power
 	if target != null:
-		$Tracker.look_at(target.global_position)
+		$Tracker.look_at(target.global_position + Vector2(0,-80))
 		rotation = lerp_angle(global_rotation,$Tracker.global_rotation,delta*3)
-
 		pass
 	pass
 
