@@ -16,5 +16,5 @@ func shoot():
 	newPew.power = bulletSpeed
 	newPew.set_collision_layer_bit(2,playerAttack) # makes it an Enemy attack
 	newPew.set_collision_layer_bit(4,!playerAttack) # makes it a Player attack
-	get_tree().current_scene.add_child(newPew)
+	get_tree().current_scene.call_deferred("add_child",newPew)
 	pass
