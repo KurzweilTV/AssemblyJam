@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/factory_autotile.png-d1cf267b929f8c69248c9832a20b1c51.stex"
+path="res://.import/factory_tiles128.png-ffe7ecb50f5e035ac42a689e76ed8bcf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/factory_autotile.png"
-dest_files=[ "res://.import/factory_autotile.png-d1cf267b929f8c69248c9832a20b1c51.stex" ]
+source_file="res://Art/Assets/factory_tiles128.png"
+dest_files=[ "res://.import/factory_tiles128.png-ffe7ecb50f5e035ac42a689e76ed8bcf.stex" ]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/normal_map=0
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
-flags/anisotropic=true
+flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
