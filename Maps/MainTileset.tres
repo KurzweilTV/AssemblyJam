@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=119 format=2]
+[gd_resource type="TileSet" load_steps=124 format=2]
 
 [ext_resource path="res://Art/factory_tiles128.png" type="Texture" id=1]
 [ext_resource path="res://Art/factory_autotile.png" type="Texture" id=2]
@@ -65,6 +65,21 @@ points = PoolVector2Array( 127.5, 0, 128, 64.5, 0, 63.6667, 0, 2 )
 
 [sub_resource type="ConvexPolygonShape2D" id=21]
 points = PoolVector2Array( 1.16663, 1.16669, 127.833, 2.83331, 127.833, 62, 0, 62.8333 )
+
+[sub_resource type="OccluderPolygon2D" id=117]
+polygon = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="OccluderPolygon2D" id=118]
+polygon = PoolVector2Array( 128, 128, 0, 128, 0, 0.00100708, 128, 0.00100708 )
+
+[sub_resource type="OccluderPolygon2D" id=119]
+polygon = PoolVector2Array( 128, 128, 0, 128, 0, 0.00201416, 128, 0.00201416 )
+
+[sub_resource type="OccluderPolygon2D" id=120]
+polygon = PoolVector2Array( 128, 128, 0, 128, 0, 0.00299072, 128, 0.00299072 )
+
+[sub_resource type="OccluderPolygon2D" id=121]
+polygon = PoolVector2Array( 128, 42.667, 0.00100708, 42.667, 0.00100708, 0, 128, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=22]
 points = PoolVector2Array( 0, 127.998, 0, 0, 127.998, 0, 127.998, 127.998, 85.332, 127.998, 85.332, 42.666, 42.666, 42.666, 42.666, 127.998 )
@@ -511,7 +526,7 @@ points = PoolVector2Array( 128, 45.5355, 82.3896, 45.5355, 82.3896, 0, 128, 0 )
 1/autotile/icon_coordinate = Vector2( 9, 2 )
 1/autotile/tile_size = Vector2( 128, 128 )
 1/autotile/spacing = 0
-1/autotile/occluder_map = [  ]
+1/autotile/occluder_map = [ Vector2( 0, 0 ), SubResource( 117 ), Vector2( 0, 1 ), SubResource( 118 ), Vector2( 0, 2 ), SubResource( 119 ), Vector2( 0, 3 ), SubResource( 120 ), Vector2( 1, 0 ), SubResource( 121 ) ]
 1/autotile/navpoly_map = [  ]
 1/autotile/priority_map = [  ]
 1/autotile/z_index_map = [  ]
