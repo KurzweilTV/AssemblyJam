@@ -32,7 +32,7 @@ func _physics_process(delta):
 func enter(msg: Dictionary = {}):
 	jumpVector.x = mover.velocity.x
 	jumpVector.y = -jumpForce
-	$"../../../LegTree".set("parameters/airState/current",0)
+	$"../../../LegTree".set("parameters/airState/blend_amount",0)
 	$"../../../LegTree".set("parameters/onGround/current",0)
 	pass
 

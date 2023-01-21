@@ -30,7 +30,7 @@ func _process(delta):
 		var direction = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 		if direction !=0:
 			$HurtBox.scale.x = direction
-			$IKPlayer.scale.x = direction
+			$IKPlayer.scale.x = direction * 0.5 # this 0.5 is here as a testament to why one should not mess with the scale of things in the last 36 hours
 	gunArmNode.look_at(get_global_mouse_position())
 	gunArmNode.rotation_degrees += gunOffset
 #	if oldMousePos.y < newMousePos.y:
@@ -57,14 +57,14 @@ func _input(event):
 		return
 #	if event is InputEventMouseMotion:
 #		newMousePos = get_local_mouse_position()
-	if event.is_action_pressed("ui_accept") and attackReady:
-		attackReady = false
-		if $IKPlayer/hip/ArmAnimator.current_animation == "SwingDown":
-			$IKPlayer/hip/ArmAnimator.stop()
-			$IKPlayer/hip/ArmAnimator.play("SwingUp")
-		else:
-			$IKPlayer/hip/ArmAnimator.play("SwingDown")
-		$HurtBox.swing()
+#	if event.is_action_pressed("ui_accept") and attackReady:
+#		attackReady = false
+#		if $IKPlayer/hip/ArmAnimator.current_animation == "SwingDown":
+#			$IKPlayer/hip/ArmAnimator.stop()
+#			$IKPlayer/hip/ArmAnimator.play("SwingUp")
+#		else:
+#			$IKPlayer/hip/ArmAnimator.play("SwingDown")
+#		$HurtBox.swing()
 		
 
 
