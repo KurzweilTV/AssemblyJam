@@ -1309,6 +1309,7 @@ __meta__ = {
 }
 
 [node name="Gun" parent="IKPlayer/hip/torso/arm_r" instance=ExtResource( 28 )]
+rotation = 2.10146
 
 [node name="arm_r_lower" type="Sprite" parent="IKPlayer/hip/torso/arm_r"]
 position = Vector2( -39.4559, 60.7885 )
