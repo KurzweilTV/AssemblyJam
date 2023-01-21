@@ -11,6 +11,8 @@ onready var mover = get_parent() as MoveState
 
 
 func _physics_process(delta):
+	if !stateMachine.player.is_on_floor():
+		stateMachine.transition_to("Move/Fall")
 	# if jump pressed -> transition to jump
 	if Input.is_action_just_pressed("jump"):
 		stateMachine.transition_to("Move/Jump")

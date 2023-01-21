@@ -16,6 +16,7 @@ export var attackReady = true
 
 func _ready():
 #	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 	GlobalPlayer.set_controller(self)
 	pass
 	
@@ -32,6 +33,7 @@ func _process(delta):
 func die():
 	set_process(false)
 	dead = true
+	$HitBox.set_collision_mask_bit(4,false)
 	$DeathAnimation.play("New Anim")
 	$StateMachine.transition_to("Die")
 	pass

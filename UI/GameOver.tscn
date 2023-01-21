@@ -26,18 +26,18 @@ anchor_bottom = 1.0
 alignment = 1
 
 [node name="Label" type="Label" parent="ScreenLayout"]
-margin_top = 285.0
-margin_right = 1280.0
-margin_bottom = 391.0
+margin_top = 465.0
+margin_right = 1920.0
+margin_bottom = 571.0
 custom_fonts/font = SubResource( 1 )
 text = "GAME OVER"
 align = 1
 
 [node name="Button" type="Button" parent="ScreenLayout"]
-margin_left = 564.0
-margin_top = 395.0
-margin_right = 716.0
-margin_bottom = 434.0
+margin_left = 884.0
+margin_top = 575.0
+margin_right = 1036.0
+margin_bottom = 614.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 2 )
 text = "Try again?"

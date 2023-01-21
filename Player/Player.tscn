@@ -1092,7 +1092,7 @@ nodes/onGround/position = Vector2( 720, 200 )
 nodes/output/position = Vector2( 1060, 240 )
 nodes/walking/node = SubResource( 18 )
 nodes/walking/position = Vector2( 60, 580 )
-node_connections = [ "airState", 0, "Seek", "airState", 1, "Animation 2", "groundState", 0, "idle", "groundState", 1, "walking", "onGround", 0, "airState", "onGround", 1, "groundState", "Seek", 0, "Animation", "output", 0, "onGround" ]
+node_connections = [ "output", 0, "onGround", "onGround", 0, "airState", "onGround", 1, "groundState", "airState", 0, "Seek", "airState", 1, "Animation 2", "Seek", 0, "Animation", "groundState", 0, "idle", "groundState", 1, "walking" ]
 
 [sub_resource type="Animation" id=38]
 resource_name = "New Anim"
@@ -1227,7 +1227,6 @@ __meta__ = {
 [node name="Gun" parent="IKPlayer/hip/torso/arm_r/arm_r_lower" instance=ExtResource( 28 )]
 position = Vector2( 71.4063, 61.5506 )
 rotation = 0.690862
-scale = Vector2( 1, 1 )
 
 [node name="arm_l" type="Sprite" parent="IKPlayer/hip/torso"]
 position = Vector2( 35.9281, -96.3803 )

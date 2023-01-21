@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/DummyPlayerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Maps/MainTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Actors/StoryTerminal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/level-design-sketch.png" type="Texture" id=4]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Actors/BreakableLarge.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Art/Prototyping/background.png" type="Texture" id=10]
 [ext_resource path="res://Actors/Sparks.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Enemies/Turret.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Enemies/Drone.tscn" type="PackedScene" id=13]
 
 [node name="Factory" type="Node2D"]
 position = Vector2( 0, 9 )
@@ -73,9 +75,15 @@ story_text = "Hey! This text is different than the other text!"
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 8 )]
 position = Vector2( 8448, -1024 )
+ID = 3
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 8 )]
 position = Vector2( 4185, 2043 )
+ID = 2
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource( 8 )]
+position = Vector2( 1480, 631 )
+ID = 1
 
 [node name="BreakableContainer" type="Node2D" parent="."]
 
@@ -183,12 +191,29 @@ position = Vector2( 10007, -2186 )
 [node name="Sparks7" parent="Particles" instance=ExtResource( 11 )]
 position = Vector2( 4938, 917 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1024, 663 )
-
 [node name="BIGHEAD" type="Sprite" parent="."]
 modulate = Color( 0.807843, 0.603922, 0.603922, 1 )
 position = Vector2( 14598, -391 )
 scale = Vector2( 8.66187, 8.64049 )
 texture = ExtResource( 5 )
 flip_h = true
+
+[node name="DummyPlayerSpawner" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1112, 607 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Drone" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 2792, -385 )
+bouncyBoy = false
+
+[node name="Turret" parent="Enemies" instance=ExtResource( 12 )]
+position = Vector2( 2856, -1313 )
+
+[node name="Drone2" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 4152, -889 )
+bouncyBoy = false
+
+[node name="Drone3" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 3984, -1873 )
+bouncyBoy = false

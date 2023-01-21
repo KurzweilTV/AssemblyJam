@@ -9,7 +9,9 @@ func _on_HitBox_body_entered(body):
 
 
 func _on_HitBox_area_entered(area):
-	assert(area.has_meta("damage"))
+	if !area.has_meta("damage"):
+		print("error: ",area, area.owner)
+	assert(area.has_meta("damage"))   
 	get_parent().get_damaged(area.get_meta("damage"))
 	pass # Replace with function body.
 
