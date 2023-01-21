@@ -2,6 +2,7 @@ extends Area2D
 
 var invincibile = false
 
+var shieldActive = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +25,7 @@ func get_damaged(value : float):
 
 func activate_shield():
 	visible = true
-	invincibile = true
+	shieldActive = true
 	$ShieldTimer.start()
 	pass
 
@@ -36,13 +37,13 @@ func _input(event):
 func _on_HitBox_body_entered(body):
 	assert(body.has_meta("damage"))
 	body.queue_free() # eat the bullet, 
-	if invincibile:
+	if invincibile or shieldActive:
 		return
 	get_damaged(body.get_meta("damage"))
 
 func _on_HitBox_area_entered(area):
 	assert(area.has_meta("damage"))
-	if invincibile:
+	if invincibile or shieldActive:
 		return
 	get_damaged(area.get_meta("damage"))
 
@@ -50,5 +51,5 @@ func _on_HitBox_area_entered(area):
 
 func _on_ShieldTimer_timeout():
 	visible = false
-	invincibile = false
+	shieldActive = false
 	pass # Replace with function body.
