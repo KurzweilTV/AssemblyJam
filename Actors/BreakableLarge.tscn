@@ -17,4 +17,8 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="3"]
 visible = true
-position = Vector2( -0.5, 6 )
+position = Vector2( -2, 6.5 )
+
+[node name="Explosion" parent="." index="7"]
+position = Vector2( -1, -9 )
+scale = Vector2( 0.160004, 0.160004 )
