@@ -10,7 +10,7 @@ var playerGun = null
 
 var maxHealth = 5.0
 
-var currentHealth = 3.0
+var currentHealth = 5.0
 
 var currentSpawn = null
 

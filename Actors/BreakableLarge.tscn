@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Actors/Breakable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/Assets/BIG CRATE.png" type="Texture" id=2]
+
+[node name="BreakableLarge" instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Broken" parent="." index="1"]
+visible = true
+position = Vector2( -7.15256e-07, 7 )
+scale = Vector2( 1.66667, 1.6875 )
+
+[node name="Intact" parent="." index="2"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="3"]
+visible = true
+position = Vector2( -0.5, 6 )
