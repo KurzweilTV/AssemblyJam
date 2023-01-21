@@ -14,7 +14,7 @@ func _ready():
 		var stuff = nextLine[0].split(";")
 		reactionDictionary[int(stuff[0])] = [stuff[1],stuff[2]]
 		nextLine = reactionFile.get_csv_line()
-
+	reactionFile.close()
 	pass
 
 

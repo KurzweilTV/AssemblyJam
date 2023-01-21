@@ -28,11 +28,10 @@ func _on_PhaseTimer_timeout():
 	if phase == 1:
 		for G in $Guns.get_children():
 			G.fire()
-			$AnimationPlayer.play("Up")
+			$Shield.visible = true
 		pass
 	else:
 		for G in $Guns.get_children():
 			G.shooting = false
-			$AnimationPlayer.play("Down")
-		pass
+			$Shield.visible = false
 	pass # Replace with function body.

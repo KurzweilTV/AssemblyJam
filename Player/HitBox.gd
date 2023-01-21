@@ -13,7 +13,8 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func get_damaged(value : int):
+func get_damaged(value : float):
+	
 	GlobalPlayer.damage(value)
 	invincibile = true
 	# here should be a call to someting that animates damage

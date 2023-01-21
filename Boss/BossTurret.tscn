@@ -83,7 +83,6 @@ cooldown = 1.6
 wait_time = 5.0
 
 [node name="Shield" parent="." instance=ExtResource( 6 )]
-modulate = Color( 1, 0.937255, 0.254902, 0.423529 )
 
 [node name="DamageFlash" type="AnimationPlayer" parent="."]
 "anims/New Anim" = SubResource( 4 )
