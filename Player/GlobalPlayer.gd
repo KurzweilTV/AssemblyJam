@@ -18,7 +18,7 @@ var currentHealth = 5.0
 
 var currentSpawnID = null
 
-var gunTestUnlocked = true
+var gunTestUnlocked = false
 
 var allSpawns = {}
 

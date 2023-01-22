@@ -286,7 +286,7 @@ position = Vector2( 12084, 2401 )
 position = Vector2( 13640, 2394 )
 
 [node name="DummyPlayerSpawner" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8454, -1065 )
+position = Vector2( -826, -529 )
 
 [node name="playerUnlock" parent="." instance=ExtResource( 14 )]
 position = Vector2( 435, 573 )

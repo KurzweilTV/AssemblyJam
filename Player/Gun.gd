@@ -14,7 +14,11 @@ func _ready():
 		unlock("fireGun")
 		unlock("hunterGun")
 		unlock("bouncyGun")
-
+	for G in GameManager.unlockedPlayerSkills:
+		if GameManager.unlockedPlayerSkills[G]:
+			unlock(G)
+		else:
+			print(G, " still locked")
 
 
 func shoot():
