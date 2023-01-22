@@ -16,6 +16,7 @@ func _ready():
 	if !isClone :
 		var newCloner = selfCloner.instance()
 		newCloner.cloneReference = self.duplicate()
+		newCloner.global_position = global_position
 		linkedCloner = newCloner
 		get_tree().current_scene.call_deferred("add_child",newCloner)
 	add_to_group("Enemy")

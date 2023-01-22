@@ -318,6 +318,7 @@ curve = SubResource( 1 )
 [node name="BossDrone" parent="Bosses/Path2D" instance=ExtResource( 16 )]
 position = Vector2( 13512, 2712 )
 rotate = false
+health = 2
 
 [node name="BossTurret" parent="Bosses" instance=ExtResource( 17 )]
 position = Vector2( 1118, 1535 )

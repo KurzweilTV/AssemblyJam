@@ -17,6 +17,8 @@ func ress_me():
 	pass
 
 func _on_Timer_timeout():
-	
-	get_tree().current_scene.add_child(cloneReference.duplicate())
+	if $Area2D.get_overlapping_bodies().size() > 0:
+		$Timer.start()
+	else:
+		get_tree().current_scene.add_child(cloneReference.duplicate())
 	pass # Replace with function body.
