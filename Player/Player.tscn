@@ -1013,23 +1013,6 @@ tracks/15/keys = {
 "update": 0,
 "values": [ -10.3883, 16.5773 ]
 }
-tracks/16/type = "method"
-tracks/16/path = NodePath("..")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0.3, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "footstep"
-}, {
-"args": [  ],
-"method": "footstep"
-} ]
-}
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 42.0

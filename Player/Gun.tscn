@@ -25,15 +25,23 @@ default_color = Color( 1, 1, 1, 1 )
 visible = false
 playerAttack = true
 
+[node name="FireSound" type="AudioStreamPlayer2D" parent="Guns/HunterGun"]
+
 [node name="FlameThrower" parent="Guns" instance=ExtResource( 4 )]
 visible = false
 playerAttack = true
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="Guns/FlameThrower"]
 
 [node name="BouncyGun" parent="Guns" instance=ExtResource( 2 )]
 visible = false
 playerAttack = true
 bulletSpeed = 1900
 
+[node name="FireSound" type="AudioStreamPlayer2D" parent="Guns/BouncyGun"]
+
 [node name="BasicGun" parent="Guns" instance=ExtResource( 5 )]
 visible = false
 playerAttack = true
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="Guns/BasicGun"]

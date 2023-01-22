@@ -16,6 +16,8 @@ func _ready() -> void:
 
 func door_open() -> void:
 	if ! open:
+		$DoorSound.pitch_scale = 1.0
+		$DoorSound.play()
 		var tween = create_tween()
 		tween.tween_property(top, "position:y", (top.position.y - 200), 0.2)
 		tween.parallel().tween_property(bottom, "position:y", (bottom.position.y + 200), 0.2)
@@ -24,6 +26,8 @@ func door_open() -> void:
 
 func door_close() -> void:
 	if open:
+		$DoorSound.pitch_scale = 0.9
+		$DoorSound.play()
 		var tween = create_tween()
 		tween.tween_property(top, "position:y", (top.position.y + 200), 0.2)
 		tween.parallel().tween_property(bottom, "position:y", (bottom.position.y - 200), 0.2)
