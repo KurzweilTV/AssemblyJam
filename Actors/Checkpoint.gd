@@ -12,14 +12,15 @@ func _ready():
 
 func open():
 	$AnimationPlayer.play("Open")
-	$Line2D.modulate = ColorN("Green")
+	$CheckpointLightActuvated.visible = true
+
 
 func activate(state):
 	if state:
-		$Line2D.modulate = ColorN("Green")
+		$CheckpointLightActuvated.visible = true
 		GlobalPlayer.set_spawn(ID)
 	else:
-		$Line2D.modulate = ColorN("Red")
+		$CheckpointLightActuvated.visible = false
 	pass
 
 
