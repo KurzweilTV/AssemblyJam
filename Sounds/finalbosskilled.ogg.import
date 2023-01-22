@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/finalbosskilled.ogg-6a711f5946551144d0b60b5fbaf6b265.oggstr"
+
+[deps]
+
+source_file="res://Sounds/finalbosskilled.ogg"
+dest_files=[ "res://.import/finalbosskilled.ogg-6a711f5946551144d0b60b5fbaf6b265.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

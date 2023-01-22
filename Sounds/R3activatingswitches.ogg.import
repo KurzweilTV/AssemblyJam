@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/R3activatingswitches.ogg-e22c42b56d5e1847a7c77e8e8f93907a.oggstr"
+
+[deps]
+
+source_file="res://Sounds/R3activatingswitches.ogg"
+dest_files=[ "res://.import/R3activatingswitches.ogg-e22c42b56d5e1847a7c77e8e8f93907a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

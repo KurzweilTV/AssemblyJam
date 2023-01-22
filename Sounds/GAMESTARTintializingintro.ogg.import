@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GAMESTARTintializingintro.ogg-fe5eb8a3b7950a64e621bdc47e68b76b.oggstr"
+
+[deps]
+
+source_file="res://Sounds/GAMESTARTintializingintro.ogg"
+dest_files=[ "res://.import/GAMESTARTintializingintro.ogg-fe5eb8a3b7950a64e621bdc47e68b76b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

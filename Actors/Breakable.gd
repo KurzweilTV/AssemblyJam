@@ -1,22 +1,11 @@
 extends Area2D
 
-var health = 1.0
 var droppables = { # a weighted list of the items dropped on death
 	"scrap": 0.5 #item and pct chance it will drop
 }
 
 func _ready() -> void:
 	randomize()
-
-func _process(_delta: float) -> void:
-	pass
-
-func take_damage(amount) -> void:
-	var anim = $AnimationPlayer
-	health -= amount
-	anim.play("damage")
-	if health <= 0:
-		death()
 
 func death():
 	$Explosion.show()
@@ -45,3 +34,11 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("break_test"):
 		print("Boom")
 		death()
+
+
+func _on_Breakable_area_entered(area: Area2D) -> void:
+	death()
+
+
+func _on_Breakable_body_entered(body: Node) -> void:
+	death()

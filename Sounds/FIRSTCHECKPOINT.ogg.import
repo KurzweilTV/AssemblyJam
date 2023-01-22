@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/FIRSTCHECKPOINT.ogg-478ea68dea89ab404fd86e927ff510d3.oggstr"
+
+[deps]
+
+source_file="res://Sounds/FIRSTCHECKPOINT.ogg"
+dest_files=[ "res://.import/FIRSTCHECKPOINT.ogg-478ea68dea89ab404fd86e927ff510d3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

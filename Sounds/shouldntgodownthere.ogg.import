@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shouldntgodownthere.ogg-1876b243695fd7ce26098462d13ef8d8.oggstr"
+
+[deps]
+
+source_file="res://Sounds/shouldntgodownthere.ogg"
+dest_files=[ "res://.import/shouldntgodownthere.ogg-1876b243695fd7ce26098462d13ef8d8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

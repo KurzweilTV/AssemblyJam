@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/R3forgottocommit.ogg-6af3486d4d4523acc2cbe057b8f1f75b.oggstr"
+
+[deps]
+
+source_file="res://Sounds/R3forgottocommit.ogg"
+dest_files=[ "res://.import/R3forgottocommit.ogg-6af3486d4d4523acc2cbe057b8f1f75b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

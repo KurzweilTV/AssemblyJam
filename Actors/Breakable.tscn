@@ -10,9 +10,6 @@
 offsets = PoolRealArray( 0.0223464, 1 )
 colors = PoolColorArray( 0.509804, 0.509804, 0.509804, 0.529412, 0.376471, 0.376471, 0.376471, 0 )
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 51.25, 48.5 )
-
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "bezier"
@@ -124,7 +121,11 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 48.5, 47.5 )
+
 [node name="Breakable" type="Area2D"]
+position = Vector2( 1, 1 )
 collision_layer = 0
 collision_mask = 4
 script = ExtResource( 2 )
@@ -162,10 +163,6 @@ position = Vector2( 1, 0 )
 texture = ExtResource( 1 )
 region_rect = Rect2( 29.2859, 1.02057, 16.7436, 23.7651 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.5, -0.5 )
-shape = SubResource( 1 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
 anims/damage = SubResource( 3 )
@@ -202,3 +199,10 @@ visible = false
 scale = Vector2( -0.0799951, -0.0799951 )
 frames = SubResource( 11 )
 animation = "explosion"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, -0.5 )
+shape = SubResource( 12 )
+
+[connection signal="area_entered" from="." to="." method="_on_Breakable_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Breakable_body_entered"]

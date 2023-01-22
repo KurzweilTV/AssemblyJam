@@ -5,10 +5,10 @@
 [ext_resource path="res://Actors/StoryTerminal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/level-design-sketch.png" type="Texture" id=4]
 [ext_resource path="res://Player/Art/new/Untitled-2_0000s_0009_HEAD---EYES-OPEN.png" type="Texture" id=5]
-[ext_resource path="res://Actors/Breakable.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Actors/BreakableLarge.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Actors/Pickup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Actors/Checkpoint.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Actors/BreakableLarge.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Actors/Breakable.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Art/Prototyping/background.png" type="Texture" id=10]
 [ext_resource path="res://Actors/Sparks.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Actors/Door.tscn" type="PackedScene" id=12]
@@ -65,7 +65,6 @@ story_text = "Welcome Player. You should like, put yourself back together"
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource( 8 )]
 position = Vector2( 8448, -1024 )
-ID = 1
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 8 )]
 position = Vector2( 4185, 2043 )
@@ -115,64 +114,71 @@ position = Vector2( 3034, 2069 )
 position = Vector2( 8937, 146 )
 
 [node name="BreakableContainer" type="Node2D" parent="."]
+position = Vector2( 0, 5 )
 
-[node name="Breakable" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 7925, 2894 )
 
-[node name="Breakable2" parent="BreakableContainer" instance=ExtResource( 6 )]
-position = Vector2( 7576, 2897 )
+[node name="Breakable2" parent="BreakableContainer" instance=ExtResource( 9 )]
+position = Vector2( 7618, 2896 )
 
-[node name="Breakable3" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable3" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 2454, 589 )
 
-[node name="Breakable4" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable4" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 2942, -947 )
 
-[node name="Breakable5" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable5" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 4039, -1456 )
 
-[node name="Breakable6" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable6" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 5308, -1325 )
 
-[node name="Breakable7" parent="BreakableContainer" instance=ExtResource( 6 )]
-position = Vector2( 6987, -1704 )
+[node name="Breakable7" parent="BreakableContainer" instance=ExtResource( 9 )]
+position = Vector2( 6967, -1715 )
 
-[node name="Breakable8" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable8" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 9148, -1582 )
 
-[node name="Breakable9" parent="BreakableContainer" instance=ExtResource( 6 )]
-position = Vector2( 9734, -817 )
+[node name="Breakable9" parent="BreakableContainer" instance=ExtResource( 9 )]
+position = Vector2( 9736, -819 )
 
-[node name="Breakable10" parent="BreakableContainer" instance=ExtResource( 6 )]
-position = Vector2( 9708, 209 )
+[node name="Breakable10" parent="BreakableContainer" instance=ExtResource( 9 )]
+position = Vector2( 9660, 205 )
 
-[node name="Breakable11" parent="BreakableContainer" instance=ExtResource( 6 )]
-position = Vector2( 9808, 208 )
+[node name="Breakable11" parent="BreakableContainer" instance=ExtResource( 9 )]
+position = Vector2( 9820, 203 )
 
-[node name="Breakable12" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable12" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 8120, 462 )
 
-[node name="Breakable13" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable13" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 6060, 1491 )
 
-[node name="Breakable14" parent="BreakableContainer" instance=ExtResource( 6 )]
-position = Vector2( 8713, 3418 )
+[node name="Breakable14" parent="BreakableContainer" instance=ExtResource( 9 )]
+position = Vector2( 8717, 3406 )
 
-[node name="Breakable15" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable15" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 10056, 3150 )
 
-[node name="Breakable16" parent="BreakableContainer" instance=ExtResource( 6 )]
+[node name="Breakable16" parent="BreakableContainer" instance=ExtResource( 9 )]
 position = Vector2( 10564, 2385 )
 
 [node name="BreakableLarge" parent="BreakableContainer" instance=ExtResource( 9 )]
-position = Vector2( 3703, -1534 )
+position = Vector2( 3696, -1487 )
 scale = Vector2( 1.6, 1.6 )
 
-[node name="BreakableLarge2" parent="BreakableContainer" instance=ExtResource( 9 )]
-position = Vector2( 6132, 2473 )
+[node name="Breakable17" parent="BreakableContainer" instance=ExtResource( 9 )]
+position = Vector2( 8690, 1487 )
 
-[node name="Breakable17" parent="BreakableContainer" instance=ExtResource( 6 )]
-position = Vector2( 8691, 1499 )
+[node name="Breakable18" parent="BreakableContainer" instance=ExtResource( 6 )]
+position = Vector2( 6330, 2471 )
+
+[node name="Breakable19" parent="BreakableContainer" instance=ExtResource( 6 )]
+position = Vector2( 5967, 675 )
+
+[node name="Breakable20" parent="BreakableContainer" instance=ExtResource( 9 )]
+position = Vector2( 6094, 714 )
 
 [node name="HealthContainer" type="Node2D" parent="."]
 
@@ -237,7 +243,7 @@ texture = ExtResource( 5 )
 flip_h = true
 
 [node name="DummyPlayerSpawner" parent="." instance=ExtResource( 1 )]
-position = Vector2( -864, 597 )
+position = Vector2( -864, 635 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
