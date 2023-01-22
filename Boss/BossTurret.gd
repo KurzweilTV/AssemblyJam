@@ -42,6 +42,7 @@ func get_damaged(dmg):
 
 
 func die():
+	GlobalPlayer.heal(5)
 	set_physics_process(false)
 	$HitBox.call_deferred("queue_free")
 	$PhaseTimer.stop()

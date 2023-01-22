@@ -21,6 +21,7 @@ func get_damaged(dmg):
 	
 	
 func die():
+	GlobalPlayer.heal(5)
 	$HitBox.call_deferred("queue_free")
 	for G in $Guns.get_children():
 		G.shooting = false
