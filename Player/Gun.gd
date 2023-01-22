@@ -1,6 +1,6 @@
 extends Node2D
 
-export var testUnLocked = true
+export var testUnLocked = false
 var unLocked = false
 
 var unlockedGuns = []
@@ -53,11 +53,14 @@ func _input(event):
 		var gunCount = unlockedGuns.size()
 		if gunCount < 2: # there is only 1 gun
 			return
+		for G in $Guns.get_children():
+			G.shooting = false
 		if currentGun == gunCount-1:
 			currentGun = 0
 		else:
 			currentGun += 1
-		
+		if Input.is_action_pressed("shoot"):
+			shoot()
 		
 		unlockedGuns[currentGun].visible = true
 	if event.is_action_pressed("shoot"):

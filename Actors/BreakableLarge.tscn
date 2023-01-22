@@ -4,7 +4,7 @@
 [ext_resource path="res://Art/Assets/BIG CRATE.png" type="Texture" id=2]
 
 [node name="BreakableLarge" instance=ExtResource( 1 )]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 4
 
 [node name="Broken" parent="." index="1"]

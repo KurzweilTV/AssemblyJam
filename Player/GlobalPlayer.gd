@@ -16,7 +16,9 @@ var currentEnergy = 100.0
 
 var currentHealth = 5.0
 
-var currentSpawn = null
+var currentSpawnID = null
+
+var allSpawns = {}
 
 func use_energy(amount) ->  bool:
 	if amount > currentEnergy :
@@ -43,10 +45,6 @@ func heal(value):
 		currentHealth = maxHealth
 	UI.update_health(currentHealth)
 
-func free_controller(oldController):
-	assert(oldController == controller) 
-	oldController.queue_free()
-
 func set_controller(newController):
 	controller = newController
 	currentHealth = maxHealth
@@ -54,20 +52,21 @@ func set_controller(newController):
 	UI.update_health(currentHealth)
 
 	
-func set_spawn(newSpawn):
-	if currentSpawn!=null:
-		if is_instance_valid(currentSpawn):
-			currentSpawn.activate(false)
-	currentSpawn = newSpawn
-
+func set_spawn(newSpawnID):
+	if currentSpawnID!=null:
+		allSpawns[currentSpawnID].activate(false)
+	currentSpawnID = newSpawnID
+	
+func register_spawn(ID, instance):
+#	assert(!allSpawns.has(ID))
+	allSpawns[ID] = instance
+	pass
 
 func respawn():
-	if currentSpawn != null :
-		if is_instance_valid(currentSpawn):
-			# respawn player at chepoint
-			controller.queue_free()
-			UI.queue_free()
-			var newController = playerControllerScene.instance()
-			newController.global_position = currentSpawn.global_position
-			currentSpawn.open()
-			get_tree().current_scene.add_child(newController)
+	assert(currentSpawnID != null)
+	# respawn player at chepoint
+	var newController = playerControllerScene.instance()
+	newController.global_position = allSpawns[currentSpawnID].global_position
+	allSpawns[currentSpawnID].open()
+	get_tree().current_scene.add_child(newController)
+	

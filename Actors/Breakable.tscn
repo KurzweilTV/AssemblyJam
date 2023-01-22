@@ -125,6 +125,8 @@ animations = [ {
 } ]
 
 [node name="Breakable" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="Smoke" type="CPUParticles2D" parent="."]

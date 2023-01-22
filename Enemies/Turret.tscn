@@ -59,6 +59,7 @@ position = Vector2( -672, 0 )
 shape = SubResource( 3 )
 
 [node name="Tracker" type="Line2D" parent="."]
+visible = false
 points = PoolVector2Array( 0, 0, 600, 0 )
 
 [node name="AttackRange" type="Area2D" parent="."]

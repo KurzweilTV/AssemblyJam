@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player/DummyPlayerSpawner.gd" type="Script" id=1]
+
+[node name="DummyPlayerSpawner" type="Polygon2D"]
+polygon = PoolVector2Array( -72, 0, -16, 0, -16, -56, 8, -56, 16, 0, 56, 0, 32, -40, 32, -72, 32, -112, 80, -88, 104, -120, 8, -144, 40, -168, 56, -184, 48, -232, 0, -248, -48, -232, -40, -168, -16, -144, -104, -136, -96, -104, -32, -120, -40, -64, -48, -16 )
+script = ExtResource( 1 )

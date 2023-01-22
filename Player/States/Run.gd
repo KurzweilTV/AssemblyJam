@@ -6,11 +6,18 @@ extends State
 var targetVelocity = Vector2.ZERO
 var speed = 200
 var idleSpeed = 1
+var coyoteTime = 0
 
 onready var mover = get_parent() as MoveState
 
 
 func _physics_process(delta):
+	if !stateMachine.player.is_on_floor():
+		coyoteTime += delta
+		if coyoteTime > 0.2:
+			stateMachine.transition_to("Move/Fall")
+	else:
+		coyoteTime = 0
 	# if jump pressed -> transition to jump
 	if Input.is_action_just_pressed("jump"):
 		stateMachine.transition_to("Move/Jump")
@@ -28,4 +35,5 @@ func enter(msg: Dictionary = {}):
 	pass
 
 func exit() :
+	coyoteTime = 0
 	pass

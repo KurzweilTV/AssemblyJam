@@ -33,7 +33,6 @@ func _on_ArmTimer_timeout():
 			if global_position.distance_to(T.global_position) < global_position.distance_to(target.global_position):
 				target = T
 	$ArmTimer.queue_free()
-	print(target)
 	pass # Replace with function body.
 
 
