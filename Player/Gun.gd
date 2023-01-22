@@ -1,6 +1,5 @@
 extends Node2D
 
-export var testUnLocked = false
 var unLocked = false
 
 var unlockedGuns = []
@@ -10,7 +9,7 @@ var currentGun = 0
 
 func _ready():
 	GlobalPlayer.playerGun = self
-	if testUnLocked:
+	if GlobalPlayer.gunTestUnlocked:
 		unlock("basicGun")
 		unlock("fireGun")
 		unlock("hunterGun")

@@ -100,6 +100,7 @@ tracks/0/keys = {
 
 [node name="BossDrone" type="PathFollow2D"]
 script = ExtResource( 4 )
+health = 10
 
 [node name="HitBox" parent="." instance=ExtResource( 6 )]
 position = Vector2( -1, 23 )
@@ -118,27 +119,29 @@ texture = ExtResource( 1 )
 position = Vector2( -10, -2 )
 
 [node name="PhaseTimer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 7.0
 
 [node name="Guns" type="Node2D" parent="."]
 
 [node name="BouncyGun2" parent="Guns" instance=ExtResource( 3 )]
 position = Vector2( -101, -86 )
 rotation = 4.34642
-cooldown = 1.7
+cooldown = 1.2
+bulletSpeed = 700
 
 [node name="BouncyGun3" parent="Guns" instance=ExtResource( 3 )]
 position = Vector2( -9.00002, -124 )
-rotation = -1.45765
+rotation = 4.72461
 cooldown = 1.2
+bulletSpeed = 700
 
 [node name="BouncyGun" parent="Guns" instance=ExtResource( 3 )]
 position = Vector2( 90, -102 )
 rotation = -1.29363
-cooldown = 2.0
+cooldown = 1.2
+bulletSpeed = 700
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "New Anim"
 "anims/New Anim" = SubResource( 8 )
 anims/RESET = SubResource( 2 )
 

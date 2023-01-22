@@ -18,6 +18,8 @@ var currentHealth = 5.0
 
 var currentSpawnID = null
 
+var gunTestUnlocked = true
+
 var allSpawns = {}
 
 func use_energy(amount) ->  bool:

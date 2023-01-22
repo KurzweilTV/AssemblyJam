@@ -43,7 +43,5 @@ func _on_Door_body_entered(body):
 
 
 func _on_Door_body_exited(body):
-	if locked:
-		return
 	door_close()
 	pass # Replace with function body.
