@@ -33,6 +33,7 @@ func get_damaged(dmg):
 
 
 func die():
+	emit_signal("boss_death")
 	queue_free()
 
 func _on_Timer_timeout():

@@ -61,7 +61,6 @@ func _on_BossDrone_boss_death():
 	GameManager.bossesKilled["drone"] = true
 	pass # Replace with function body.
 
-
 func _on_HeadStart_body_entered(body):
 	$HeadBoss.start_boss()
 	$"../Doors/BossDoor1".locked = true
@@ -71,3 +70,8 @@ func _on_HeadStart_body_entered(body):
 func _on_SpeicalDoorUnlock_body_entered(body):
 	$"../Doors/BossDoor1".locked = false
 	pass # Replace with function body.
+
+
+func _on_HeadBoss_boss_death() -> void:
+	GameManager.trigger_action(15)
+	GlobalPlayer.heal(10)
