@@ -13,7 +13,7 @@ func _ready():
 	pass # Replace with function body.
 
 func load_voice(text : String, clip : String):
-	$VoicePlayer.stream = load("res://Test/"+clip+".wav")
+	$VoicePlayer.stream = load("res://Sounds/"+clip+".ogg")
 	$VoicePlayer.play()
 	$"%TextBox".text = text
 	$"%TextPrinter".play("Print")
