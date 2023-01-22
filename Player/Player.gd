@@ -15,6 +15,7 @@ onready var gunArmNode = $IKPlayer/hip/torso/arm_r
 export var attackReady = true
 
 func _ready():
+	randomize()
 #	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 	GlobalPlayer.set_controller(self)
@@ -42,7 +43,9 @@ func damage_flash():
 	$DamageAnimation.play("New Anim")
 	pass
 
-
+func footstep():
+	$Footstep.pitch_scale = (rand_range(0.8,1.3))
+	$Footstep.play()
 
 func _input(event):
 	if dead:

@@ -22,6 +22,7 @@ var attackNode = null
 var reloading = false
 
 func _ready():
+	randomize()
 	cooldownTimer.wait_time = cooldown
 	cooldownTimer.one_shot = true
 	cooldownTimer.connect("timeout",self,"reload_complete")
