@@ -73,5 +73,4 @@ func _on_SpeicalDoorUnlock_body_entered(body):
 
 
 func _on_HeadBoss_boss_death() -> void:
-	GameManager.trigger_action(15)
 	GlobalPlayer.heal(10)
