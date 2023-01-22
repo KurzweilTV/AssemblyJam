@@ -21,22 +21,26 @@ func _ready():
 func _on_TurretStart_body_entered(body):
 	$BossTurret.start_boss()
 	$"../Doors/YellowBoss".locked = true
+	$TurretStart/CollisionShape2D.disabled = true
 	pass # Replace with function body.
 
 
 func _on_DroneStart_body_entered(body):
 	$Path2D/BossDrone.start_boss()
 	$"../Doors/BlueBoss".locked = true
+	$DroneStart/CollisionShape2D.disabled = true
 	pass # Replace with function body.
 
 
 func _on_BossTurret_boss_death():
 	$"../Doors/YellowBoss".locked = false
+	GameManager.trigger_action(8)
 	pass # Replace with function body.
 
 
 func _on_BossDrone_boss_death():
 	$"../Doors/BlueBoss".locked = false
+	GameManager.trigger_action(14)
 	pass # Replace with function body.
 
 

@@ -118,6 +118,42 @@ position = Vector2( 3034, 2069 )
 [node name="Door6" parent="Doors" instance=ExtResource( 12 )]
 position = Vector2( 8937, 146 )
 
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Drone" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 4326, -1257 )
+
+[node name="Turret" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 3742, -129 )
+
+[node name="Drone2" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 4758, 1423 )
+bouncyBoy = false
+
+[node name="Drone3" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 3318, -2345 )
+
+[node name="Tanky" parent="Enemies" instance=ExtResource( 19 )]
+position = Vector2( 6982, 759 )
+fireBoy = false
+
+[node name="Tanky2" parent="Enemies" instance=ExtResource( 19 )]
+position = Vector2( 8030, 3439 )
+
+[node name="Tanky3" parent="Enemies" instance=ExtResource( 19 )]
+position = Vector2( 7862, 2031 )
+fireBoy = false
+
+[node name="Turret2" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 8070, 2359 )
+
+[node name="Turret3" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 6638, -2321 )
+
+[node name="Drone4" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 10206, 1583 )
+bouncyBoy = false
+
 [node name="BreakableContainer" type="Node2D" parent="."]
 position = Vector2( 0, 5 )
 
@@ -241,50 +277,14 @@ position = Vector2( 12084, 2401 )
 position = Vector2( 13640, 2394 )
 
 [node name="DummyPlayerSpawner" parent="." instance=ExtResource( 1 )]
-position = Vector2( 9422, 239 )
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Drone" parent="Enemies" instance=ExtResource( 13 )]
-position = Vector2( 2718, -577 )
-
-[node name="Turret" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 3854, -1921 )
-
-[node name="Drone2" parent="Enemies" instance=ExtResource( 13 )]
-position = Vector2( 4758, 1423 )
-bouncyBoy = false
-
-[node name="Drone3" parent="Enemies" instance=ExtResource( 13 )]
-position = Vector2( 3318, -2345 )
-
-[node name="Tanky" parent="Enemies" instance=ExtResource( 19 )]
-position = Vector2( 6982, 759 )
-fireBoy = false
-
-[node name="Tanky2" parent="Enemies" instance=ExtResource( 19 )]
-position = Vector2( 8030, 3439 )
-
-[node name="Tanky3" parent="Enemies" instance=ExtResource( 19 )]
-position = Vector2( 7862, 2031 )
-fireBoy = false
-
-[node name="Turret2" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 8070, 2359 )
-
-[node name="Turret3" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 6638, -2321 )
-
-[node name="Drone4" parent="Enemies" instance=ExtResource( 13 )]
-position = Vector2( 10206, 1583 )
-bouncyBoy = false
+position = Vector2( -210, 631 )
 
 [node name="playerUnlock" parent="." instance=ExtResource( 14 )]
 position = Vector2( 435, 573 )
 
 [node name="playerUnlock2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2304, 575 )
-unlockName = "bouncyGun"
+position = Vector2( 6790, -473 )
+unlockName = "fireGun"
 
 [node name="Bosses" type="Node2D" parent="."]
 script = ExtResource( 18 )

@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 export var unlockName : String
 
@@ -18,9 +18,12 @@ func _ready():
 #	pass
 
 
-func _on_playerUnlock_body_entered(body):
+
+
+
+func _on_Area2D_body_entered(body):
 	assert(body.is_in_group("Player"))
 	emit_signal("unlock",unlockName)
-	$Icon.queue_free()
-	$CollisionShape2D.call_deferred("queue_free")
+	$Icon.visible = false
+	$Area2D/CollisionShape2D.call_deferred("queue_free")
 	pass # Replace with function body.
