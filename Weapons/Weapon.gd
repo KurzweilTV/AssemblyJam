@@ -46,8 +46,8 @@ func reload_complete():
 	pass
 
 func fire():
+	shooting = true
 	if !reloading:
-		shooting = true
 		cooldownTimer.start()
 		reloading = true
 		$Animator.play("Fire")

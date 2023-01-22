@@ -32,7 +32,7 @@ func spawn_junk():
 		var newJunk = junkScene.instance()
 		newJunk.global_position = global_position
 		newJunk.call_deferred("apply_central_impulse",2000*Vector2(randf()-0.5,randf()-0.5))
-		get_tree().current_scene.add_child(newJunk)
+		get_tree().current_scene.call_deferred("add_child",newJunk)
 
 func die():
 	print("you should not see this message as the 'die' fucntion should be overwrtitten on all enemies" )
