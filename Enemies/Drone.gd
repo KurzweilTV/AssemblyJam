@@ -26,8 +26,8 @@ func _physics_process(delta):
 
 
 func die():
-	thaGun.visible = false
 	spawn_junk()
+	thaGun.visible = false
 	applied_force = Vector2(0,0)
 	dead = true
 	thaGun.shooting = false
@@ -42,9 +42,10 @@ func _on_Animator_animation_finished(anim_name):
 
 func _on_DetectionRange_body_entered(body): # player came close
 	assert(body.is_in_group("Player"))
-	set_physics_process(true)
-	thaGun.look_at(GlobalPlayer.controller.global_position + Vector2(0,-200))
-	thaGun.fire()
+	if !dead:
+		set_physics_process(true)
+		thaGun.look_at(GlobalPlayer.controller.global_position + Vector2(0,-200))
+		thaGun.fire()
 
 
 func _on_AttackRange_body_exited(body):
