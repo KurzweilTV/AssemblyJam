@@ -1,6 +1,7 @@
 extends Node2D
 
 var locked = false
+var open = false
 
 export var trigger = NodePath()
 
@@ -14,14 +15,20 @@ func _ready() -> void:
 	pass
 
 func door_open() -> void:
-	var tween = create_tween()
-	tween.tween_property(top, "position:y", (top.position.y - 200), 0.2)
-	tween.parallel().tween_property(bottom, "position:y", (bottom.position.y + 100), 0.2)
+	if ! open:
+		var tween = create_tween()
+		tween.tween_property(top, "position:y", (top.position.y - 200), 0.2)
+		tween.parallel().tween_property(bottom, "position:y", (bottom.position.y + 200), 0.2)
+		yield(tween,"finished")
+		open = true
 
 func door_close() -> void:
-	var tween = create_tween()
-	tween.tween_property(top, "position:y", (top.position.y + 200), 0.3)
-	tween.parallel().tween_property(bottom, "position:y", (bottom.position.y - 100), 0.3)
+	if open:
+		var tween = create_tween()
+		tween.tween_property(top, "position:y", (top.position.y + 200), 0.2)
+		tween.parallel().tween_property(bottom, "position:y", (bottom.position.y - 200), 0.2)
+		yield(tween,"finished")
+		open = false
 
 func door_unlock():
 	locked = false
