@@ -5,16 +5,16 @@ var reactionDictionary = {}
 var voiceClipHistory = []
 
 func _ready():
-#	var reactionFile = File.new()
-#	reactionFile.open("res://Sounds/Voice.csv",File.READ)
-#
-#	var nextLine = reactionFile.get_csv_line()
-#
-#	while nextLine[0] != "" :
-#		var stuff = nextLine[0].split(";")
-#		reactionDictionary[int(stuff[0])] = [stuff[1],stuff[2]]
-#		nextLine = reactionFile.get_csv_line()
-#	reactionFile.close()
+	var reactionFile = File.new()
+	reactionFile.open("res://Sounds/Voice.csv",File.READ)
+	
+	var nextLine = reactionFile.get_csv_line()
+
+	while nextLine[0] != "" :
+		var stuff = nextLine[0].split(";")
+		reactionDictionary[int(stuff[0])] = [stuff[1],stuff[2]]
+		nextLine = reactionFile.get_csv_line()
+	reactionFile.close()
 	pass
 
 
