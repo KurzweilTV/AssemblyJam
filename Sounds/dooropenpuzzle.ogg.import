@@ -11,5 +11,5 @@ dest_files=[ "res://.import/dooropenpuzzle.ogg-884d587601b590c80e5a54c3b727f91a.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

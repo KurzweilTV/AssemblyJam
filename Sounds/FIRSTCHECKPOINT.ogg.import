@@ -11,5 +11,5 @@ dest_files=[ "res://.import/FIRSTCHECKPOINT.ogg-478ea68dea89ab404fd86e927ff510d3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

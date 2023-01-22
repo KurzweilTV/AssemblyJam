@@ -11,5 +11,5 @@ dest_files=[ "res://.import/R1notauthorizedtoleave.ogg-fe4ba458b843a5d1eb4d30bd4
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

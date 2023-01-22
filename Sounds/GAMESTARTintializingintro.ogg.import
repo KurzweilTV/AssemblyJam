@@ -11,5 +11,5 @@ dest_files=[ "res://.import/GAMESTARTintializingintro.ogg-fe5eb8a3b7950a64e621bd
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

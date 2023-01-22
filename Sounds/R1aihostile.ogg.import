@@ -11,5 +11,5 @@ dest_files=[ "res://.import/R1aihostile.ogg-0354d49f80692cf33af2d32d61a9f6b7.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/stonecoldkiller.ogg-7b9ba7e04782ffb476829ebd43f38b6d
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

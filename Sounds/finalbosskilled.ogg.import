@@ -11,5 +11,5 @@ dest_files=[ "res://.import/finalbosskilled.ogg-6a711f5946551144d0b60b5fbaf6b265
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

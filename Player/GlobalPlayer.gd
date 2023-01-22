@@ -65,7 +65,7 @@ func register_spawn(ID, instance):
 	pass
 
 func respawn():
-	assert(currentSpawnID != null)
+	assert	(currentSpawnID != null)
 	# respawn player at chepoint
 	var newController = playerControllerScene.instance()
 	newController.global_position = allSpawns[currentSpawnID].global_position

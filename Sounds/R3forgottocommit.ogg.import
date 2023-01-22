@@ -11,5 +11,5 @@ dest_files=[ "res://.import/R3forgottocommit.ogg-6af3486d4d4523acc2cbe057b8f1f75
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

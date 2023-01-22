@@ -11,5 +11,5 @@ dest_files=[ "res://.import/shouldntgodownthere.ogg-1876b243695fd7ce26098462d13e
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

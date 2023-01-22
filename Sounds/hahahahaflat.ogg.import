@@ -11,5 +11,5 @@ dest_files=[ "res://.import/hahahahaflat.ogg-699cedc785ee6594d6c3c40920a4cb67.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

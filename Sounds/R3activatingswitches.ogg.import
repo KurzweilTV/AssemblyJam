@@ -11,5 +11,5 @@ dest_files=[ "res://.import/R3activatingswitches.ogg-e22c42b56d5e1847a7c77e8e8f9
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

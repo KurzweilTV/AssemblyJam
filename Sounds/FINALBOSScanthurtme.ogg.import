@@ -11,5 +11,5 @@ dest_files=[ "res://.import/FINALBOSScanthurtme.ogg-1275cb4bf4236877b490bfc81d0a
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

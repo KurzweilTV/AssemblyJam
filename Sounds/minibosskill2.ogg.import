@@ -11,5 +11,5 @@ dest_files=[ "res://.import/minibosskill2.ogg-fdc0693bad3d76788f9dc11e3fd43bed.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
