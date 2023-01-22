@@ -254,7 +254,7 @@ texture = ExtResource( 5 )
 flip_h = true
 
 [node name="DummyPlayerSpawner" parent="." instance=ExtResource( 1 )]
-position = Vector2( 11030, 3391 )
+position = Vector2( -586, 631 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
