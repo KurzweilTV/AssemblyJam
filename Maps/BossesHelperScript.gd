@@ -38,3 +38,9 @@ func _on_BossTurret_boss_death():
 func _on_BossDrone_boss_death():
 	$"../Doors/BlueBoss".locked = false
 	pass # Replace with function body.
+
+
+func _on_HeadStart_body_entered(body):
+	$HeadBoss.start_boss()
+	$"../Doors/BossDoor1".locked = true
+	pass # Replace with function body.

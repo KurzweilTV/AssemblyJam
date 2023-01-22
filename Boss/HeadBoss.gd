@@ -13,6 +13,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	rotation = lerp(rotation,0,delta)
 	if phase == 1:
 		$Guns.look_at(GlobalPlayer.controller.global_position + Vector2(0,-100))
 		

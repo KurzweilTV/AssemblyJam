@@ -139,7 +139,7 @@ cooldown = 2.0
 
 [node name="BouncyGun" parent="Guns" instance=ExtResource( 9 )]
 damage = 0.5
-cooldown = 0.9
+cooldown = 1.7
 bulletSpeed = 800
 
 [connection signal="body_entered" from="." to="." method="_on_HeadBoss_body_entered"]
