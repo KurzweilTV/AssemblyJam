@@ -6,6 +6,8 @@ var phase = -1
 
 export var health = 50
 
+var drop = preload("res://Actors/playerUnlock.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_physics_process(false)
@@ -31,15 +33,23 @@ func get_damaged(dmg):
 	if phase == 1:
 		return
 	health -= dmg
-	$DamageFlash.play("New Anim")
 	if health <0:
 		die()
+		return
+	$DamageFlash.play("New Anim")
+
 	pass
 
 
 func die():
-	emit_signal("boss_death")
-	queue_free()
+	set_physics_process(false)
+	$HitBox.call_deferred("queue_free")
+	$PhaseTimer.stop()
+	for G in $Guns.get_children():
+		G.shooting = false
+	$JunkGenerator.play()
+	$DeathAnimation.play("New Anim")
+
 
 
 func _on_PhaseTimer_timeout():
@@ -52,4 +62,15 @@ func _on_PhaseTimer_timeout():
 			G.shooting = false
 		$Shield.visible = false
 		pass
+	pass # Replace with function body.
+
+
+func _on_DeathAnimation_animation_finished(anim_name):
+	var newDrop = drop.instance()
+	newDrop.global_position = global_position
+	newDrop.unlockName = "hunterGun"
+	get_tree().current_scene.call_deferred("add_child",newDrop)
+	$JunkGenerator.stop()
+	emit_signal("boss_death")
+	queue_free()
 	pass # Replace with function body.

@@ -22,6 +22,7 @@ func _ready():
 func turn_around():
 	applied_force.x *= -1
 	$Sprite.scale.x *= -1
+	$WallScanner.scale.x *= -1
 	$DetectionRange.scale.x *= -1
 	pass
 
@@ -30,9 +31,6 @@ func resume():
 	applied_force.x = moveSpeed * $Sprite.scale.x
 	pass
 
-func _on_Tanky_body_entered(body):
-	turn_around()
-	pass # Replace with function body.
 
 func die():
 	spawn_junk()
@@ -45,11 +43,6 @@ func die():
 	$DeatHanimation.play("New Anim")
 	pass
 
-func _on_GroundTimer_timeout():
-	$Sprite/GroundScanner.update()
-	if !$Sprite/GroundScanner.is_colliding():
-		turn_around()
-		yield(get_tree().create_timer(0.7),"timeout")
 
 func _process(delta):
 	if shooting:
@@ -66,7 +59,7 @@ func _on_DetectionRange_body_entered(body):
 
 func _on_DetectionRange_body_exited(body):
 	resume()
-	thaGun.get_parent().global_rotation = 0
+	thaGun.get_parent().rotation = 0
 	thaGun.shooting = false
 	shooting = false
 	pass # Replace with function body.
@@ -74,4 +67,12 @@ func _on_DetectionRange_body_exited(body):
 
 func _on_DeatHanimation_animation_finished(anim_name):
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_WallScanner_body_entered(body):
+	turn_around()
+	$WallScanner/CollisionShape2D.set_deferred("disabled",true)
+	yield(get_tree().create_timer(0.5),"timeout")
+	$WallScanner/CollisionShape2D.set_deferred("disabled",false)
 	pass # Replace with function body.

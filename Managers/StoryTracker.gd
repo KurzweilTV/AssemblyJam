@@ -13,4 +13,8 @@ var unlockedPlayerSkills = {
 	"hunterGun" : false,
 	"fireGun" : false,
 }
-var voiceClipHistory
+
+var bossesKilled = {
+	"drone" : false,
+	"turret" : false,
+}

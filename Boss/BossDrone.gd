@@ -12,13 +12,16 @@ func get_damaged(dmg):
 	if phase == 1:
 		return
 	health -= dmg
-	$DamageFlash.play("New Anim")
+
 	if health <0:
 		die()
+		return
+	$DamageFlash.play("New Anim")
 	pass
 	
 	
 func die():
+	$HitBox.call_deferred("queue_free")
 	for G in $Guns.get_children():
 		G.shooting = false
 	$PhaseTimer.stop()

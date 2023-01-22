@@ -18,6 +18,11 @@ func _ready():
 	pass
 
 
+var bossesKilled = {
+	"drone" : false,
+	"turret" : false,
+}
+
 var unlockedPlayerSkills = {
 	"basicGun" : false,
 	"bouncyGun" : false,
@@ -37,12 +42,13 @@ func get_skill_state(name):
 
 func update_save():
 	$StoryTracker.unlockedPlayerSkills = unlockedPlayerSkills.duplicate()
-	$StoryTracker.voiceClipHistory = voiceClipHistory.duplicate()
+	$StoryTracker.bossesKilled = bossesKilled.duplicate()
 	pass
 
 
 func load_game():
 	unlockedPlayerSkills = $StoryTracker.unlockedPlayerSkills.duplicate()
+	bossesKilled = $StoryTracker.bossesKilled.duplicate()
 	pass
 
 
