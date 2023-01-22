@@ -81,7 +81,7 @@ story_text = "Space to jump Left Mouse Button to shoot E to swap weapons"
 
 [node name="StoryTerminal2" parent="TerminalContainer" instance=ExtResource( 3 )]
 position = Vector2( 1091, 639 )
-story_text = "Wait here for Assembly line job assignment"
+story_text = "Wait here for assignment"
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
