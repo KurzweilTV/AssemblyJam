@@ -1,24 +1,146 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/Art/new/Untitled-2_0000s_0009_HEAD---EYES-OPEN.png" type="Texture" id=1]
 [ext_resource path="res://Player/Art/new/Untitled-2_0000s_0008_HEAD---EYES-CLOSED.png" type="Texture" id=2]
 [ext_resource path="res://Enemies/HitBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Boss/HeadBoss.gd" type="Script" id=4]
+[ext_resource path="res://Boss/Jaw.png" type="Texture" id=5]
+[ext_resource path="res://Boss/NotJaw.png" type="Texture" id=6]
+[ext_resource path="res://Boss/DamageFlash.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Boss/Shield.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Weapons/BouncyGun.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Weapons/HunterGun.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Weapons/BasicGun.tscn" type="PackedScene" id=11]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 56.0
+[sub_resource type="PhysicsMaterial" id=5]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 176.182
+
+[sub_resource type="Animation" id=2]
+resource_name = "Close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("JawTwister:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 3,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("JawTwister:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 2 ),
+"transitions": PoolRealArray( 1, -0.5, 0.5 ),
+"update": 0,
+"values": [ 0.0, -80.0, -45.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("JawTwister:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 176.726
 
 [node name="HeadBoss" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 256
+mass = 20.0
+physics_material_override = SubResource( 5 )
+gravity_scale = 5.0
+contacts_reported = 2
+contact_monitor = true
 script = ExtResource( 4 )
+
+[node name="DamageFlash" parent="." instance=ExtResource( 7 )]
 
 [node name="HitBox" parent="." instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
-[node name="Untitled-20000s0009Head---Eyes-Open" type="Sprite" parent="."]
+[node name="ClosedEyes" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 
-[node name="Untitled-20000s0008Head---Eyes-Closed" type="Sprite" parent="."]
+[node name="OpenEyes" type="Sprite" parent="."]
 visible = false
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
+
+[node name="JawGag" type="Node2D" parent="."]
+scale = Vector2( 3, 3 )
+
+[node name="JawTwister" type="Node2D" parent="JawGag"]
+position = Vector2( 56, -13 )
+
+[node name="Jaw" type="Sprite" parent="JawGag/JawTwister"]
+position = Vector2( -56, 13 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="NotJaw" type="Sprite" parent="JawGag"]
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="Animator" type="AnimationPlayer" parent="JawGag"]
+anims/Close = SubResource( 2 )
+anims/Open = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="Shield" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, 0 )
+scale = Vector2( 2, 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
+
+[node name="BasicGun" parent="." instance=ExtResource( 11 )]
+position = Vector2( -96, 48 )
+damage = 0.5
+bulletSpeed = 900
+
+[node name="Guns" type="Node2D" parent="."]
+position = Vector2( 120, 48 )
+
+[node name="HunterGun" parent="Guns" instance=ExtResource( 10 )]
+cooldown = 2.0
+
+[node name="BouncyGun" parent="Guns" instance=ExtResource( 9 )]
+damage = 0.5
+cooldown = 0.9
+bulletSpeed = 800
+
+[connection signal="body_entered" from="." to="." method="_on_HeadBoss_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
