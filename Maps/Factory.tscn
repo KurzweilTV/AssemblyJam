@@ -76,8 +76,12 @@ tile_data = PoolIntArray( -1376237, 1610612736, 6, -1376234, 1610612736, 6, -137
 [node name="TerminalContainer" type="Node2D" parent="."]
 
 [node name="StoryTerminal" parent="TerminalContainer" instance=ExtResource( 3 )]
-position = Vector2( 1890, 640 )
-story_text = "Welcome Player. You should like, put yourself back together"
+position = Vector2( -387, 640 )
+story_text = "Welcome R080"
+
+[node name="StoryTerminal2" parent="TerminalContainer" instance=ExtResource( 3 )]
+position = Vector2( 1091, 639 )
+story_text = "Wait here for Assembly line job assignment"
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
