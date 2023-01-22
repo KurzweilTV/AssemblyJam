@@ -24,6 +24,7 @@ func _physics_process(delta):
 	pass
 
 func die():
+	spawn_junk()
 	queue_free()
 
 

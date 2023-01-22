@@ -8,8 +8,8 @@ _data = [ Vector2( 0, 0.763636 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.24409, 0.0
 
 [sub_resource type="Gradient" id=2]
 interpolation_mode = 2
-offsets = PoolRealArray( 0.585526, 0.736842 )
-colors = PoolColorArray( 0, 0, 0, 1, 1, 0, 0, 1 )
+offsets = PoolRealArray( 0.427632, 0.736842 )
+colors = PoolColorArray( 0.404297, 0.404297, 0.404297, 1, 1, 0, 0, 1 )
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 8.0
@@ -52,6 +52,14 @@ contacts_reported = 2
 contact_monitor = true
 linear_damp = 8.0
 script = ExtResource( 1 )
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2( -1, 0 )
+scale = Vector2( 1.033, 1.089 )
+points = PoolVector2Array( 0, 0, 0, 0, 20, 0, 40, 0, 60, 0, 80, 0 )
+width = 30.0
+width_curve = SubResource( 1 )
+default_color = Color( 0, 0, 0, 1 )
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PoolVector2Array( 0, 0, 0, 0, 20, 0, 40, 0, 60, 0, 80, 0 )
