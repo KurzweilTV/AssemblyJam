@@ -16,7 +16,7 @@ radius = 8.0
 height = 60.0
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 617.04
+radius = 1485.0
 
 [sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0.15625, 1 )

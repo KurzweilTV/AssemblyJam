@@ -1092,7 +1092,7 @@ nodes/onGround/position = Vector2( 720, 200 )
 nodes/output/position = Vector2( 1060, 240 )
 nodes/walking/node = SubResource( 18 )
 nodes/walking/position = Vector2( 60, 580 )
-node_connections = [ "output", 0, "onGround", "onGround", 0, "airState", "onGround", 1, "groundState", "airState", 0, "Seek", "airState", 1, "Animation 2", "Seek", 0, "Animation", "groundState", 0, "idle", "groundState", 1, "walking" ]
+node_connections = [ "airState", 0, "Seek", "airState", 1, "Animation 2", "Seek", 0, "Animation", "onGround", 0, "airState", "onGround", 1, "groundState", "groundState", 0, "idle", "groundState", 1, "walking", "output", 0, "onGround" ]
 
 [sub_resource type="Animation" id=38]
 resource_name = "New Anim"

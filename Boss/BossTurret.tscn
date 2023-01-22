@@ -44,6 +44,7 @@ tracks/0/keys = {
 
 [node name="BossTurret" type="Node2D"]
 script = ExtResource( 3 )
+health = 30
 
 [node name="HitBox" parent="." instance=ExtResource( 5 )]
 position = Vector2( -8, 16 )
@@ -73,17 +74,18 @@ texture = ExtResource( 1 )
 [node name="HunterGun" parent="Guns" instance=ExtResource( 4 )]
 position = Vector2( 168, 176 )
 rotation = 0.653512
-cooldown = 1.6
+cooldown = 1.2
 
 [node name="HunterGun3" parent="Guns" instance=ExtResource( 4 )]
 position = Vector2( -184, 168 )
 rotation = 2.42903
-cooldown = 1.6
+cooldown = 1.2
 
 [node name="PhaseTimer" type="Timer" parent="."]
 wait_time = 5.0
 
 [node name="Shield" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="DamageFlash" type="AnimationPlayer" parent="."]
 "anims/New Anim" = SubResource( 4 )

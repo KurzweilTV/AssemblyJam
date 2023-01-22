@@ -32,6 +32,7 @@ playerAttack = true
 [node name="BouncyGun" parent="Guns" instance=ExtResource( 2 )]
 visible = false
 playerAttack = true
+bulletSpeed = 1900
 
 [node name="BasicGun" parent="Guns" instance=ExtResource( 5 )]
 visible = false

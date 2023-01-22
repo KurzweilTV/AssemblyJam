@@ -75,7 +75,6 @@ bulletSpeed = 600
 projectile = ExtResource( 3 )
 
 [node name="Line2D" type="Line2D" parent="."]
-visible = false
 points = PoolVector2Array( 0, 0, 0, 0, 96, 0 )
 default_color = Color( 0.411765, 0.0901961, 0.839216, 1 )
 

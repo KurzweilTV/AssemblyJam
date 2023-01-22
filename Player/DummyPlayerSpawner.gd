@@ -3,6 +3,7 @@ extends Node2D
 
 var playerScene = preload("res://Player/Player.tscn")
 
+export var testUnlock = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
