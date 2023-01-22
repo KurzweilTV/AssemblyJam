@@ -6,7 +6,7 @@ var voiceClipHistory = []
 
 func _ready():
 	var reactionFile = File.new()
-	reactionFile.open("res://Test/Voice.csv",File.READ)
+	reactionFile.open("res://Sounds/Voice.csv",File.READ)
 	
 	var nextLine = reactionFile.get_csv_line()
 

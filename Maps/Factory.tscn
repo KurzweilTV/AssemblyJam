@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Player/DummyPlayerSpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Maps/MainTileset.tres" type="TileSet" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://Actors/Pickup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Actors/Checkpoint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Actors/Breakable.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Art/Prototyping/background.png" type="Texture" id=10]
+[ext_resource path="res://Maps/Background.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Actors/Sparks.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Actors/Door.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Enemies/Drone.tscn" type="PackedScene" id=13]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Boss/BossDrone.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Boss/BossTurret.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Maps/BossesHelperScript.gd" type="Script" id=18]
+[ext_resource path="res://Enemies/Tanky.tscn" type="PackedScene" id=19]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 1536, 600 )
@@ -30,18 +31,7 @@ _data = {
 [node name="Factory" type="Node2D"]
 position = Vector2( 2, 9 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_ignore_camera_zoom = true
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.8, 0.8 )
-motion_mirroring = Vector2( 1920, 1080 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 10 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 1920, 1080, 1920, 1080 )
+[node name="Background" parent="." instance=ExtResource( 10 )]
 
 [node name="MapRef" type="Sprite" parent="."]
 visible = false
@@ -254,23 +244,42 @@ texture = ExtResource( 5 )
 flip_h = true
 
 [node name="DummyPlayerSpawner" parent="." instance=ExtResource( 1 )]
-position = Vector2( -586, 631 )
+position = Vector2( 10782, 3287 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Drone" parent="Enemies" instance=ExtResource( 13 )]
-position = Vector2( 2792, -385 )
-bouncyBoy = false
+position = Vector2( 2718, -577 )
 
 [node name="Turret" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 2856, -1313 )
+position = Vector2( 3854, -1921 )
 
 [node name="Drone2" parent="Enemies" instance=ExtResource( 13 )]
-position = Vector2( 4152, -889 )
+position = Vector2( 4758, 1423 )
 bouncyBoy = false
 
 [node name="Drone3" parent="Enemies" instance=ExtResource( 13 )]
-position = Vector2( 3984, -1873 )
+position = Vector2( 3318, -2345 )
+
+[node name="Tanky" parent="Enemies" instance=ExtResource( 19 )]
+position = Vector2( 6982, 759 )
+fireBoy = false
+
+[node name="Tanky2" parent="Enemies" instance=ExtResource( 19 )]
+position = Vector2( 8030, 3439 )
+
+[node name="Tanky3" parent="Enemies" instance=ExtResource( 19 )]
+position = Vector2( 7862, 2031 )
+fireBoy = false
+
+[node name="Turret2" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 8070, 2359 )
+
+[node name="Turret3" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 6638, -2321 )
+
+[node name="Drone4" parent="Enemies" instance=ExtResource( 13 )]
+position = Vector2( 10206, 1583 )
 bouncyBoy = false
 
 [node name="playerUnlock" parent="." instance=ExtResource( 14 )]
