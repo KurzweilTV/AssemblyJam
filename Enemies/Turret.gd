@@ -24,8 +24,13 @@ func _physics_process(delta):
 	pass
 
 func die():
+	shooting = false
+	$HitBox/CollisionShape2D.set_deferred("disabled",true)
+	$AttackRange/CollisionShape2D.set_deferred("disabled",true)
+	$GunHolder/PlayerScanner/CollisionShape2D.set_deferred("disabled",true)
+	$Boom.play()
 	spawn_junk()
-	queue_free()
+	$DeathAnimation.play("New Anim")
 
 
 
@@ -41,4 +46,9 @@ func _on_AttackRange_body_exited(body):
 	assert(body.is_in_group("Player"))
 	shooting = false
 	$GunHolder/HunterGun.shooting = false
+	pass # Replace with function body.
+
+
+func _on_DeathAnimation_animation_finished(anim_name):
+	queue_free()
 	pass # Replace with function body.

@@ -52,5 +52,6 @@ func fire():
 		cooldownTimer.start()
 		reloading = true
 		$Animator.play("Fire")
+		$Pew.play()
 		attackNode.shoot()
 

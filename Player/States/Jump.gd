@@ -34,6 +34,7 @@ func enter(msg: Dictionary = {}):
 	jumpVector.y = -jumpForce
 	$"../../../LegTree".set("parameters/airState/blend_amount",0)
 	$"../../../LegTree".set("parameters/onGround/current",0)
+	$"../../../Jump".play()
 	pass
 
 func exit() :

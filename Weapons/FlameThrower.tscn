@@ -150,3 +150,6 @@ shape = SubResource( 166 )
 [node name="Animator" type="AnimationPlayer" parent="."]
 anims/Fire = SubResource( 167 )
 anims/RESET = SubResource( 170 )
+
+[node name="Pew" type="AudioStreamPlayer2D" parent="."]
+bus = "Effects"

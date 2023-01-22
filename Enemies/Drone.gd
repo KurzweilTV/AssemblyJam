@@ -27,6 +27,7 @@ func _physics_process(delta):
 
 func die():
 	spawn_junk()
+	$Boom.play()
 	thaGun.visible = false
 	applied_force = Vector2(0,0)
 	dead = true

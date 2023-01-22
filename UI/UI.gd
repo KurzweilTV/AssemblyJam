@@ -13,9 +13,11 @@ func _ready():
 	pass # Replace with function body.
 
 func load_voice(text : String, clip : String):
+	$VoicePlayer.stop()
 	$VoicePlayer.stream = load("res://Sounds/"+clip+".ogg")
 	$VoicePlayer.play()
 	$"%TextBox".text = text
+	$"%TextPrinter".stop()
 	$"%TextPrinter".play("Print")
 	pass
 
@@ -27,3 +29,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "In":
 		get_tree().paused = false
 	pass # Replace with function body.
+

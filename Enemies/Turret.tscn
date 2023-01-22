@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Enemies/Turret.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/HitBox.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Enemies/Turret 512x512/Untitled-1_0000s_0001_TURRET-LIGHTS.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/Turret 512x512/Untitled-1_0000s_0000_TURRET-GUN.png" type="Texture" id=5]
 [ext_resource path="res://Weapons/HunterGun.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/sfx/Explosion.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 64, 64 )
@@ -15,6 +16,37 @@ extents = Vector2( 530.209, 24 )
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 1224.03
+
+[sub_resource type="Animation" id=6]
+resource_name = "New Anim"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Turret" type="RigidBody2D"]
 collision_layer = 0
@@ -69,5 +101,18 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource( 5 )
 
+[node name="Boom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+pitch_scale = 0.6
+bus = "Effects"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="DeathAnimation" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+
 [connection signal="body_entered" from="GunHolder/PlayerScanner" to="." method="_on_PlayerScanner_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_AttackRange_body_exited"]
+[connection signal="animation_finished" from="DeathAnimation" to="." method="_on_DeathAnimation_animation_finished"]

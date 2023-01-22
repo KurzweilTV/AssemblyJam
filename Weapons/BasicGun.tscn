@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Weapons/Weapon.gd" type="Script" id=1]
 [ext_resource path="res://Weapons/Shooter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Weapons/BasicBullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/sfx/Energy_Gun.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fire"
@@ -16,3 +17,7 @@ anims/Fire = SubResource( 1 )
 [node name="Shooter" parent="." instance=ExtResource( 2 )]
 bulletSpeed = 2000
 projectile = ExtResource( 3 )
+
+[node name="Pew" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+bus = "Effects"
