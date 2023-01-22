@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/FINALBOSScan'thurtme.ogg-2a7bd5a996a2df45f4c2e87fd5cf9f2b.oggstr"
+path="res://.import/FINALBOSScanthurtme.ogg-1275cb4bf4236877b490bfc81d0a5e2f.oggstr"
 
 [deps]
 
-source_file="res://Sounds/FINALBOSScan'thurtme.ogg"
-dest_files=[ "res://.import/FINALBOSScan'thurtme.ogg-2a7bd5a996a2df45f4c2e87fd5cf9f2b.oggstr" ]
+source_file="res://Sounds/FINALBOSScanthurtme.ogg"
+dest_files=[ "res://.import/FINALBOSScanthurtme.ogg-1275cb4bf4236877b490bfc81d0a5e2f.oggstr" ]
 
 [params]
 
