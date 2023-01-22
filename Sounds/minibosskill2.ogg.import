@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/minibosskill2.ogg-fdc0693bad3d76788f9dc11e3fd43bed.oggstr"
+
+[deps]
+
+source_file="res://Sounds/minibosskill2.ogg"
+dest_files=[ "res://.import/minibosskill2.ogg-fdc0693bad3d76788f9dc11e3fd43bed.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
