@@ -11,7 +11,7 @@ offsets = PoolRealArray( 0.0223464, 1 )
 colors = PoolColorArray( 0.509804, 0.509804, 0.509804, 0.529412, 0.376471, 0.376471, 0.376471, 0 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 49.5, 48.5 )
+extents = Vector2( 51.25, 48.5 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001

@@ -9,6 +9,7 @@ func _item_pickup(body: Node) -> void:
 		GlobalPlayer.heal(health_amount)
 
 		$Sprite.hide()
+		$Bubbles.hide()
 		$CPUParticles2D.emitting = true
 		$Timer.start()
 
