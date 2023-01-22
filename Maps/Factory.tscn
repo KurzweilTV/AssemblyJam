@@ -37,7 +37,7 @@ extents = Vector2( 736, 540 )
 extents = Vector2( 40, 44 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 135.5, 312.5 )
+extents = Vector2( 1666, 380 )
 
 [node name="Factory" type="Node2D"]
 position = Vector2( 2, 9 )
@@ -307,7 +307,7 @@ position = Vector2( 12084, 2401 )
 position = Vector2( 13640, 2394 )
 
 [node name="DummyPlayerSpawner" parent="." instance=ExtResource( 1 )]
-position = Vector2( -826, -529 )
+position = Vector2( -835, -687 )
 
 [node name="playerUnlock" parent="." instance=ExtResource( 14 )]
 position = Vector2( 435, 573 )
@@ -418,7 +418,7 @@ collision_mask = 2
 script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameEnder"]
-position = Vector2( -11, -1617.5 )
+position = Vector2( 778, -2486 )
 shape = SubResource( 5 )
 
 [connection signal="body_entered" from="Bosses/TurretStart" to="Bosses" method="_on_TurretStart_body_entered"]
