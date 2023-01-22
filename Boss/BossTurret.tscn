@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Resources/Particles/orb1.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Turret 512x512/Untitled-1_0000s_0002_TURRET.png" type="Texture" id=2]
@@ -7,40 +7,10 @@
 [ext_resource path="res://Enemies/HitBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Boss/Shield.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Boss/DummyTarget.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Boss/DamageFlash.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 168.0
-
-[sub_resource type="Animation" id=4]
-resource_name = "New Anim"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 0.5, 1 ),
-"update": 0,
-"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
 
 [node name="BossTurret" type="Node2D"]
 script = ExtResource( 3 )
@@ -87,9 +57,7 @@ wait_time = 5.0
 [node name="Shield" parent="." instance=ExtResource( 6 )]
 visible = false
 
-[node name="DamageFlash" type="AnimationPlayer" parent="."]
-"anims/New Anim" = SubResource( 4 )
-anims/RESET = SubResource( 5 )
+[node name="DamageFlash" parent="." instance=ExtResource( 8 )]
 
 [node name="DummyTarget" parent="." instance=ExtResource( 7 )]
 
