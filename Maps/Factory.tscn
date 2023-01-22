@@ -77,7 +77,7 @@ tile_data = PoolIntArray( -1376237, 1610612736, 6, -1376234, 1610612736, 6, -137
 
 [node name="StoryTerminal" parent="TerminalContainer" instance=ExtResource( 3 )]
 position = Vector2( -387, 640 )
-story_text = "Welcome R080"
+story_text = "Space to jump Left Mouse Button to shoot E to swap weapons"
 
 [node name="StoryTerminal2" parent="TerminalContainer" instance=ExtResource( 3 )]
 position = Vector2( 1091, 639 )
