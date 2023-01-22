@@ -11,6 +11,8 @@ export var cooldown = 0.7
 
 export var attackTime = 0.5
 
+export var bulletSpeed = 2000
+
 onready var cooldownTimer = Timer.new()
 
 var shooting = false
@@ -33,6 +35,7 @@ func _ready():
 		attackNode = get_node("Shooter")
 		attackNode.damage = damage
 		attackNode.playerAttack = playerAttack
+		attackNode.bulletSpeed = bulletSpeed
 	assert(attackNode!=null)
 		
 

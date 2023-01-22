@@ -2,6 +2,8 @@ extends RigidBody2D
 
 class_name Enemy
 
+var junkScene = preload("res://Enemies/Junk.tscn")
+
 var dead = false
 
 func _ready():
@@ -23,6 +25,14 @@ func get_damaged(value):
 		die()
 	pass
 
+func spawn_junk():
+	var junkCount = 5 + randi()%4
+	while junkCount > 0:
+		junkCount -= 1
+		var newJunk = junkScene.instance()
+		newJunk.global_position = global_position
+		newJunk.call_deferred("apply_central_impulse",2000*Vector2(randf()-0.5,randf()-0.5))
+		get_tree().current_scene.add_child(newJunk)
 
 func die():
 	print("you should not see this message as the 'die' fucntion should be overwrtitten on all enemies" )

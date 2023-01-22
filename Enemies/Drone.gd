@@ -18,7 +18,7 @@ func _ready():
 
 func _physics_process(delta):
 	thaGun.look_at(GlobalPlayer.controller.global_position + Vector2(0,-200))
-	applied_force += global_position.direction_to(GlobalPlayer.controller.global_position + Vector2(0,-220) ) * delta * 20000
+	applied_force += global_position.direction_to(GlobalPlayer.controller.global_position + Vector2(0,-420) ) * delta * 20000
 	applied_force.y -= applied_force.y * delta
 	applied_force += Vector2(randf()-0.5,randf()-0.5) * 600
 	applied_force = applied_force.limit_length(speedMax)
@@ -26,7 +26,10 @@ func _physics_process(delta):
 
 
 func die():
+	spawn_junk()
+	applied_force = Vector2(0,0)
 	dead = true
+	thaGun.shooting = false
 	$Animator.play("Death")
 	set_physics_process(false)
 	$HitBox/CollisionShape2D.set_deferred("disabled",true) 
