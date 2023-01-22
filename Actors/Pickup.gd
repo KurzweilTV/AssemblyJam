@@ -1,11 +1,9 @@
 extends Area2D
 
-const health_amount := 2.0
-var currentHP = GlobalPlayer.currentHealth
-var maxHP = GlobalPlayer.maxHealth
+const health_amount := 2.5
 
 func _item_pickup(body: Node) -> void:
-	if body.is_in_group("Player") and currentHP < maxHP:
+	if GlobalPlayer.currentHealth < GlobalPlayer.maxHealth:
 		GlobalPlayer.heal(health_amount)
 
 		$Sprite.hide()
@@ -13,5 +11,5 @@ func _item_pickup(body: Node) -> void:
 		$CPUParticles2D.emitting = true
 		$Timer.start()
 
-func _on_Timer_timeout() -> void:
+func _on_Timer_timeout() -> void: # remove after the particles are done animating
 	self.queue_free()
